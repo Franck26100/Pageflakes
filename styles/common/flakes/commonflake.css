@@ -1,0 +1,204 @@
+﻿body {
+}
+
+.dlgheader
+{
+    background:url('images/pfDlgHeader.png') no-repeat;
+    height:34px;
+}
+.dlgheader_cross
+{
+    background:url('http://pfimg.liveuniversenetwork.com/images/cross_cancel.gif');
+    width:14px;
+    height:14px;
+}
+.handCursor
+{
+    cursor:pointer;
+}
+.facebook_main_container
+{
+    border:solid 0 #ccc;
+    padding:0;
+    font-family:Tahoma,Verdana,Arial,Helvetica,"Bitstream Vera Sans",sans-serif;
+    font-size:11px;
+    zoom:1;
+}
+.facebook_main_container p.loading
+{
+    clear:both;margin:10px 0;text-align:center;
+}
+.facebook_main_container p.loading span{display:block;margin:5px auto;text-align:center;}
+.facebook_main_container p{margin:0;padding:0;}
+.facebook_main_container p.loading span.description{font-weight:bold;}
+.facebook_main_container p.loading a:link{color:#036;text-decoration:none;}
+.facebook_main_container p.loading .login{cursor:pointer;border:none;}
+.facebook_main_container .popupLink{cursor:pointer;border:none;font-weight:normal;font-size:.9em;color:#036;text-decoration:none;border-bottom:1px solid #DDD;}
+.facebook_main_container a:link,.facebook_main_container a:visited{border-bottom:1px solid #DDD;color:#036;text-decoration:none;}
+.facebook_main_container a:hover{border-bottom:1px solid #DDD;color:#333!important;text-decoration:none;}
+.facebook_main_container div.user a,.facebook_main_container div.friend a,.facebook_main_container div.friends a{font-weight:bold;}
+.moduleHeaderFacebookpf{color:#333;border:none;font-style:normal;text-decoration:none;}
+.moduleHeaderFacebookpf a:hover{color:#333;font-style:normal;text-decoration:underline;}
+.facebook_main_container .infoblock{margin-top:20px;margin-left:5px;}
+.facebook_main_container div.notifications{float:right;margin:0 5px 10px;}
+.facebook_main_container div.notifications p{background-position:left center;background-repeat:no-repeat;line-height:1.1em;margin-bottom:2px;padding-left:20px;padding-top:5px;}
+.facebook_main_container p.message{background-image:url("images/message.gif");}
+.facebook_main_container p.poke{background-image:url("images/poke.gif");}
+.facebook_main_container p.friend{background-image:url("images/friend.gif");}
+.facebook_main_container p.group{background-image:url("images/group.gif");}
+.facebook_main_container p.event{background-image:url("images/event.gif");}
+.facebook_main_container div.user p.status{clear:left;margin-left:2px;}
+.facebook_main_container .fbmodule .user p.status span a:link,.fbmodule .user p.status span a:visited{border:none;font-weight:normal;}
+.facebook_main_container p.status{background-position:left center;background-repeat:no-repeat;min-height:16px;padding-left:6px;}
+.facebook_main_container p.status span,.updtTime{color:#999;display:block;font-size:.9em;}
+.facebook_main_container p.profile{background-image:url("images/profile.gif");background-position:left center;background-repeat:no-repeat;min-height:15px;padding-left:20px;}
+.facebook_main_container div.user ul{float:left;margin:0;padding:0;padding-left:5px;}
+.facebook_main_container div.user ul li{padding-left:2px;list-style:none;background:transparent no-repeat scroll left .5ex;margin-bottom:2px;}
+.facebook_main_container p.loading{clear:both;margin:10px 0;text-align:center;}
+.facebook_main_container div.statusForm{margin-top:5px;margin-bottom:5px;margin-left:10px;text-align:left;width:140px;clear:left;}
+facebook_main_container div.statusForm a:link,.editLink{font-weight:normal;color:#3B5998;font-size:.9em;}
+.facebook_main_container input.statusTextEdit{background:transparent;width:120px;border:1px solid #ccc;padding:2px;}
+.facebook_main_container .clearstatus{font-size:.9em;text-align:right;}
+.facebook_main_container div.search{margin-bottom:5px;text-align:center;}
+.facebook_main_container form{clear:both;display:block;margin:0 auto 10px;}
+.facebook_main_container input.search{background:transparent url("images/search.png") no-repeat scroll 4px center;width:117px;border:1px solid #CCC;padding:3px 3px 3px 20px;}
+.facebook_main_container form input.submit{display:none;}
+p.birthday{background-image:url("images/birthday.gif");background-position:left center;background-repeat:no-repeat;clear:right;margin:5px 4px 10px;min-height:17px;padding-left:20px;}
+p.birthday .padHelper{padding-left:3px;}
+.facebook_main_container .birthday_wraper{margin-top:5px;margin-bottom:5px;}
+.facebook_main_container div.friends{clear:both;text-align:center;}
+.facebook_main_container div.friends div.friend{text-align:left;}
+.facebook_main_container div.friends div.friend{clear:both;min-height:54px;padding:5px 5px 5px 2px;}
+.facebook_main_container div.expanded{background-color:#e1e1e1;background-image:url("images/expanded.gif");background-position:left center;background-repeat:no-repeat;clear:both;color:black;cursor:pointer;font-weight:bold;line-height:1.3em;margin:10px -8px 5px;padding:1px 8px 2px 24px;text-align:left;}
+.facebook_main_container div.collapsed{background-color:#EEE;background-image:url("images/collapsed.gif");border-top:1px solid #B1BDB6;background-position:left center;background-repeat:no-repeat;clear:both;color:#3B5998;cursor:pointer;font-weight:bold;line-height:1.3em;margin:10px -8px 5px;padding:1px 8px 2px 24px;text-align:left;}
+.facebook_main_container div.titlebar{background-position:left center;background-repeat:no-repeat;clear:both;color:#3B5998;cursor:pointer;font-weight:bold;line-height:1.3em;margin:10px 5px 5px;padding:1px 8px 2px 24px;text-align:left;}
+.facebook_main_container .photolink{border:none!important;display:block;float:right;font-weight:normal;padding:0 2px 1px;}
+.facebook_main_container div.friend div.toolbar{float:right;margin-left:5px;padding-left:2px;width:18px;}
+.facebook_main_container img.picture{float:left;border:0 solid #3B5998;margin:0 3px 5px;padding:2px;}
+.facebook_main_container img.picture2{border:0 solid #3B5998;margin:0 3px 5px;padding:2px;float:none;}
+.facebook_main_container .fbmodule div.friend div.toolbar a{border:none;}
+.facebook_main_container div.friend div.toolbar a img{margin:0 0 2px;}
+.facebook_main_container .fbmodule div.friend div.toolbar .message{background:url("images/message.gif") no-repeat;display:block;width:16px;height:12px;}
+.facebook_main_container .fbmodule div.friend div.toolbar .wall_post{background:url("images/wall_post.gif") no-repeat;display:block;width:16px;height:16px;}
+.facebook_main_container .fbmodule div.friend div.toolbar .poke{background:url("images/poke.gif") no-repeat;display:block;width:16px;height:14px;}
+.facebook_main_container .fbmodule div.friend div.toolbar .message,.wall_post,.poke{margin-top:3px;}
+.facebook_main_container .fbmodule div.friend p.status{line-height:1em;margin-left:65px;padding-top:2px;}
+.facebook_main_container .fbmodule div.friend p.profile{line-height:1em;margin-left:65px;padding-top:2px;}
+.facebook_main_container img{border:0 none;}
+.facebook_main_container .clear{clear:both;font-size:0;line-height:0;}
+.facebook_main_container div.search{margin-bottom:5px;margin-top:5px;text-align:center;float:none;}
+.facebook_main_container .inactive input.search{color:#999;}
+.facebook_main_container input.search{background:transparent url("images/search.png") no-repeat scroll 4px center;width:117px;border:1px solid #CCC;padding:3px 3px 3px 20px;}
+.facebook_main_container div.search img.clearHide{margin-left:-21px;cursor:pointer;vertical-align:middle;margin-top:-3px;visibility:hidden;}
+.facebook_main_container div.search img.clearShow{margin-left:-21px;cursor:pointer;vertical-align:middle;margin-top:-3px;visibility:visible;}
+.facebook_main_container div.search form input.submit{display:none;}
+.facebook_main_container .profileTable .label{color:gray;width:70px;}
+.profile .data{width:260px;}
+.profileTable td{font-size:11px;line-height:13px;margin:0;padding:1px 0;vertical-align:top;}
+.facebook_main_container .nv-pager{clear:both;padding:1ex 0 0;text-align:center;}
+.facebook_main_container .nv-pager a.next{background:transparent url("images/next.gif") no-repeat scroll right center;border:0 none;cursor:pointer;float:right;padding-right:20px;}
+.facebook_main_container .nv-pager a.prev{background:transparent url("images/previous.gif") no-repeat scroll left center;border:0 none;cursor:pointer;float:left;padding-left:20px;}
+.facebook_main_container .preloader{width:80px;text-align:right;height:18px;background:transparent url("images/preloader.gif") no-repeat left top;}
+.facebook_main_container .preloderInFlakeContent{float:right;margin-top:10px;margin-right:20px;}
+.facebook_main_container .statusHidden{display:none;}
+.facebook_main_container .statusVisible{display:block;}
+.facebook_info_settings label{display:block;margin-top:5px;}
+.facebook_info_settings span{float:left;width:180px;clear:right;cursor:pointer;}
+.facebook_info_settings input{display:block;float:left;}
+.facebook_info_settings .logout{line-height:18px;} 
+.TW_selTab{background-color:White;border-top:5px solid #646464;height:24px;text-align:center;font-weight:bold;padding-left:10px;padding-right:10px;}
+.TW_unselTab{background-color:#646464;border-top:4px solid #646464;height:24px;color:White;text-align:center;cursor:hand;cursor:pointer;font-weight:bold;padding-left:10px;padding-right:10px;}
+.TW_tabs{background-color:#646464;padding:0 8px 0 8px;display:none;}
+.TW_error{border:1px solid #FC0;background:#FFC;padding:5px;margin:5px 0;}
+.TW_thumb{border:1px solid #999;}
+.TW_evenRow{background-color:#FFF;}
+.TW_oddRow{background-color:#E7F2FC;}
+.TW_update{border:1px solid #88C87E;background:#D6ECD2;padding:10px 20px 10px 10px;display:none;}
+.TW_list-image{width:52px;text-align:right;padding:8px 4px 8px 0;}
+.TW_list-td{text-align:left;padding:8px 8px 8px 4px;} 
+.edittd{padding-left:20px;}
+.WC_delButton{position:relative;top:3px;left:3px;padding-right:5px;} 
+.dropdown_selected{background:url('dropdown_back.jpg');height:15px;border:#b7b7b7 1px solid;padding-left:3px;padding-top:3px;}
+.dropdown_hover{padding:3px;background-color:#EBEBEB;}
+.dropdown_down{background:url('dropdown_down.jpg') no-repeat;}
+.dropdown_hout,.dropdown_option{padding:3px;background-color:#FFF;} 
+.aolVideoTabUp{background-color:#646464;border-right:solid 3px #646464;color:#fff;font-weight:bold;float:left;padding-top:1px;padding-left:8px;padding-right:8px;padding-bottom:2px;text-align:center;cursor:pointer;white-space:nowrap;}
+.aolVideoTabDown{background-color:#e6e6e6;border-right:solid 3px #646464;color:#000;font-weight:bold;float:left;padding-top:1px;padding-left:8px;padding-right:8px;padding-bottom:2px;text-align:center;cursor:pointer;white-space:nowrap;}
+.aolVideoSection{text-align:left;vertical-align:middle;padding-left:8px;padding-right:8px;padding-bottom:8px;} 
+.tvlisting_toolbar{background:#646464;padding:5px 8px;}
+.tvlisting_toolbar select{width:80px;}
+.tvlisting_body{padding:8px;}
+.tvlisting_table{border:1px solid #ccc;border-bottom:0;border-right:0;width:100%;}
+.tvlisting_table td{border:1px solid #ccc;border-top:0;border-left:0;font-size:7pt;font-family:Tahoma;padding-left:5px;}
+.tvlisting_title{height:30px;overflow:hidden;}
+.tvlisting_programcell{cursor:pointer;}
+.tvlisting_timebar{background:#e6e6e6;}
+.tvlisting_timebar td{border-right:0;}
+.tvlisting_channelbar_up{background:#d6ecd2 url(images/up.gif) 50% 50% no-repeat;cursor:pointer;}
+.tvlisting_channelbar_up:hover{background:#d6ecd2 url(images/up_over.gif) 50% 50% no-repeat;}
+.tvlisting_channelbar_down{border:1px solid #ccc;border-top:0;cursor:pointer;}
+.tvlisting_channelbar_down:hover{background:#d6ecd2 url(images/down_over.gif) 50% 50% no-repeat;}
+.tvlisting_left{width:20px;cursor:pointer;}
+.tvlisting_left:hover{background:url(images/left_over.gif) no-repeat;}
+.tvlisting_right{float:right;width:14px;cursor:pointer;position:relative;}
+.tvlisting_right:hover{background:url(images/right_over.gif) no-repeat;}
+.tvlistingtime span{height:1px;display:block;white-space:nowrap;}
+.tvlistingtime{font-weight:bolder;font-size:7pt;font-family:tahoma;}
+.tvlistingLogo{background:#EEE;text-align:center;}
+.tvlisting_provider{width:192px;}
+.tvlisting_channels{overflow:auto;overflow-y:auto;overflow-x:hide;height:200px;width:170px;background:#fff;margin-top:5px;margin-bottom:3px;border:1px solid #999;}
+.tverror{color:red;font-size:9px;}
+.tvlisting_providerName{color:white;float:right;}
+.tvlisting_noResult{padding:20px;text-align:center;background:url('/flakes/WeatherComFlake/images/bg.png') repeat-x bottom;height:150px;} 
+.calendarAddLabel{font-size:11px;}
+.calendarAddInput{border:1px solid #ccc;}
+.calendarAddSelect{border:1px solid #ccc;}
+.my_settings_break{padding:0;border-bottom:1px solid #fff;border-left-width:0;border-left-style:none;border-right-width:0;border-right-style:none;border-top:1px solid #999;height:0;clear:both;margin:0;}
+.flake_settings .error{border:1px solid #FC0;background:#FFC no-repeat;font-size:12px;padding:10px;}
+.flake_settings .error h2{border-bottom:1px solid #fc0;margin:0 0 5px;font-size:12px;font-weight:bold;padding:0 0 5px;}
+.flake_settings .error ul{margin:0;padding:0;}
+.flake_settings .error li{background:no-repeat url(images/error.gif);margin:0;padding:0 0 0 20px;list-style:none;line-height:16px;font-size:11px;}
+.flake_content .add{border:1px solid #88C87E;background:#D6ECD2 no-repeat;font-size:12px;padding:10px;overflow:hidden;margin:8px;}
+.flake_content .add_bar{height:10px;padding-top:5px;padding-left:0;}
+.flake_content .add h2{border-bottom:1px solid #88C87E;margin:0 0 5px;font-size:12px;font-weight:bold;padding:0 0 5px;}
+.flake_content .add ul{margin:0;padding:0;}
+.flake_content .add li{background:no-repeat url(images/add.gif);margin:0 0 0 10px;padding:0 0 0 20px;list-style:none;line-height:16px;font-size:11px;float:left;}
+.flake_content .spacer,.flake_settings .spacer{padding:0;border:0 transparent solid;color:transparent;height:8px;margin:0;}
+.flake_content .content_break{padding:0;margin:8px;border-bottom:1px solid #e6e6e6;border-top-width:0;border-top-style:none;border-left-width:0;border-left-style:none;border-right-width:0;border-right-style:none;}
+.flake_content h1{font-size:11px;background:#E6E6E6;line-height:20px;padding:0 10px;margin:0;clear:both;}
+.flake_content .content_list ul{margin:0;padding:0;}
+.flake_content .content_list ul li{background:no-repeat url(images/document.gif) 10px 2px;padding:0 10px 0 30px;list-style:none;font-size:11px;line-height:20px;margin-top:0;margin-bottom:0;}
+.flake_content .content_list ul li.blue{background:#F1F6FC no-repeat url(images/document.gif) 10px 2px;}
+.flake_content .branding_area{height:36px;background:url(images/branding_area_bac.jpg) repeat-x;text-align:right;}
+.flake_settings .flake_content .settings_break{padding:0;border-bottom:1px solid #fff;border-left-width:0;border-left-style:none;border-right-width:0;border-right-style:none;border-top:1px solid #999;height:0;clear:both;margin:0;}
+.flake_settings .flake_content .settings_form{padding:0 10px 10px;}
+.flake_content form{width:260px;margin:0;padding:0;}
+.settings_form{padding-left:8px;padding-right:8px;}
+.settings_buttons{clear:right;float:right;width:153px;} 
+.TaskDescription{font-size:6pt;}
+.BorderDiv{border:solid 6px #f1eded;}
+.PageTitle{font-weight:bold;height:17px;width:100%;padding-left:5px;}
+.ManageTask{background-color:#e4ecf4;}
+.ManageList{background-color:#e4ecf4;}
+.SelectedTab{PADDING-LEFT:3px;background-color:#f1eded;cursor:pointer;cursor:hand;height:19px;}
+.TaskTabs{PADDING-LEFT:3px;background-color:#d9d2d1;cursor:pointer;cursor:hand;height:19px;}
+.ListDetail{background-color:#f1eded;width:100%;}
+.TaskDetail{background-color:#f1eded;}
+table.TaskGrid{width:100%;MARGIN:0;}
+td.TaskGrid{PADDING-LEFT:3px;BORDER-RIGHT:#c0c0c0 1px solid;BORDER-TOP:#c0c0c0 1px solid;BORDER-LEFT:#c0c0c0 1px solid;WIDTH:100px;BORDER-BOTTOM:#c0c0c0 1px solid;}
+div.TaskGridTopLeft{PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+div.TaskGridTopLeft2{TEXT-DECORATION:line-through;PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+div.TaskGridBottomLeft{PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+div.TaskGridTopRight{height:20px;PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-Right:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+div.TaskGridBottomRight{PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-Right:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+div.TaskGridLeft{PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;BORDER-TOP:#c0c0c0 1px solid;}
+div.TaskGridRight{PADDING-LEFT:3px;BORDER-LEFT:#c0c0c0 1px solid;BORDER-Right:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;BORDER-TOP:#c0c0c0 1px solid;text-align:center;}
+.Input{width:160px;FONT-SIZE:8pt;FONT-FAMILY:Tahoma,Verdana;}
+.linkImage{cursor:pointer;cursor:hand;}
+.leftCell{BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;padding-left:2px;}
+.leftCell2{TEXT-DECORATION:line-through;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;padding-left:2px;}
+.rightCell{BORDER-RIGHT:#c0c0c0 1px solid;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+.headerLeft{BORDER-TOP:#c0c0c0 1px solid;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;}
+.headerRight{BORDER-TOP:#c0c0c0 1px solid;BORDER-RIGHT:#c0c0c0 1px solid;BORDER-LEFT:#c0c0c0 1px solid;BORDER-BOTTOM:#c0c0c0 1px solid;} 
+.NavigateActive{text-decoration:none;color:navy;}
+.NavigateHover{text-decoration:underline;color:Red;cursor:hand;cursor:pointer;} 

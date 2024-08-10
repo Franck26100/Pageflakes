@@ -1,0 +1,24 @@
+#WW_GeoIndicator{z-index:100;display:inline;width:16px;position:relative;left:-25px;top:100px;}
+#ww-container{border:6px solid #CCC;background-color:#EFEFEF;width:400px;font-family:Helvetica,Arial,sans-serif;position:absolute;top:50%;left:50%;margin-left:-200px;margin-top:-268px;z-index:50002;overflow:auto;}
+#ww-branding{background:transparent url('images/bgHeader.jpg') repeat-x left top;height:115px;}
+#ww-container h1{font-size:30px;font-weight:normal;margin:0 70px 0 70px;padding:25px 0 0 0;color:#545454;}
+#ww-location{background-color:#999;text-align:center;height:45px;}
+fieldset#ww-categories{background:transparent url('images/icons.gif') no-repeat -12px 4px;*background:transparent url('images/icons.gif') no-repeat -20px 4px;margin:25px 0 25px 50px;font-size:11px;border:none;}
+#ww-column1{width:120px;margin:0;float:left;font-weight:bold;}
+#ww-column2{width:120px;margin:0 0 0 47px;float:left;font-weight:bold;}
+div#ww-submitForm{width:100%;overflow:hidden;font-weight:normal;margin:25px 0 0 0;float:left;}.clear{clear:left;}
+.ww-box{position:relative;margin-bottom:6px;}
+.ww-shift{display:inline;position:absolute;top:15.5px;*top:13px;left:102px;width:auto;}
+#ww-container a{color:#444;text-decoration:none;margin:0;padding:0;}
+#ww-container a label{color:#444;text-decoration:none;margin:0;padding:16px 25px 15px 50px;line-height:50px;width:120px;height:40px;}
+#ww-container a:hover,#ww-container a:hover label{color:#5391D6;outline:none;cursor:pointer;}
+#ww-location label{color:#FAFAFA;font-size:14px;font-weight:bold;margin-right:4px;}
+.ww-text{width:135px;font-size:12px;font-weight:normal;margin:13px 0 0 0;padding:2px 0 2px 4px;*padding:0 0 0 4px;font-family:Arial,san-serif;color:#444;}
+#ww-categories div#ww-submitForm a.ww-button{background:transparent url('images/rebuildBG.jpg') repeat-x scroll top right;color:#444;display:block;float:left;font:normal 12px arial,sans-serif;height:30px;width:auto;margin-right:6px;padding-right:18px;text-decoration:none;border:1px solid #d2d2d2;}
+#ww-categories div#ww-submitForm a.ww-button span{background:transparent url('images/rebuildBG.jpg') repeat-x;display:block;line-height:20px;padding:5px 0 5px 18px;}
+#ww-categories div#ww-submitForm a.ww-button:hover{color:#5391D6;border:1px solid #5391D6;}
+#ww-categories div#ww-submitForm a.ww-button:active,#ww-categories div#ww-submitForm a.ww-button#ww-cancel:active{background-position:bottom right;color:white;outline:none;}
+#ww-categories div#ww-submitForm a.ww-button:active span,#ww-categories div#ww-submitForm a.ww-button#ww-cancel:active span{background-position:bottom left;padding:6px 0 4px 18px;}
+#ww-categories div#ww-submitForm a.ww-button#ww-cancel{background:transparent url('images/cancelBG.jpg') repeat-x scroll top right;}
+#ww-categories div#ww-submitForm a.ww-button#ww-cancel span{background:transparent url('images/cancelBG.jpg') repeat-x;}
+#ww-categories div#ww-submitForm a.ww-button#ww-submit{width:185px;text-align:center;}
