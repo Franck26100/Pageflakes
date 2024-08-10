@@ -1,0 +1,101 @@
+﻿body 
+{
+    background:url(./App_Themes/purple_Unified/background.gif);    
+}
+.alerts
+{
+    background-color:#8283c4;
+}
+.errorIcon
+{
+    background:url(./App_Themes/Purple_Unified/error.gif);
+}
+.header
+{
+    background-color:#7274b0;
+}
+.logo
+{
+    background:url(./App_Themes/Purple_Unified/s.png) no-repeat 0px -80px;
+    _background-image:none;
+}
+.logo_box
+{
+    background:url(./App_Themes/Purple_Unified/123_logo_bg.gif);
+}
+.page_tab
+{
+    background: url(./App_Themes/Purple_Unified/s.png)#e6e6e6 no-repeat -480px -80px;
+}
+#grey_panel_table A
+{
+    background:url(./App_Themes/Purple_Unified/rss.gif) no-repeat 3px 50%;
+}
+.menu *
+{
+    color:#ffffff;   
+}
+.menu a
+{
+    float:left;
+    color:#ffffff;
+    font-weight:bold;
+    text-decoration:none;
+}
+#domainSearchBox
+{
+    padding-bottom:2pt;
+    padding-left:24px;
+    padding-right:10px;
+    padding-top:2px;
+    margin:0px;
+    width:190px;
+    font:1.1em/1.6 "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
+    background:url(images/magnifyGlass.gif) white no-repeat 4px 2px;
+    height:15px;
+    color:#555;
+    vertical-align:middle;
+}
+#domainSearchContainer
+{
+    float:right;
+    margin:-6px 50px 0px 0px;
+    padding-top:15px;
+}
+#header
+{
+    background:url(./App_Themes/Purple_Unified/s.png) no-repeat left top;
+}
+#header #header_extra
+{
+    background:url(./App_Themes/Purple_Unified/s.png) no-repeat right top;
+}
+#header .Start_down
+{
+    background:url(./App_Themes/Purple_Unified/s.png) no-repeat -295px -80px;
+    _backgound-image:none;
+}
+#left_scroll
+{
+    background-image:url(./App_Themes/purple_Unified/scroll_left.png);
+    _background-image:none;
+}
+#pagecast_invite_panel
+{
+    background:#e6e6e6;
+}
+#PageflakesTV
+{
+    background-image:url(./App_Themes/Purple_Unified/PageflakesTV.png);
+    _backgound-image:none;
+}
+#right_scroll
+{
+    background-image:url(./App_Themes/purple_unified/srcoll_right.png);
+    _background-image:none;
+}
+#Start
+{
+    background:url(./App_Themes/Purple_Unified/s.png) no-repeat -200px -80px;
+    _background-image:none;
+}

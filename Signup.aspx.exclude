@@ -1,0 +1,319 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Signup.aspx.cs" Inherits="Signup" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server" method="post">
+            <div id="Signup" class="wizardbox popup container hidden">
+            <div class="dlgheader">
+                <div>
+                    <div>
+                        <div class="dlgheader_cross handCursor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="contentPanel">
+                    <div class="slogan">
+                        Enregistez Vous pour obtenir le meilleur de vos PageFlakes
+                    </div>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style="width:110px;" valign="top">
+                                    <div>
+                                        <label id="Content_Label7" class="textlabel">
+                                            Prenom
+                                        </label>
+                                        
+                                        &nbsp;
+                                    </div>
+                                </td>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input id="Content_txtFirstName" class="textbox" name="Content_txtFirstName" type="text" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td class="errortext">
+                                                    <asp:RequiredFieldValidator ID="Content_RequieredValidatorUserName" runat="server" Display="Dynamic" ErrorMessage="Votre prenom est requis" ControlToValidate="Content_txtFirstName"> *                                                                                                           
+                                                    </asp:RequiredFieldValidator>                                                   
+                                                    &nbsp;                                                   
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div style="margin-top:3px";>
+                                        <label id="Content_Label11" class="textlabel">
+                                            Nom
+                                        </label>
+                                        &nbsp;
+                                    </div>
+                                    <div>
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input id="Content_txtLastName" class="textbox" name="Content_txtLastName" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="errortext">
+                                                        <asp:RequiredFieldValidator ID="Content_RequieredFieldValidatorLastName" runat="server" ErrorMessage="Votre Nom est requis" ControlToValidate="Content_txtLastName" Display="Dynamic" >*
+                                                        </asp:RequiredFieldValidator>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div style="margin-top:3px">
+                                        <label id="Content_Label1" class="textlabel">
+                                            Adresse Email:
+                                        </label>
+                                        &nbsp;
+                                    </div>                                    
+                                </td>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input id="Content_txtUserId" type="text" class="textbox" name="Content_txtUserId"/>                                                    
+                                                    <br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:RequiredFieldValidator ID="Content_RequiredFieldValidator1" ControlToValidate="Content_txtUserId" Display="Dynamic" runat="server" ErrorMessage="Adresse E-Mail requise">*
+                                                    </asp:RequiredFieldValidator>
+                                                    &nbsp;
+                                                    <asp:RegularExpressionValidator ID="Content_RegularExpressionValidator1" runat="server" ErrorMessage="Adresse E-mail Invalide !" ValidationExpression="\w+([-+'.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic" ControlToValidate="Content_txtUserId">
+                                                    </asp:RegularExpressionValidator>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div style="margin-top:3px;">
+                                        <label id="Content_Label2" class="textlabel">
+                                            Entrez un mot de Pass:
+                                        </label>
+                                        &nbsp;
+                                    </div>
+                                </td>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input id="Content_txtPassword" type="password" class="textbox" name="Content_txtPassword"/>                                               
+                                                    <br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:RequiredFieldValidator ID="Content_RequiredFieldValidator2" runat="server" ControlToValidate="Content_txtPassword" Display="Dynamic" ErrorMessage="Mot de Pass requis">
+                                                    </asp:RequiredFieldValidator>
+                                                    &nbsp;
+                                                    <asp:RegularExpressionValidator ID="Content_RegularExpressionValidator2" runat="server" ControlToValidate="Content_txtPassword" Display="Dynamic" ValidationExpression=".{6,255}" ErrorMessage="Le mot de Pass doit depasser 6 caracteres !">
+                                                    </asp:RegularExpressionValidator>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div style="margin-top:3px;">
+                                        <label id="Content_Label3" class="textlabel">
+                                            Confirmez le mot de Pass:
+                                        </label>
+                                        &nbsp;
+                                    </div>
+                                </td>
+                                <td>
+                                    <input id="Content_ConfirmPassword" type="password" class="textbox" onkeydown="postFormEnter" name="Content_ConfirmPassword"/>                                    
+                                    <br />
+                                </td>
+                                <td>
+                                    <asp:RequiredFieldValidator ID="Content_RequiredFieldValidator3" runat="server" Display="Dynamic" ControlToValidate="Content_ConfirmPassword" foncusOnError="t" ErrorMessage="Vous devez Confirmé le mot de Pass !">
+                                    </asp:RequiredFieldValidator>
+                                    &nbsp;
+                                    <asp:CompareValidator ID="Content_PasswordCompare" runat="server" Display="Dynamic" ControlToCompare="Content_txtPassword" controlhookup="Content_txtPassword" ControlToValidate="Content_ConfirmPassword" ErrorMessage="Le mot de Pass ne correspond pas !">
+                                    </asp:CompareValidator>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                </div>
+                <div class="contentPanel">
+                    <div style="padding-bottom:10px">
+                        Les options ci-dessous nous aide a mieu vous recommander
+                    </div>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style="width:110px" valign="top">
+                                    <div style="margin-top:3px">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label id="Content_lblInterets" class="textlabel">
+                                                            Interets:
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="greytext">
+                                                        (option)
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>                               
+                                </td>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <textarea id="Content_txtInterets" class="textbox" style="height:50px; width:240px" name="Content_txtInterets" cols="1" rows="1"></textarea>                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="greytext">
+                                                    Exemples: voyages, aventures, sports
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:110px" valign="top">
+                                    <div style="margin-top:3px;">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label id="Content_lblGender">
+                                                            Type:
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="greytext">
+                                                        (option)
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td>
+<!-- Voir peu etre modifier la drop  -->                                
+                                    <select id="Content_drpGender" class="dropdown" style="width:170px" name="Content_drpGender">
+                                        <option> Select Type</option>                                                
+                                        <option value="M">Homme</option>
+                                        <option value="F">Femme</option>
+                                    </select>
+                                    &nbsp;                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:110px" valign="top">
+                                    <div style="margin-top:3px">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <label id="Content_ldlDOB" >
+                                                            Date de Naissance:
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="greytext">
+                                                        (option)
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>                                    
+                                    </div>
+                                </td>
+                                <td>
+                                    <select id="Content_drpMonth" onchange="javascript:validateDayOfTheMonth('Content_drpMonth','Content_txtDay','Content_txtYear');">
+                                        <option>Mois</option>                                          
+                                        <option value="1">Janvier</option>                                                                                                     
+                                        <option value="2">Fevrier</option>                                                                                
+                                        <option value="3">Mars</option>                                                                               
+                                        <option value="4">Avril</option>                                       
+                                        <option value="5">Mai</option>                                       
+                                        <option value="6">Juin</option>                                      
+                                        <option value="7">Juillet</option>                                      
+                                        <option value="8">Aout</option>                                      
+                                        <option value="9">Septembre</option>                                        
+                                        <option value="10">Octobre</option>                                       
+                                        <option value="11">Novembre</option>                                      
+                                        <option value="12">Decembre</option>
+                                    </select>
+                                        &nbsp; 
+                                    <input id="Content_txtDay" type="text" class="editgraytext" name="Content_txtDay" onclick="OnDayChange('Content_txtDay');validateDayOfTheMonth('Content_drpMonth','Content_txtYear');" onkeyup="OnDayChange('Content_txtDay','Content_drpMonth','Content_txtYear');" style="Width:30px"/>
+                                    &nbsp;
+                                    <input id="Content_txtYear" type="text" class="editgraytext" name="Content_txtYear" onclick="onYearChange('Content_txtYear');ValidateDayOfTheMont('Content_drpMonth','Content_txtDay','Content_txtYear');" onkeyup="onYearChange('Content_txtYear');" onblur="validateDayOfTheMonth('Content_drpMonth','Content_txtDay','Content_txtYear');" style="Width:50px"/>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="height:13px">
+                    <input id="raiseClick" name="raiseClick" type="hidden" />
+                </div>
+                <center>
+                    <div id="progress">
+                        Patientez SVP... Creation de votre Compte.
+                    </div>
+                    <img alt="" src="images/btnSignUp.gif"id="Content_btnCreate" name="Content_btnCreate" style="border-top-width:0px; border-left-width:0px; border-bottom-width:0px; border-right-width:0px" />
+                    &nbsp;
+                    <div style="height:10px;">                    
+                    </div>
+                    <div class="greytext">
+                        En vous enregistrant vous agreez aux
+                        <a href="javascript:void(0);" onclick="javascript:$trackEventNoTimeOut('Signup Page1','Terms Click','');this.href='/Community/Terms.aspx' termes et conditions" target="_blank"> termes et conditions</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
