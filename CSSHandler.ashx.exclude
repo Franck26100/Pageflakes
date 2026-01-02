@@ -1,0 +1,55 @@
+﻿<%@ WebHandler Language="C#" Class="CSSHandler" %>
+
+using System;
+using System.Web;
+
+public class CSSHandler : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+{
+    public void ProcessRequest(HttpContext context)
+    {
+        context.Response.ContentType = "text/plain";
+
+        string requestedFile = context.Request.Path.ToLower();
+
+        // Lecture version depuis web.config
+        string version = System.Configuration.ConfigurationManager.AppSettings["AppVersion"];
+        // Langue choisie par l’utilisateur dans l’app (stockée en session)
+        // Langue optionnelle : si non renseignée → "en"
+        string lang = (context.Session["lang"] != null && !string.IsNullOrEmpty(context.Session["lang"].ToString()))
+                        ? context.Session["lang"].ToString()
+                        : "en";
+
+        string host = context.Request.Url.Host;
+
+        string result = string.Empty;
+
+        if (requestedFile.EndsWith("site.css"))
+        {
+            result = string.Format("Pageflakes/s.axd?s=CSS1&h={0}&l={1}&v={2}{3}",
+                                    host, lang, version, lang);
+        }
+        else if (requestedFile.EndsWith("theme.css"))
+        {
+            result = string.Format("http://localhost/Pageflakes/s.axd?s=CSS2&h={0}&l={1}&v={2}{3}",
+                                    host, lang, version, lang);
+        }
+        else if (requestedFile.EndsWith("CommonFlakeCSS.css"))
+        {
+            result = string.Format("Pageflakes/f.axd?s=CommonFlakeCSS&t=c&v={2}",
+                host, lang, version, lang);
+        }
+        else if (requestedFile.EndsWith("CSS2.css"))
+        {
+            result = string.Format("Pageflakes/f.axd?s=CSS2&t=c&v={2}",
+                host, lang, version, lang);
+        }
+        else
+        {
+            result = "Invalid CSS request";
+        }
+
+        context.Response.Write(result);
+    }
+
+    public bool IsReusable { get { return true; } }
+}

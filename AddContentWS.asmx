@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="~/App_Code/AddContentWS.cs" Class="AddContentWS" %>
+﻿<%@ WebService Language="C#" Class="Pageflakes.AddContentWS" %>

@@ -9,10 +9,10 @@
         <title>
 	        Search Results
         </title>
-        <link rel="stylesheet" href="s.axd?s=CSS1&h=http://localhost/pageflakes&l=en&v=217en&b=IE&m=9&t=App_Themes%2fPurple_Unified&e=community" />
-        <script src="http:/localhost/pageflakes/Utility.js?v=217en" type="text/javascript" ></script>
+        <link rel="stylesheet" href="s.axd?s=CSS1&h=www.pageflakes.com&l=en&v=217en&b=IE&m=9&t=App_Themes%2Coffee&e=community" />
+        <script src="http://LocalHost/Pageflakes/Utility.js?v=217en" type="text/javascript" ></script>
         <script type="text/javascript">
-            var SITE_PREFIX = 'http://localhost/pageflakes/';
+            var SITE_PREFIX = 'http://Localhost/Pageflakes/';
             var DefaultMaster =
             {
                 goBackToMyPage: function (label) {
@@ -21,8 +21,7 @@
                 }
             }
         </script>
-        <script id="SessionTracker" src="/SessionTracker.js?v=217en"></script>
-        <base href="http://localhost/pageflakes/" />    
+        <script id="SessionTracker" src="/Pageflakes/script/SessionTracker.js?v=217en"></script><base href="http://Localhost/Pageflakes/" />    
         <style type="text/css">
             #googleSearchUnitIframe { 
                 width: 66%; 
@@ -48,7 +47,7 @@
 	            cursor:pointer;
 	            cursor:hand;
             }
-            .backToMyPage{background-image:url('/Community/images/backToHome.gif');}
+            .backToMyPage{background-image:url('/Pageflakes/Community/images/backToHome.gif');}
         </style>
     </head>
     <body style="background:none">    
@@ -58,7 +57,7 @@
 	                <tr>
 	                    <td colspan="2" style="position:relative;">
                             <div id="headerLeft"> 
-                                <a href="http://localhost/pageflakes/">
+                                <a href="http://www.pageflakes.com/">
                                     <div class="logo" >
                                     </div> 
                                 </a>
@@ -86,7 +85,7 @@
 	                        </div>
 			            </td>
 			            <td style="" align="right">
-                            <a id="BackToMyStartPageLink" class="backToMyPage" title="Back to my startpage" href="http://localhost/pageflakes/?track=search"></a>
+                            <a id="BackToMyStartPageLink" class="backToMyPage" title="Back to my startpage" href="http://LocalHost/Pageflakes/?track=search"></a>
                         </td>
                     </tr>
 			    </table>
@@ -146,13 +145,13 @@
 			            <li><a href="/Community/Content/Flakes.aspx">Flakes</a> |</li>
 			            <li><a href="/Community/ProfileDirectory.aspx">People</a> |</li>
                         <!--
-			                <li><a href="http://forums.Pageflakes.com/">Help & Support</a> |</li>
+			                <li><a href="http://forums.pageflakes.com/">Help & Support</a> |</li>
                         //-->
-			            <li><a href="http://company.Pageflakes.com/tos">Terms</a> |</li>
-			            <li><a href="http://company.Pageflakes.com/privacy">Privacy</a> |</li>
-			            <li><a href="http://company.Pageflakes.com/aboutus">About Us</a> </li> 
+			            <li><a href="http://company.pageflakes.com/tos">Terms</a> |</li>
+			            <li><a href="http://company.pageflakes.com/privacy">Privacy</a> |</li>
+			            <li><a href="http://company.pageflakes.com/aboutus">About Us</a> </li> 
 			            <!--
-			                <li><a href="http://developers.Pageflakes.com/">Developers</a></li>
+			                <li><a href="http://developers.pageflakes.com/">Developers</a></li>
                         //-->
 			        </ul>
 			    </div>
@@ -166,7 +165,7 @@
         <script type="text/javascript" language="Javascript" src="/JavaScripts/GoogleAnalyticsPF.js"></script>
         <script type="text/javascript"  >
             if (SITE_PREFIX != "undefined") {
-                var SITE_PREFIX = "http://localhost/pageflakes/";
+                var SITE_PREFIX = "http://Localhost/Pageflakes/";
             }
             if (typeof _gat != 'undefined') {
                 var pageTracker = _gat._getTracker('UA-2320375-1');

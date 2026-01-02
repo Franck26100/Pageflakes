@@ -1,16 +1,44 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Logout.aspx.cs" Inherits="Logout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageFinal_Dev.master" AutoEventWireup="true" CodeFile="Logout.aspx.cs" Inherits="Logout" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<asp:Content ID="Content1" ContentPlaceHolderID="Header_Page_Script" Runat="Server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
+<title>Pageflakes - Connexion</title>
+ <link id="themeStylesheet" href="<%= ResolveUrl("~/s.axd?s=css2&h=localhost")%>" rel="stylesheet" type="text/css"/>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="Head_Page_Script" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="Head_Page_Theme" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceBody" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="PlaceHolder_SetAsStartPage" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="Content_Page_Begin" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="PopUp_Page" Runat="Server">
+    <div class="T12">
+        <div id="Login" class="wizardbox popup container hidden">
+            <div class="header">
+                <a class="Start_Wizard_Back" href="/Pageflakes/defaultdev.aspx">Back</a>
+            </div>
+            <div class="content">
+                <div class="box logo_box" style="height: 160px; background-position:bottom right">
+                    <h1>Logout</h1>
+                </div>
+            </div>
+        </div>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content9" ContentPlaceHolderID="Script_Page_Middle" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content10" ContentPlaceHolderID="Content_Page_End" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content11" ContentPlaceHolderID="Footer_Page" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content12" ContentPlaceHolderID="Sript_Page_End_1" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content13" ContentPlaceHolderID="Script_Page_End_2" Runat="Server">
+</asp:Content>
+

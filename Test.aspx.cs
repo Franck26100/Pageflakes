@@ -1,4 +1,4 @@
-using System; 
+﻿using System; 
 using System.Collections.Generic; 
 using System.Web; 
 using System.Web.Services; 
@@ -7,9 +7,7 @@ using System.Xml;
 using System.Net; 
 using System.Data.SqlClient; 
 using System.Configuration;
-
-
-public partial class Logout : System.Web.UI.Page
+public partial class Test : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

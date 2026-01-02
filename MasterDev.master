@@ -1,0 +1,483 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterDev.master.cs" Inherits="MasterDev" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta id="MetaTagKeywords" name="Keywords" content="Personalized Desktop, start page, Ajax Desktop, customization, rss reader, rss feed, atom reader, blog reader, blog, flickr, delicious, gmail, pop3 mail, xml, rss, news feed, Pageflakes, aggregate content"/><meta id="MetaTagDescription" name="Description" content="Social personalized homepage - the easiest way to read, see, discover and share your favorite things on the Web."/><meta id="MetaTagPageTopic" name="Page-topic" content="Start Page"/>
+    <meta name="Content-language" content="English"/>
+    <meta name="Robots" content="INDEX,FOLLOW"/>
+    <asp:ContentPlaceHolder ID="Header_Page_Title" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var l = {}; l.startDateTime = new Date();
+        var SITE_PREFIX = "http://Localhost/Pageflakes";
+        var RSS_FEED_FLAKE_URL = "__RSSFEED__?url=";
+        var IMAGE_PREFIX = "http://localhost/Pageflakes";
+        var SOURCE = '';
+        var PAGE_ID = '33874442';
+        var VERSION_SUFFIX = "213en" ;
+        var LANGUAGE = 'en';
+        var loadFeedWithSingleConnection = false;
+    </script>        
+    <asp:ContentPlaceHolder ID="Header_Page_Script" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript">  
+        var op = /opera 5|opera\/5/i.test(navigator.userAgent) && window.opera;
+        var ie = !op && /msie/i.test(navigator.userAgent);
+        var mz = !op && /mozilla\/5/i.test(navigator.userAgent);
+        var safari = /Safari/i.test(navigator.userAgent);
+        function $reload(msg) { if (confirm("Problem occured while loading site. Press OK to retry.\nProblem:" + msg)) document.location.reload(true); }
+        //document.cookie = "j=249e7d8e032f131b276673b7ef678a23; path=" + document.location.host;
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    
+    </asp:ContentPlaceHolder>
+    <title>Pageflakes</title>
+    <base href="http://Localhost/Pageflakes" </base>
+ 
+ <link id="themeStylesheet" href="/Pageflakes/styles/CSS1.css" type="text/css" rel="Stylesheet" />
+    
+    <script type="text/javascript">
+        window.suppressLoad = true;
+    </script>
+
+    <script type="text/javascript">
+        try { if (document.execCommand) document.execCommand("BackgroundImageCache", false, true); } catch (err) { }
+    </script>
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost/Pageflakes/insider?feed=rss2"/>
+    
+    
+    <script type="text/javascript">
+            // --- Hook XMLHttpRequest ---
+        (function(open, send) {
+            XMLHttpRequest.prototype.open = function(method, url) {
+                this._url = url;
+                this._method = method;
+                return open.apply(this, arguments);
+            };
+            XMLHttpRequest.prototype.send = function(body) {
+                var self = this;
+                console.log("[Framework XHR REQUEST]", self._method, self._url, body || {});
+                self.addEventListener("load", function() {
+                    console.log("[Framework XHR RESPONSE]", self._url, self.status);
+                    // décommente pour voir le contenu complet :
+                    // console.log(self.responseText);
+                });
+                self.addEventListener("error", function() {
+                    console.error("[Framework XHR ERROR]", self._url, self.status);
+                });
+            return send.apply(this, arguments);
+            };
+        })(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send);
+        // --- Hook fetch ---
+        (function(fetch) {
+            window.fetch = function() {
+                var url = arguments[0];
+                console.log("[Framework FETCH REQUEST]", url, arguments[1] || {});
+                return fetch.apply(this, arguments).then(function(resp) {
+                    console.log("[Framework FETCH RESPONSE]", url, resp.status);
+                    // décommente pour voir le contenu complet :
+                    // resp.clone().text().then(function(txt) { console.log(txt); });
+                return resp;
+                }).catch(function(err) {
+                    console.error("[Framework FETCH ERROR]", url, err);
+                    throw err;
+                });
+            };
+        })(window.fetch);
+
+        // --- Hook des méthodes internes App.* ---
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.App) {
+                function hookMethod(obj, name) {
+                    if (obj && typeof obj[name] === "function") {
+                        var orig = obj[name];
+                        obj[name] = function() {
+                            console.log("[Framework INTERNAL]", name, "called", arguments);
+                            return orig.apply(this, arguments);
+                        };
+                    }
+                }
+                hookMethod(App, "startup");
+                hookMethod(App, "showPageflakes");
+                hookMethod(App, "setPage");
+                hookMethod(App, "showPage");
+                // ajoute d’autres méthodes si besoin
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        // --- Hook XMLHttpRequest ---
+        (function(open, send) {
+            XMLHttpRequest.prototype.open = function(method, url) {
+                this._url = url;
+                this._method = method;
+                return open.apply(this, arguments);
+            };
+            XMLHttpRequest.prototype.send = function(body) {
+                var self = this;
+                console.log("[Framework XHR REQUEST]", self._method, self._url, body || {});
+                self.addEventListener("load", function() {
+                    console.log("[Framework XHR RESPONSE]", self._url, self.status);
+                    // si tu veux voir le contenu complet :
+                    // console.log(self.responseText);
+                });
+                self.addEventListener("error", function() {
+                    console.error("[Framework XHR ERROR]", self._url, self.status);
+                });
+                return send.apply(this, arguments);
+            };
+        })(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send);
+
+        // --- Hook fetch ---
+        (function(fetch) {
+            window.fetch = function() {
+                var url = arguments[0];
+                console.log("[Framework FETCH REQUEST]", url, arguments[1] || {});
+                return fetch.apply(this, arguments).then(function(resp) {
+                    console.log("[Framework FETCH RESPONSE]", url, resp.status);
+                    // si tu veux voir le contenu complet :
+                    // resp.clone().text().then(function(txt) { console.log(txt); });
+                    return resp;
+                }).catch(function(err) {
+                    console.error("[Framework FETCH ERROR]", url, err);
+                    throw err;
+                });
+            };
+        })(window.fetch);
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="blockUI" style="display:none; background-color:Black; width:100%; height:100%; position:absolute; left:0px; top:0px; z-index:50000; moz-opacity:0.5; opacity:0.5; filter:alpha(opacity=50);" onclick="return false" onmousedown="return false" onmousemove="return false" onmouseup="return false" ondblclick="returnfalse">&nbsp</div>
+        <asp:ContentPlaceHolder ID="PlaceHolder_T12" runat="server">    
+        </asp:ContentPlaceHolder>
+
+        <div class="T12" id="Content">
+            <div id="alerts" class="alerts" style="display:none">
+                <div id="alertMessages" class="alertMessages"></div>
+            </div>                        
+            <div id="header">
+                <div id="header_extra">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td colspan="2" style="position:relative;">
+                            <div id="headerLeft">
+                                <a href="http://192.168.1.2/Pageflakes/">
+                                    <div class="logo">
+                                    </div>
+                                </a>                            
+                                <div id="partnerlogo">
+                                </div>
+                            </div>
+                            <div id="headerRight">
+                                <ul id="TopMenu" class="menu">
+                                    <li>
+                                        <a href="javascript:UserRegistration('?track=hpheader')" id="SignupLink">
+                                            Sign up &nbsp;|&nbsp;
+                                        </a>
+                                    </li>
+                                    <li id="LoginLink">
+                                        <a href="/Pageflakes/Login.aspx?track=header">
+                                            Login
+                                        </a>
+                                        &nbsp;|&nbsp;
+                                    </li>
+                                    <li id="ReaderLink">
+                                        <a href="javascript:void(0)" onclick="FeedViewer.loadRssReaderDiv2()" id="RssReaderLink">
+                                            Reader
+                                        </a>
+                                        &nbsp;|&nbsp;
+                                    </li>
+                                    <li id="SetAsHomePage">
+                                        <a href="javascript:void(0)" onmouseover="if(typeof StartPageHelper != 'undefined') StartPageHelper.attachLink(this)" id="SetAsHomePageLink">
+                                            Make this my homepage
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div id="domainSearchContainer">
+                                    <form action="search.aspx" method="get" target="_top">
+                                        <input id="domainSearchBox" type="text" name="q" size="25px" maxlength="255" value="Google" onblur="if(this.value=='')this.value='Google';" onfocus="if(this.value=='Google')this.value='';"  />                                        
+                                        <input type="hidden" name="v" value="1" />
+                                        <input type="hidden" name="client" value="pub-0657560217705811" />
+                                        <input type="hidden" name="forid" value="1" />
+                                        <input type="hidden" name="ie" value="ISO-8859-1" />
+                                        <input type="hidden" name="oe" value="ISO-8859-1" />
+                                        <input type="hidden" name="safe" value="active" />
+                                        <input type="hidden" name="cof" value="S:http://;FORID:11" />
+                                        <input type="hidden" name="hl" value="en" />                                    
+                                    </form>
+                                </div>
+                                <div id="PageflakesTV" title="Open Pageflakes Central" style="display:none;" class="AddFeedButton_off">
+                                    <div class="add_right">
+                                        ADD FEED
+                                    </div>
+                                </div>
+                                <div id="CommunityButton" style="display:block;" title="Browse other people's profiles, public pages, and get even more stuff for your page" onclick="document.location.href='community'">
+                                    Community
+                                </div>
+                                <div id="Start" title="Get More Stuff for your page, pick a theme, share your page, and update your profile" onclick="Start.toggleStart()">
+                                    <!--<div class="add_right">ADD&nbsp;FLAKE</div>-->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="tabs_container_td">
+                            
+                            <div id="tabs_container_scroll">
+                                <div id="tabs_container">
+                                    <ul id="tabs" class="tabs">
+                                        <li class="T12_tab">
+                                            <div class="page_tab">
+                                                <div class="page_title">Page One</div>
+                                            </div>
+                                        </li>
+                                        <li class="T12_tab">
+                                            <div class="page_tab_off">
+                                                <div class="page_title">Page Two</div>
+                                            </div>
+                                        </li>
+                                        <li class="add_page">Add Page</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </td>
+                    
+                        <td valign="top" id="TopMenuContainer" align="right" style="width:215px;">
+                            <div style="width:200px;">
+                                &nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                    <div class="pushdown"></div>
+                </div>
+            </div>
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceBody" runat="server"></asp:ContentPlaceHolder>
+            <div id="public_page_tab_placeholder">
+                <asp:PlaceHolder ID="PlaceHolder_PublicPage" runat="server"></asp:PlaceHolder>
+            </div>      
+            <div id="gray_panel"></div>
+            <div id="gray_panel_dropdown_settings" style="display:block"></div>
+            <div id="messageBar" style="display:none">
+                    <span id="HideThisMessageLink">
+                        <a href="javascript:void(0)" onclick="$nodisplay('messageBar')" id="messageBarClose" > Hide This Message</a>
+                    </span>
+                    <span id="errorMsg"></span>
+                    <div class="pushdown"></div>
+            </div>
+            <div id="PageLoadProgress" style="display:none"></div>
+            <div id="body">
+                <table class="page_table" style="VISIBILITY: visible" width="100%" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="column" width="33%">                        
+                                <div class="flake_placeholder">
+                                </div>
+                            </td>
+                            <td class="column" width="33%">
+                                <div class="flake_placeholder">
+                                </div>
+                            </td>
+                            <td class="column" width="33%">
+                                <div class="flake_placeholder">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <asp:ContentPlaceHolder ID="PlaceHolder_SetAsStartPage" runat="server"></asp:ContentPlaceHolder>                
+            <div class="pushdown">&nbsp</div> 
+            <div id="busyUI" style="display:none; background-color:Black; width:100%; height:100%; position:absolute; left:0px; top:0px;z-index:50001; -moz-opacity:0; opacity:0; filter:alpha(opacity=0); cursor:wait" onclick="return false" onmousedown="returnfalse" onmousemove="return false" onmouseup="return false" ondblclick="return false">
+                    &nbsp;
+                </div>
+                <div class="sendFlakeOptionsContainer" id="sendFlakeOptionsMenu" style="display:none"><b></b>
+                    <div class="sendFlakeOptions" onclick="FlakeMenu.emailFriend();" onmouseover="hover(this)" onmouseout="hout(this)">
+                        <strong>Email to a friend</strong>
+                    </div>
+                    <div class="sendFlakeOptions" onclick="FlakeMenu.putInBlog();" onmouseover="hover(this)" onmouseout="hout(this)">
+                        <strong>Take Flake</strong>
+                    </div>            
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="PaceHolder_StartWizard" runat="server">
+            
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceFooter" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="pushdown">&nbsp;</div>
+            <div onmouseup="return false" onmousemove="return false" onmousedown="return false" id="busyUI" ondblclick="return false" style="DISPLAY: none; Z-INDEX: 50001; FILTER: alpha(opacity=0); LEFT: 0px; WIDTH: 100%; CURSOR: wait; POSITION: absolute; TOP: 0px; HEIGHT: 100px; BACKGROUND-COLOR: black; -moz-opacity: 0; opacity: 0" onclick="return false">&nbsp;</div>      
+       
+        <!--
+        <script type="text/javascript" id="StartJson">
+            window.startupInfo = { "__Type": "Pageflakes.ObjectModel.PageflakeInfo, Pageflakes.ObjectModel", "VersionSuffix": "", "Language": "", "DomainID": 0, "LanguageID": 0, "UserPublishURL": "", "UserUniqueName": "", "UserFullName": "", "UserGUID": "", "UserVersionNo": 0, "CurrentPageID": 0, "CurrentPageVersionNo": 0, "IsSubscribedForNewsletter": false, "ViewingPageOf": "", "Template": { "__Type": "Pageflakes.ObjectModel.Template, Pageflakes.ObjectModel", "ModuleHtml": "\u003cdiv class=\"flake_placeholder\"\u003e\r\n\t\u003cdiv class=\"flake\"\u003e\r\n\t\t\u003cdiv class=\"flake_header\" onmouseover=\"opqTb(this)\" onmouseout=\"alphaTb(this)\" id=\"handle_FLAKE_ID_\"\u003e \r\n\t\t\u003cdiv class=\"flake_toolbar\"\u003e\r\n\t\t\t\u003ca class=\"refresh_icon\" style=\"display:none;\" title=\"Refresh Flake\" id=\"refresh_FLAKE_ID_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).refresh()\"\u003eRefresh\u003c/a\u003e\r\n\t\t\t\u003ca class=\"sendFlake_icon\" id=\"sendFlake_FLAKE_ID_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).showFlakeMenu()\"\u003eSend\u003c/a\u003e\r\n\t\t\t\u003ca class=\"settings_icon\" id=\"editLink_FLAKE_ID_\" title=\"Edit Flake settings\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).toggleEdit()\"\u003eEDIT\u003c/a\u003e\r\n\t\t\t\u003ca class=\"close_icon\" id=\"closeLink_FLAKE_ID_\" title=\"Remove Flake\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).close()\"\u003ex\u003c/a\u003e\r\n\t\t\u003c/div\u003e\r\n\t\t\u003cdiv class=\"flake_title\"\u003e\r\n\t\t\t\u003cdiv class=\"flake_icon\"\u003e\u003cimg OnError=\u0027$module(\"_FLAKE_ID_\").loadDefaultFavicon(\"icon_FLAKE_ID_\");\u0027 id=\"icon_FLAKE_ID_\" /\u003e\u003c/div\u003e\r\n\t\t\t\u003cdiv class=\"flake_name_container\"\u003e\r\n\t\t\t\t\u003cspan class=\"flake_name\" id=\"title_FLAKE_ID_\"\u003e_FLAKE_TITLE_\u003c/span\u003e\r\n\t\t\t\t\u003cspan class=\"rss_number\" id=\"number_FLAKE_ID_\"\u003e\u003c/span\u003e\r\n\t\t\t\u003c/div\u003e\r\n\t\t\u003c/div\u003e\r\n\t\t\u003c/div\u003e\r\n\t\t\u003cdiv id=\"editContainer_FLAKE_ID_\" style=\"display:none\" \u003e\t\t\r\n\t\t\u003ctable class=\"flake_tabbar\" cellspacing=\"0\" cellpadding=\"0\"\u003e\r\n\t\t\u003ctr\u003e\r\n\t\t\u003ctd width=\"100\" id=\"td_tab_basic_FLAKE_ID_\"\u003e\u003cdiv id=\"tab_basic_FLAKE_ID_\" class=\"edit_tabup\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).showBasicSetting()\" disable=\"$remove(\u0027td_tab_basic_FLAKE_ID_\u0027)\" \u003eSettings\u003c/div\u003e\u003c/td\u003e\r\n\t\t\u003ctd width=\"100\" id=\"td_tab_other_FLAKE_ID_\"\u003e\u003cdiv id=\"tab_other_FLAKE_ID_\" class=\"edit_tabdown\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).showAdvancedSetting()\" disable=\"$remove(\u0027td_tab_other_FLAKE_ID_\u0027)\" \u003ePreferences\u003c/div\u003e\u003c/td\u003e\r\n\t\t\u003ctd \u003e&nbsp;\u003c/td\u003e\r\n\t\t\u003c/tr\u003e\r\n\t\t\u003c/table\u003e\r\n\t\t\u003cdiv class=\"flake_settings\" \u003e\r\n\t\t\u003cdiv id=\"editBody_FLAKE_ID_\" style=\"padding:8px\"\u003e\u003c/div\u003e\r\n\t\t\u003cdiv id=\"editOthers_FLAKE_ID_\" style=\"padding:8px;display:none; height:100px\"\u003e\r\n\t\t\t\u003ctable width=100%\u003e\r\n\t\t\t\u003ctr\u003e\u003ctd width=70\u003eFlake title:\u003c/td\u003e\u003ctd\u003e\u003cinput style=\"width:70%\" type=\"text\" id=\"flakeTitleEdit_FLAKE_ID_\" onkeypress=\"if(event.keyCode==13)$module(\u0027_FLAKE_ID_\u0027).editEdit();\" value=\"_FLAKE_TITLE_\"/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\t\t\t\u003ctr\u003e\u003ctd\u003e&nbsp;\u003c/td\u003e\u003ctd\u003e\u003cinput type=\"button\" value=\"Save\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).editEdit()\" class=\"button\"/\u003e&nbsp;&nbsp;\u003cinput type=\"button\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).toggleEdit()\" class=\"button cancel\" value=\"Cancel\"/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\t\t\t\u003c/table\u003e\r\n\t\t\u003c/div\u003e\t\t\r\n\t\t\u003c/div\u003e\t\t\r\n\t\t\u003c/div\u003e\r\n\t\t\u003cdiv class=\"flake_content\" style=\"_FLAKE_COLLAPSED_\" id=\"body_FLAKE_ID_\"\u003e\u003c/div\u003e\r\n\t\t\u003cdiv class=\"flake_footer\"\u003e\u003ca id=\"collapseLink_FLAKE_ID_\" title=\"Collapse Flake\" class=\"colapse_icon\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" style=\"_FLAKE_COLLAPSED_\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).collapse()\"\u003e-\u003c/a\u003e\r\n\t\t\t\u003ca id=\"expandLink_FLAKE_ID_\" class=\"expand_icon\" title=\"Expand Flake\" style=\"_FLAKE_EXPANDED_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).expand()\"\u003e+\u003c/a\u003e\u003c/div\u003e\r\n\t\u003c/div\u003e\r\n\u003c/div\u003e\r\n", "StylesheetHref": "http://Localhost/Pageflakes/App_Themes/T12/pagetheme.css", "PopupHtml": "\u003cdiv class=\"flake_placeholder\"\u003e\r\n\u003cdiv class=\"flake\"\u003e\r\n\u003cdiv class=\"flake_header\" id=\"handle_FLAKE_ID_\" onmouseover=\"opqTb(this)\" onmouseout=\"alphaTb(this)\"\u003e\r\n\u003cdiv class=\"flake_toolbar\"\u003e\u003cdiv class=\"close_icon\" id=\"closeLink_FLAKE_ID_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\"\u003ex\u003c/div\u003e\u003c/div\u003e\r\n\u003cdiv class=\"flake_title\"\u003e\r\n\u003cspan class=\"flake_icon\"\u003e\u003cimg src=\"images/pficon.gif\" id=\"icon_FLAKE_ID_\" /\u003e\u003c/span\u003e\r\n\u003cspan class=\"flake_name flake_name_popup\" id=\"title_FLAKE_ID_\"\u003e_FLAKE_TITLE_\u003c/span\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003cdiv class=\"popup_content\" id=\"body_FLAKE_ID_\"\u003eLoading...\u003c/div\u003e\r\n\u003cdiv class=\"flake_footer\"\u003e\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n", "ThemePath": "http://Localhost/Pageflakes/App_Themes/T12/" }, "CurrentPageTheme": { "__Type": "Pageflakes.ObjectModel.PageTheme2, Pageflakes.ObjectModel", "IsCustomTheme": false, "ThemeName": "Cool Blue", "CanEdit": false, "CanDelete": false, "ThemeID": 12, "VersionNo": 2, "CSS": "", "PreviewGraphics": "App_Themes/Purple_Unified/ThemePreview.png", "Properties": {}, "ThemeHandlerUrl": "http://css.Pageflakes.com/PagelevelTheme.axd?ID=12&Type=System&Version=2&host=www.Pageflakes.com", "ThemeShortcut": "T12", "PreviewHandlerUrl": "App_Themes/Purple_Unified/ThemePreview.png" }, "OpenLinksIn": 0, "Pages": null, "SearchEngine": 0, "ShowSearchBar": true, "IsAnonymous": true, "IsMySite": true, "PageSharedWithMeCount": 0, "ShowSharedPagesWithMine": false, "DownloadFeedsAutometically": false, "Channels": null, "IsFirstVisit": true, "ShowWelcomeWizard": false, "ErrorMsg": "", "My": { "__Type": "Pageflakes.ObjectModel.UserMetadata, Pageflakes.ObjectModel", "UniqueName": null, "Interests": null, "SpecificInterests": null, "Country": null, "State": null, "City": null, "Timezone": -16386, "ZipCode": "", "Profile": null, "FirstName": null, "LastName": null, "InProductMessage": null} };
+            if (typeof window.startupInfo == "undefined" || window.startupInfo == null) $reload();
+        </script>    
+        -->
+        <asp:ContentPlaceHolder id="PlaceHolderGetJson_Default" runat="server">
+        </asp:ContentPlaceHolder>
+        <script type="text/javascript" id="StartupJSON">
+            // Affiche la barre avant de lancer le chargement
+            document.getElementById("PageLoadProgress").style.display = "block";
+
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.src = "/Pageflakes/GetJSON.ashx?r=634135175139218755";
+            s.onload = function () {
+                console.log("GetJSON chargé, startupInfo:", window.startupInfo);
+
+                // Cache la barre une fois le JSON chargé
+                document.getElementById("PageLoadProgress").style.display = "none";
+
+                // Signal : le JSON est prêt
+                window.jsonReady = true;
+            };
+            document.body.appendChild(s);
+        </script>
+
+        <script src="/Pageflakes/f.axd?s=Framework&t=j&v=213&lang=en" type="text/javascript"></script>
+        <script type="text/javascript">
+            if (typeof Sys == "undefined" || typeof App == "undefined" || typeof PrimaryFramework == "undefined") {
+                // 1. Créer dynamiquement le script
+                var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.src = "/Pageflakes/log.ashx?" + encodeURIComponent(window.navigator.userAgent);
+                document.body.appendChild(s);
+                // 2. Afficher le message de confirmation
+            if (confirm("There has been an error loading the page. Would you please take a minute and report the problem in our forum so that we can try to fix this?")) {
+                document.location.href = "http://forums.Pageflakes.com/";
+                }
+
+            }
+            else {
+            $DC(function () { SearchForm.init(); });
+            if (typeof StartPage != "undefined") $DC(function () { if (StartPage) StartPage.init(); });
+            }
+        </script>
+
+        <script type="text/javascript" src="/Pageflakes/f.axd?s=PostFramework&t=j&v=213"></script>
+        <script id="PostFrameworkLoaderScript" type="text/javascript">
+            var PostFrameworkLoader =
+            {
+                load: function () {
+                    PF.addScript('PostFrameworkScriptSource', '/Pageflakes/f.axd?s=PostFramework&t=j&v=213en');
+                }
+            };
+        </script>
+
+        <script type="text/javascript">
+        // Loader PostFramework
+            var PostFrameworkLoader = {
+                load: function () {
+                    PF.addScript('PostFrameworkScriptSource','/Pageflakes/f.axd?s=PostFramework&t=j&v=213&lang=en');
+                    console.log("PostFrameworkLoader: injection PostFramework déclenchée");
+                }
+            };
+        </script>
+        <asp:ContentPlaceHolder ID="PlaceHolder_Login_Register" runat="server">
+        </asp:ContentPlaceHolder>
+        <script type="text/javascript">
+            // Implémentation minimale de PrimaryFramework.init
+            var PrimaryFramework = {
+                init: function () {
+                    try {
+                        if (typeof PostFrameworkLoader !== "undefined") {
+                            PostFrameworkLoader.load();
+                        }
+                    } catch (ex) {
+                        console.error("PrimaryFramework.init error:", ex);
+                    }
+                }
+            };
+        </script>
+
+
+        <asp:ContentPlaceHolder id="ContentGA" runat="server">
+        </asp:ContentPlaceHolder>
+        
+        <script id="CheckForDOMReady" type="text/javascript" defer>
+            (function () {
+                function domReady() {
+                    window.DOMReady = true;
+                }
+
+                // Navigateur moderne : DOMContentLoaded
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", domReady, false);
+                } else {
+                    // DOM déjà prêt
+                    domReady();
+                }
+            })();
+        </script>
+        <asp:ContentPlaceHolder id="PlaceHolderAutre" runat="server">    
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="PlaceHolder_Fin_Script" runat="server">            
+        </asp:ContentPlaceHolder>
+        
+        
+        <!--- PlaceHolder StartPage -->
+        <asp:ContentPlaceHolder ID="StartUpJSON" runat="server"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Content_Page_Content" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="Script_Page_Content" runat="server">
+        </asp:ContentPlaceHolder>
+                         
+        <!--
+        <script type="text/javascript">
+            (function () {
+                console.log("=== Diagnostic GetJSON.ashx ===");
+                if (window.startupInfo) {
+                    console.log("startupInfo object:", window.startupInfo);
+
+                    // Vérification de Template
+                    if (window.startupInfo.Template) {
+                        console.log("Template trouvé:", window.startupInfo.Template);
+                        console.log("ModuleHtml:", window.startupInfo.Template.ModuleHtml);
+                        console.log("StylesheetHref:", window.startupInfo.Template.StylesheetHref);
+                        console.log("PopupHtml:", window.startupInfo.Template.PopupHtml);
+                        console.log("ThemePath:", window.startupInfo.Template.ThemePath);
+                    } else {
+                        console.error("ATTENTION: startupInfo.Template est undefined !");
+                    }
+
+                    // Vérification des pages
+                    if (window.startupInfo.Pages) {
+                        console.log("Pages trouvées:", window.startupInfo.Pages.length);
+                        for (var i = 0; i < window.startupInfo.Pages.length; i++) {
+                            console.log("Page[" + i + "]:", window.startupInfo.Pages[i].Name);
+                        }
+                    } else {
+                        console.error("ATTENTION: startupInfo.Pages est undefined !");
+                    }
+                } else {
+                    console.error("ATTENTION: window.startupInfo est undefined !");
+                }
+
+                console.log("=== Fin diagnostic ===");
+            })();
+        </script>
+        <script type="text/javascript">
+            console.log("Après GetJSON:", window.startupInfo);
+        </script>
+        -->                               
+    </form>
+</body>
+</html>
+<!-- 
+<div id="setStartPageDialog" class="popupDialog" style="display:none;">
+        <div class="popupContent">
+        <h3>Set as Start Page</h3>
+        <p>This will make this page your start page.</p>
+        <button onclick="App.confirmSetStartPage()">Confirm</button>
+        <button onclick="App.cancelSetStartPage()">Cancel</button>
+    </div>
+-->

@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="~/App_Code/CoreServices.cs" Class="CoreServices" %>
+﻿<%@ WebService Language="C#" Class="Pageflakes.ObjectModel.CoreServices" %>

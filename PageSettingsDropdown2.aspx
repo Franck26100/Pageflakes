@@ -1,10 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PageSettingsDropdown2.aspx.cs" Inherits="PageSettingsDropdown2" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
+    <script type="text/javascript">        
+        var VERSION_SUFFIX = "213en";
+        var LANGUAGE = 'en';
+        var DOMAINEID = 1;
+    </script>
     <title></title>
+    <link href="/Pageflakes/styles/site.css" type="text/css" rel="Stylesheet" />
 </head>
 <body>
     <div>
@@ -22,7 +28,7 @@
                                 <li class="settingsLeftMenu"><a href="javascript:void(0)" title="View a selection of public pages by members and media partners" onclick="Start.loadPageSettingGrid(2,1,1)" id="PagecastLink">
                                     Pagecasts</a></li>
                                 <li class="settingsLeftMenuHr">
-                                    <div><img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif"></div>
+                                    <div><img src="http://localhost/pageflakes/images/space.gif"></div>
                                 </li>
                                 <li class="settingsLeftMenu"><a href="javascript:void(0)" title="Create your own shared public or group page in seconds" onclick="Start.loadPageSettingGrid(3,1,1)">
                                     Make Pagecast</a></li>
@@ -31,7 +37,7 @@
                                 <li class="settingsLeftMenu"><a href="javascript:void(0)" title="Rearrange your page" onclick="Start.loadPageSettingGrid(5,1,1)" id="ChangeLayoutLink">
                                     Change Layout</a></li>
                                 <li class="settingsLeftMenuHr">
-                                    <div><img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif"></div>
+                                    <div><img src="http://localhost/pageflakes/images/space.gif"></div>
                                 </li>
                                 <li class="settingsLeftMenu"><a href="javascript:void(0)" title="Upload your photo & add something about yourself" onclick="Start.loadPageSettingGrid(6,1,1)">
                                     My Profile</a></li>
@@ -59,11 +65,11 @@
                             <div id="SharingOptions">                                
                                 <div class="StartPanelHeader">
                                     <a onclick="Start.toggleStart(1)" href="javascript:void(0)" style="padding: 2px; float: right; margin-top: -3px;">
-                                        <img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" />
+                                        <img src="http://localhost/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" />
                                     </a>
                                     <span class="bold120" style="float:none;">Want to share this page with other people? &nbsp;</span>
                                     <div class="FlakeGridSep FlakeGridTitleSep">
-                                        <img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif"/>
+                                        <img src="http://localhost/pageflakes/images/space.gif"/>
                                     </div>
                                 </div>
                                 <div id="SharingOptionsDummyBody" style="display: none">
@@ -221,10 +227,10 @@
                                     &lt;div id=&quot;PageSettings_SelectTheme&quot;&gt;
 		                            &lt;div class=&quot;StartPanelHeader&quot;&gt;
 		                            &lt;a onclick=&quot;Start.Theme.cancelOut(1)&quot; href=&quot;javascript:void(0)&quot; style=&quot;padding: 2px; float: right; margin-top: -3px;&quot;&gt;
-                                    &lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/closeButtonSettings.gif&quot; alt=&quot;Cancel&quot; title=&quot;Cancel&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;
+                                    &lt;img src=&quot;http://localhost/pageflakes/images/closeButtonSettings.gif&quot; alt=&quot;Cancel&quot; title=&quot;Cancel&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;
                                     &lt;span class=&quot;bold120&quot;&gt;Choose one of the themes below or&amp;nbsp;&lt;/span&gt
 		                            &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;OnsiteBtnTbl&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;div style=&quot;display:inline&quot; onclick=&quot;Start.Theme.createNew()&quot;&gt;&lt;div class=&quot;OnsiteBtnLeft&quot;&gt;&lt;div class=&quot;OnsiteBtnRight&quot;&gt;&lt;span class=&quot;OnsiteGalleryBtn&quot;&gt;Create Your Own Theme&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-                                    &lt;div class=&quot;FlakeGridSep FlakeGridTitleSep&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif&quot;/&gt;&lt;/div&gt;
+                                    &lt;div class=&quot;FlakeGridSep FlakeGridTitleSep&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/space.gif&quot;/&gt;&lt;/div&gt;
                                     &lt;/div&gt;
                                     &lt;div class=Start_Themes_Div_Selection id=&quot;PageSettings_SelectTheme_Div&quot; &gt;
                                     &lt;ul id=&quot;Start_Themes_UL&quot;&gt;&lt;/ul&gt;
@@ -247,7 +253,7 @@
                                     &lt;li id=&quot;PageSettings_CreateNewTheme_Tabs_FlakeTab&quot; class=&quot;themetab&quot; onclick=&quot;Start.Theme.showFlakesTab()&quot;&gt;&lt;a&gt;Flakes&lt;/a&gt;&lt;/li&gt;
                                     &lt;li id=&quot;PageSettings_CreateNewTheme_Tabs_AdvancedTab&quot; class=&quot;themetab&quot; onclick=&quot;Start.Theme.showAdvancedTab()&quot;&gt;&lt;a&gt;Advanced&lt;/a&gt;&lt;/li&gt;
                                     &lt;li&gt;&lt;div style=&quot;padding: 2px; float: right; margin-top: -2px;&quot;&gt;&lt;a onclick=&quot;Start.Theme.cancel()&quot; href=&quot;javascript:void(0)&quot;&gt;
-                                    &lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/closeButtonSettings.gif&quot; alt=&quot;Cancel&quot; title=&quot;Cancel&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;img src=&quot;http://localhost/pageflakes/images/closeButtonSettings.gif&quot; alt=&quot;Cancel&quot; title=&quot;Cancel&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/li&gt;
                                     &lt;/ul&gt;
                                     &lt;/div&gt;
                                     &lt;div id=&quot;PageSettings_NewTheme_Header&quot; class=&quot;NewThemePanel&quot;&gt;
@@ -317,16 +323,16 @@
                                     &lt;div style=&quot;width: 80px; float:left; font-weight:bold&quot;&gt;Start Button&lt;/div&gt;
                                     &lt;div style=&quot;float:left;clear:left;&quot;&gt;
                                     &lt;ul id=&quot;Pagesettins_NewTheme_TabButtons_Start&quot; class=&quot;flat_horizontal_ul clickable&quot;&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/1.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/1'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_1.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/2.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/2'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_2.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/3.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/3'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_3.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/4.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/4'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_4.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/5.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/5'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_5.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/6.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/6'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_6.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/7.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/7'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_7.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/8.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/8'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_8.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/9.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/9'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_9.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-                                    &lt;li value=&quot;images/themes/startbuttons/10.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/10'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://marquisfranck.perso.sfr.fr/pageflakes/images/themes/startbuttons/th_10.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/1.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/1'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_1.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/2.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/2'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_2.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/3.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/3'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_3.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/4.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/4'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_4.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/5.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/5'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_5.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/6.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/6'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_6.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/7.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/7'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_7.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/8.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/8'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_8.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/9.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/9'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_9.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+                                    &lt;li value=&quot;images/themes/startbuttons/10.png&quot; onclick=&quot;Start.Theme.setStartButton('images/themes/startbuttons/10'); $select(this, 'Selected', 'LI')&quot;&gt;&lt;div class=&quot;PageSettings_NewTheme_Start_Image_Holder&quot;&gt;&lt;img src=&quot;http://localhost/pageflakes/images/themes/startbuttons/th_10.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
                                     &lt;/ul&gt;
                                     &lt;/div&gt;
                                     &lt;/div&gt;
@@ -441,13 +447,13 @@
                             <div id="PageSettingsBody">                            
                                 <div class="StartPanelHeader">
                                     <a onclick="Start.toggleStart(1)" href="javascript:void(0)" style="padding: 2px; float: right; margin-top: -3px;">
-                                        <img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" />
+                                        <img src="http://localhost/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" />
                                     </a>
                                     <span class="bold120" style="float:none;">
                                         Want to change the column layout of this page? &nbsp;
                                     </span>
                                     <div class="FlakeGridSep FlakeGridTitleSep">
-                                        <img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif"/>
+                                        <img src="http://localhost/pageflakes/images/space.gif"/>
                                     </div>
                                 </div>
                                 <div id="ColumnLayout">
@@ -618,10 +624,12 @@
                 <!-- My Profile DIV -->
                         <div id="PageSettingGridMyProfile" style="display: none" class="SettingsRightMenuTD">
                             <div id="PageSettingsProfileAreaDisabled">
-                                Please <a title='log in' class='bold' href='Login.aspx'>log in</a> or <a title='sign up' class='bold' href='Signup.aspx'>
+                                Please <a title='log in' class='bold' href='/Pageflakes/Login.aspx'>log in</a> or <a title='sign up' class='bold' href='/Pageflakes/PageFlakesRegistration.aspx'>
                                     sign up</a> to change your account settings or set up a public profile.
                             </div>
-                            <div id="PageSettingsProfileArea">                                
+                            <div id="PageSettingsProfileArea">
+                                
+
                                 <!--<form name="aspnetForm" method="post" action="pagesettingsdropdown2.aspx" id="aspnetForm">
                                     <div>
                                         <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTU1OTc2NDIxNA9kFgICAw9kFgICAQ9kFgJmDxYCHgRUZXh0BYQCPHNlbGVjdCBpZD0iZHJwQ2hhbmdlTGFuZ3VhZ2UiIG9uY2hhbmdlPSJqYXZhc2NyaXB0OnZvaWQoMCk7Ij48b3B0aW9uIHNlbGVjdGVkIHZhbHVlPSJlbiI+RW5nbGlzaDwvb3B0aW9uPjxvcHRpb24gdmFsdWU9ImRlIj5EZXV0c2NoPC9vcHRpb24+PG9wdGlvbiB2YWx1ZT0icHQiPlBvcnR1Z3Vlc2U8L29wdGlvbj48b3B0aW9uIHZhbHVlPSJ6aC1jbiI+Q2hpbmVzZTwvb3B0aW9uPjxvcHRpb24gdmFsdWU9ImJuIj5CYW5nbGE8L29wdGlvbj48L3NlbGVjdD5kZDMR42CCQvQhy4qkay72JMLdPhFc" />
@@ -634,14 +642,14 @@
                                             <li id="profileListPublic" class="themetab themeactivetab" onclick="Start.Profile.setProfileTab('PageSettings_Profile_Public'); $select(this, 'themeactivetab', 'LI')"><a>Public Profile</a></li>
                                             <li id="profileListBasic" class="themetab" onclick="Start.Profile.setProfileTab('PageSettings_Profile_Basic'); $select(this, 'themeactivetab', 'LI')"><a>Account</a></li>
                                             <li id="profileListInterest" class="themetab" onclick="Start.Profile.setProfileTab('PageSettings_Profile_Interest'); $select(this, 'themeactivetab', 'LI')"><a>Settings</a></li>
-                                            <li><div style="padding:2px; float:right; margin-top:-3px; position:relative;"><a onclick="Start.toggleStart(1)" href="javascript:void(0)"><img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" /></a></div></li>
+                                            <li><div style="padding:2px; float:right; margin-top:-3px; position:relative;"><a onclick="Start.toggleStart(1)" href="javascript:void(0)"><img src="http://localhost/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" /></a></div></li>
                                         <!--<li id="profileListAccount" class="themetab" onclick="Start.Profile.setProfileTab('PageSettings_Profile_Account'); $select(this, 'themeactivetab', 'LI')"><a>Account</a></li>-->
                                         </ul>
                                     </div>
                                     <div id="settingMessage" class="settingMessageBar" style="margin-left:0px;display:none;">
                                         <span id="errorMsgPublic" class="settingInfoIcon" > 
                                             <strong>Changes saved.</strong>
-                                            <a id="Public_Profile_Link" href="http://www.pageflakes.com/Community/Profile.aspx"> Click here to view your public profile page</a> 
+                                            <a id="Public_Profile_Link" href="http://localhost/pageflakes/Community/Profile.aspx"> Click here to view your public profile page</a> 
                                         </span>
                                         <span id="errorMsgBasic" class="settingInfoIcon" > 
                                             <strong>Changes saved.</strong>
@@ -696,7 +704,7 @@
                                                     <table border="0" cellspacing="2" cellpadding="0">
                                                         <tr>
                                                             <td id="PhotoImageTD" style="vertical-align:bottom; height:120px; width:120px">
-                                                                <img id="PageSettings_Profile_Public_imgProfile" src="http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif" />
+                                                                <img id="PageSettings_Profile_Public_imgProfile" src="http://localhost/pageflakes/images/space.gif" />
                                                             </td>
                                                             <td style="vertical-align:bottom">
                                                                 <div id="PhotoCommandDiv" style="display:visible; padding-left:5px">
@@ -705,7 +713,7 @@
                                                                     <a id="UploadPhotoLink" href="Javascript:void(0)" onclick="Start.Profile.showUploadPhoto()">Upload new photo</a>                                    
                                                                 </div>                            
                                                                 <div id="PhotoUploadDiv" style="display:none; padding-left:5px">
-                                                                    <iframe runat="server" id="PageSettings_Profile_UploadPhotoIFRAME" src="Community/ProfilePhotoUploader/ProfilePhotoUploader.aspx" style="width:250px; height:65px" frameborder="0" allowtransparency="true">
+                                                                    <iframe runat="server" id="PageSettings_Profile_UploadPhotoIFRAME" src="/Pageflakes/Community/ProfilePhotoUploader/ProfilePhotoUploader.aspx" style="width:250px; height:65px" frameborder="0" allowtransparency="true">
                                                                     </iframe>
                                                                 </div>                              
                                                             </td>
@@ -1092,10 +1100,10 @@
                     <!-- Add Feed / Bookmark OPML DIV -->
                     <div id="PageSettingsGridAddFeedBody" class="SettingsRightMenuTD" style="display: none">
                         <div class="StartPanelHeader">
-                            <a onclick="Start.toggleStart(1)" href="javascript:void(0)" style="padding: 2px; float: right; margin-top: -3px;"><img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" /></a> 
+                            <a onclick="Start.toggleStart(1)" href="javascript:void(0)" style="padding: 2px; float: right; margin-top: -3px;"><img src="http://localhost/pageflakes/images/closeButtonSettings.gif" alt="Cancel" title="Cancel" border="0" /></a> 
                             <span class="bold120" style="float:none;">Add any RSS feed to your page or import an OPML file</span>
                             <div class="FlakeGridSep FlakeGridTitleSep">
-                                <img src="http://marquisfranck.perso.sfr.fr/pageflakes/images/space.gif"/>
+                                <img src="http://localhost/pageflakes/images/space.gif"/>
                             </div>
                         </div>
                         <table width="500" cellpadding="0" cellspacing="0">
@@ -1111,7 +1119,7 @@
                                     <td style="height:40px;" valign="top">
                                         <span class="bold120">Import OPML:</span></td>
                                     <td id="OPMLOptionContainer">
-                                        <iframe id="OPMLoptions" src="OPMLimporter.aspx?v=1" scrolling="no" border="0" frameborder="no" framespacing="0" style="width: 100%; height: 50px;border:none;position: static;background: transparent;" allowtransparency="true"></iframe>
+                                        <iframe id="OPMLoptions" src="/Pageflakes/OPMLimporter.aspx?v=1" scrolling="no" border="0" frameborder="no" framespacing="0" style="width: 100%; height: 50px;border:none;position: static;background: transparent;" allowtransparency="true"></iframe>
                                     </td>
                                 </tr>                                
                             </table>
@@ -1136,4 +1144,5 @@
 </div>
 
 </body>
+
 </html>

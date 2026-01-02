@@ -9,11 +9,6 @@ public partial class AddFlake : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string requestStart = Context.Request["Title"];
-        if(requestStart == "Photo Viewer")
-        {
-            Server.TransferRequest(Context.Request.QueryString["url"]);
-        }
 
     }
 }

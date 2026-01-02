@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pageflakes Demo</title>
+    <script type="text/javascript">
+        var l = {}; l.startDateTime = new Date();
+        var SITE_PREFIX = "http://localhost/Pageflakes/";
+        var RSS_FEED_FLAKE_URL = "__RSSFEED__?url=";
+        var IMAGE_PREFIX = "http://localhost/Pageflakes";
+   
+    
+    
+</script>
+    <!-- 1. CSS du thème -->
+    <link rel="stylesheet" type="text/css" href="/Pageflakes/t.axd?t=T12&v=217" />
+
+    <!-- 2. Framework principal -->
+    <script type="text/javascript" src="/Pageflakes/f.axd?s=Framework&t=j&v=217"></script>
+
+    <!-- 3. Extensions post-framework -->
+    <script type="text/javascript" src="/Pageflakes/f.axd?s=PostFramework&t=j&v=217"></script>
+</head>
+<body>
+    <div id="pageflakesContainer"></div>
+
+    <!-- 4. StartupJSON : appel du handler GetJSON -->
+    <script type="text/javascript" src="/Pageflakes/GetJSON.ashx?r=634135175139218750"></script>
+
+    <!-- 5. Le framework lit window.startupInfo et construit les flakes -->
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageFinal_Dev.master" AutoEventWireup="true" CodeFile="PageFlakesRegistration.aspx.cs" Inherits="PageFlakesRegistration" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<title>Create New User</title>
+     <style type="text/css">
+    
+    html, body { background-color: gainsboro; }
+    * { font-family: "Trebuchet MS",  Tahoma; font-size: 12pt; color: dimgray;}
+    
+    h1 { font-size: 150% }
+    
+    h2 { font-size: 140%; color: darkred; }
+    
+    #CreateUserWizard
+    {
+        position: relative;
+        left: 25%; top: 100px;
+        width: 50%;
+        border: solid 10px #D9E2E1;
+        padding: 20px;
+        background-color: white;
+    }
+    
+    #CreateUserWizard input 
+    { 
+        font-size: 120%; 
+        padding: 5px;
+    } 
+    
+    #CreateUserWizard label
+    {
+        font-size: 120%;
+        line-height: 180%;
+    }
+    
+    #CreateUserWizard br
+    {
+    }
+
+    #CreateUserWizard a
+    {
+        font-size: 120%;
+        line-height: 180%;
+        margin-left: 40px;
+    }
+    #Literal
+    {
+        color: red;
+        font-size: 120%;                
+    }
+    #checkBoxAgree a
+    {
+       margin-left: 0px;
+       color: blue;  
+       line-height: 100%; 
+    }
+    #checkBoxAgree
+    {
+        font-size: 60%;        
+    }    
+    #checkBoxSubscribe
+    {
+        font-size: 60%;        
+    }
+    #noSpam
+    {
+        font-size: 60%;        
+    }
+    </style>
+    <link href="http://localhost/Pageflakes/App_Themes/Purple_Unified/pagetheme.css" type="text/css" rel="stylesheet"/>
+    <link href="/Pageflakes/s.axd?s=css2&h=localhost&v=213en" type="text/css" rel="Stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceBody" Runat="Server">
+
+    <div id="Div1" style="left: 25%; top: 98px">
+        &nbsp;<div>
+        <table id="Table1">
+          <tr>
+              <td colspan="2">
+                  <div style="text-align: center">
+                   <h1>Sign Up for Your New Account<br/>
+                   </h1>   
+                  </div>
+              </td>
+          </tr>
+            <tr>
+                <td colspan="2">
+                <div style="text-align: center;">
+        </div></td>
+            </tr>
+          <tr>
+              <td>
+                  Email:</td>
+              <td>
+                  <input name="txtUserId" type="text" id="Text1"/>
+              </td>
+          </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                   <div id="Div2"> Your e-mail address is safe. No spam, ever. </div></td>
+            </tr>
+          <tr>
+              <td>Password:</td>
+              <td style="width: 319px">
+                  <input name="txtPassword" type="password" id="Password1"/>
+                                    </td>
+          </tr>
+          <tr>
+              <td>
+                  &nbsp;</td>
+              <td style="width: 319px">
+              <small>Minimum 7 characters and at least one special character like !@#$%^</small>
+              </td>
+                  
+          </tr>
+          <tr>
+              <td>
+                  Confirm Password:</td>
+              <td style="width: 319px">
+                  <input name="ConfirmPassword" type="password" id="Password2"/>&nbsp;</td>
+          </tr>
+            <tr>
+                <td>
+                </td>
+                <td style="width: 319px">
+
+                        </td>
+            </tr>
+          <tr>
+              <td>
+                  </td>
+              <td><div id="Div3">
+                  <input id="Checkbox1" type="checkbox" name="cbAgree"/>I agree to the <a href="termsandconditions.html" target="_blank">Terms &amp; Conditions</a>
+                  and the <a href="privacy.html" target="_blank">Privacy Policy</a>.</div>
+                  </td>
+          </tr>
+          <tr>
+              <td>
+                  </td>
+              <td style="width: 319px">
+                  <div id="Div4"><input id="Checkbox2" type="checkbox" name="cbSubscribe"/>Subscribe to the PageFlakes
+                  newsletter.</div></td>
+          </tr>                    
+            <tr>
+                <td>
+                </td>
+                <td style="width: 319px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td style="width: 319px">
+                  <input type="submit" name="btnCreate" value="Sign Up" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnCreate&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Submit1"/></td>
+            </tr>
+        </table>
+
+        </div>
+        </div>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="Footer_Page" Runat="Server">
+</asp:Content>
+
+
+
