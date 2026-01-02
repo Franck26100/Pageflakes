@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Getting Started</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <base href="http://10.0.0.1/Pageflakes/developers/" />
+    <style type="text/css">        
+        @import url(misc/print.css);
+    </style>
+</head>
+<body>
+<div class="section-1">
+<div id="node-3" class="section-2">
+<h1 class="book-heading">Getting Started</h1>
+<p>This section explains the basic concepts behind Pageflakes by going through an example. It demonstrates the creation of a flake that displays the current weather for a zip code entered by the user. (Apologies to users outside the United States – the intent is to present a simple example). </p>
+<p>In this guide, we’ll demonstrate the following concepts: </p>
+<ul>
+<li>Basic flake structure</li>
+<li>Uploading and testing a flake</li>
+<li>Managing flake instances</li>
+<li>Storing flake data</li>
+<li>Creating a settings page</li>
+<li>Using the content proxy</li>
+</ul>
+<div id="node-4" class="section-3">
+<h1 class="book-heading">Prerequisites</h1>
+<p>To work through the following examples you’ll need knowledge of HTML and Javascript. You’ll also need access to a web server to upload your flakes.</p>
+</div>
+<div id="node-6" class="section-3">
+<h1 class="book-heading">Simple Flake</h1>
+<p>The simplest flake you can make consists only of HTML code. Create a file called Weather.html that contains the following:<br />
+<code><br />
+&lt;html&gt;<br />
+    &lt;body&gt; Weather will go here. &lt;/body&gt;<br />
+&lt;/html&gt;<br />
+</code></p>
+<p>Upload the flake to any web server.</p>
+<p>Add the flake by going to <a href="http://www.Pageflakes.com/developers" title="http://www.Pageflakes.com/developers">http://www.Pageflakes.com/developers</a> and entering the URL of your flake in the "Test your flake" field.</p>
+<p><strong>Tip:</strong> The Pageflakes framework caches flakes that have a .html extension, making it difficult to debug flakes when you repeatedly upload the same flake. To prevent this, change your flake’s filename extension to .php (or another extension associated with a dynamic web scripting language supported by your web server, such as .jsp or .aspx). Giving your flake an extension other than .html prevents the Pageflakes server from caching your flake. Change your flake’s extension back to .html when your flake is completed to take advantage of caching, unless your flake needs to take advantage of server-side scripting.</p>
+</div>
+<div id="node-7" class="section-3">
+<h1 class="book-heading">Framework Flake Processing</h1>
+<p>Every Pageflakes user has exactly one top-level Page-Set (shown below). The Page-Set displays one or more pages, where each Page is shown as a tab. Similarly, each page can contain zero or more flake instances.</p>
+<div style="text-align: center;">
+<img src="images/FlakeHierarchy_0.preview.jpg" alt="Flake Processing Hierarchy" />
+</div>
+<p>Each flake is represented by a single HTML file (which may include references to other files, including JavaScript, CSS, etc.). Those files are collectively referred to as the “Flake Code” and they are hosted on a web server. Usually, this will be Pageflakes.com, but flakes can be hosted on any web server. </p>
+<div style="text-align: center;">
+<img src="images/PageflakesHome.Preview.jpg" alt="Flake Processing Hierarchy" />
+</div>
+<p>When a user visits Pageflakes.com, the Pageflakes framework fetches and parses each of the flakes being used. It then generates a single XHTML document that is displayed to the user.</p>
+<div style="text-align: center;">
+<img src="images/FlakeProcessing.jpg" alt="Flake Processing" />
+</div>
+<p>The Flake Code is not added to the page "as-is". Instead, the Pageflakes framework looks at each part of the flake, using those parts to selectively construct the Generated XHTML Document. This conversion from "Flake Code" to "Flake Instance" is described in more detail in the following sections.</p>
+</div>
+<div id="node-8" class="section-3">
+<h1 class="book-heading">Flake Components</h1>
+<p>There are four main components of a flake:</p>
+<ul>
+<li>HTML or XHTML Markup</li>
+<li>Flake User Object (FUO) – written by the developer of the flake</li>
+<li>Flake System Object (FSO) – passed by the framework</li>
+<li>Flake User Object instantiation</li>
+</ul>
+<div id="node-9" class="section-4">
+<h1 class="book-heading">HTML/XHTML Markup</h1>
+<p>The XHTML markup for this example contains a single  element. This is a placeholder where the markup showing the current weather will be inserted.<br />
+<code><br />
+&lt;body&gt;<br />
+    &lt;div id='_PAGEFLAKES_content'/&gt;<br />
+&lt;/body&gt;<br />
+</code></p>
+<p>The id attribute is prefixed with _PAGEFLAKES_. This is to prevent two instances of the same flake from having conflicting id attributes within the same generated XHTML Document. The Pageflakes framework replaces this string with a unique identifier for every flake instance on a given page-set.<br />
+For example, if this flake appears twice in a page-set, the Generated XHTML Document will look something like:<br />
+<code><br />
+&lt;body&gt;<br />
+    &lt;div id='abc12345current_weather'/&gt;<br />
+&lt;/body&gt;<br />
+</code></p>
+<p>and<br />
+<code><br />
+&lt;body&gt;<br />
+    &lt;div id='xyz45678current_weather' /&gt;<br />
+&lt;/body&gt;<br />
+</code></p>
+</div>
+<div id="node-10" class="section-4">
+<h1 class="book-heading">Flake User Object (FUO) &amp; Flake System Objects (FSO)</h1>
+<p>The Flake User Object code is written by the flake developer and contains most of the flake functionality.</p>
+<p>If a flake appears only once in a user’s page set, this code is called once to instantiate the flake. If the flake appears more than once, the code is called multiple times – once for every flake instance.</p>
+<p>Here is the Flake User Object code for the example flake:<br />
+<code></p>
+<pre>
+&lt;script id='com.approver.hello' type='text/javascript'&gt;
+
+        function com_Pageflakes_hello(id)
+        {
+            this.id = id;
+            this.fso = null;
+
+            this.load = function()
+            {
+                // Need to do this in "onload" to ensure the framework
+                // has loaded the HTML portion of the flake
+                var div = $(id + "content");
+                div.innerHTML = "Hello world!";
+            };
+        }
+
+&lt;/script&gt;
+</pre><p></code></p>
+<p>The class containing the code is called com_Pageflakes_hello. It takes a single parameter, id, which contains a unique identifier for the flake being created. This id is what the framework uses when it replaces the _PAGEFLAKES_ string.</p>
+</div>
+<div id="node-11" class="section-4">
+<h1 class="book-heading">Flake User Object Instantiation</h1>
+<p>To instantiate the Flake User Object, another script is required:<br />
+<code></p>
+<pre>
+&lt;script id='_PAGEFLAKES_FUO' type="text/javascript"&gt;
+      var _PAGEFLAKES_ = new com_Pageflakes_hello('_PAGEFLAKES_');
+&lt;/script&gt;
+</pre><p></code></p>
+<p>This script is included once for every time the Flake exists in the page set, and it simply creates a new instance of the Flake User Object. For a given instance, here is what the actual executed code may look like:<br />
+<code></p>
+<pre>
+&lt;script id='abc12345FUO' type="text/javascript"&gt;
+      var abc12345 = new com_Pageflakes_hello('abc12345');
+&lt;/script&gt;
+</pre><p></code></p>
+<p>Note:</p>
+<ul>
+<li>It is important to use the _PAGEFLAKES_FUO for the id tag of the &lt;script&gt; element so that the Pageflakes framework creates one such script block for each instance. If the _PAGEFLAKES_ token is not specified, the framework only creates the block once. Thus, not all instances of the flake Flake User Object are created.</li>
+<li>The abc12345 variable that is created here is added to the global namespace in the Generated XHTML Document and is the reference used to access the flake’s Flake User Object.</li>
+</ul>
+<div class="codex">
+<h2>Example</h2>
+<p class="codex-description">This is the code for the "Hello World" example flake described in this section.</p>
+<ul>
+<li><a href='../files/00_HelloWorld.zip'>Download</a></li>
+<li><a href='http://www.Pageflakes.com/AddFlake.aspx?URL=http://developers.Pageflakes.com/files/hello.html' target="_blank">Add To Your Page</a></li>
+</ul>
+</div>
+</div>
+<div id="node-12" class="section-4">
+<h1 class="book-heading">Creating a Flake that Calls a Web Service</h1>
+<p>Next we’ll create another example flake. This flake will retrieve the value of weather for a region and display it in the flake. To create this flake, we'll need to add code to call a remote web service, then add a callback function that will handle the data retrieved by the service.</p>
+<p>Here is Flake User Object code that demonstrates the use of a callback function:<br />
+<code></p>
+<pre>
+  &lt;script id='com.Pageflakes.devdocs.weatherflake' type='text/javascript'&gt;
+
+    function com_Pageflakes_devdocs_weatherflake(id)
+    {
+      this.id = id;
+      this.fso = null;
+    }
+
+    com_Pageflakes_devdocs_weatherflake.prototype = {
+      
+      load : function (fso)
+      {
+        this.fso = fso;
+        ContentProxy.GetUrl("http://xml.weather.yahoo.com/forecastrss?p=80301&u=c",
+                                PF.F(this, this._callback));  
+      },
+
+      _callback : function(result)
+      {
+        var xml = PF.getXmlDoc(result);
+  
+        var desc = PF.getFirstNode(xml, "item:description").firstChild.nodeValue;
+        var title = PF.getFirstNode(xml, "title").firstChild.nodeValue;
+    
+        var div = $(this.id + "current_weather");
+        div.innerHTML = desc;
+  
+        if (this.fso.title != title)
+        {
+          this.fso.setTitle(title);
+          this.fso.save();
+        }
+
+        xml = null;
+      }
+    };
+    &lt;/script>
+</pre><p></code></p>
+<p>In this example, the class containing the code is com_Pageflakes_devdocs_weatherflake. This class takes a single parameter, id, which contains a unique identifier for the flake being created. This id is what the framework uses when it replaces the _PAGEFLAKES_ string described in the previous example.</p>
+<p>The <a href='../fuo/'>Flake User Object</a> can contain as many variables and functions as your flake requires. However, there is one function that is mandatory: the load() function. The Pageflakes framework calls load() after it instantiates the Flake User Object and is ready to load the flake on the page. </p>
+<p>The load() function takes a single parameter, fso, which holds a reference to the Flake System Object. The fso parameter is stored for future use (see next example). The <a href='../fso/'>Flake System Object</a> enables the Flake User Object to interact with the Pageflakes framework and make use of the framework API.</p>
+<p>Note:</p>
+<ul>
+<li>The &lt;script&gt; block is included only once in the Generated XHTML Document. The framework does this by using the id attribute of the script. It is important to select the id attribute carefully to avoid conflicts with other flakes. One way to do this is to use a reverse domain name, as shown in the example.</li>
+<li>Similarly, the Flake User Object function defined within the &lt;script&gt; block must also be named uniquely. You should use the same naming convention you use with script block itself, replacing the "." character with the underscore ("_").</li>
+<li>All of your flake's variables and functions should be defined within its Flake User Object function. Any member defined outside the Flake User Object function may collide with the Pageflakes framework or other Flakes.</li>
+</ul>
+<p>When the Pageflakes framework calls your flake's load() function, the flake:</p>
+<ol>
+<li>Uses the <a href='../content-proxy/'>ContentProxy</a> to fetch an XML document containing the weather for the 80301 zip code. We’re hard coding this zip code in the URL for now.</li>
+<li>When the ContentProxy retrieves the data, it calls the _callback() function with an XML string. The PF.F(this, this._callback) ensures that the callback is fired in the context of this, not in the context of the calling ContentProxy object. If the callback were set directly, then the this reference would be unusable inside _callback as it would not refer to the flake user object.</li>
+<li>The callback() function uses the <a href='../Pageflakes-functions/'>Pageflakes functions</a> to extract the &lt;title&gt; and &lt;description&gt; elements of the XML document.</li>
+<li>The "current_weather" &lt;div&gt; element is retrieved from the HTML markup and filled with retrieved weather content. The id attribute is prepended to ensure the correct &lt;div&gt; element is retrieved.</li>
+<li>The <a href='../fso/'>Flake System Object</a> sets and saves the title for the flake.</li>
+</ol>
+<p>Putting it all together, the weather flake looks like this:<br />
+<code></p>
+<pre>
+&lt;html&gt;
+  &lt;head&gt;
+    
+    &lt;title&gt;Weather Flake&lt;/title&gt;
+
+    &lt;script id='com.Pageflakes.devdocs.weatherflake'
+        type='text/javascript'&gt;
+
+    function com_Pageflakes_devdocs_weatherflake(id)
+    {
+      this.id = id;
+      this.fso = null;
+    }
+
+    com_Pageflakes_devdocs_weatherflake.prototype = {
+      
+      load : function (fso)
+      {
+        this.fso = fso;
+        ContentProxy.GetUrl("http://xml.weather.yahoo.com/forecastrss?p=80301&u=c",
+                            PF.F(this, this._callback));  
+      },
+
+      _callback : function(result)
+      {
+        var xml = PF.getXmlDoc(result);
+  
+        var desc = PF.getFirstNode(xml, "item:description").firstChild.nodeValue;
+        var title = PF.getFirstNode(xml, "title").firstChild.nodeValue;
+    
+        var div = $(this.id + "current_weather");
+        div.innerHTML = desc;
+  
+        if (this.fso.title != title)
+        {
+          this.fso.setTitle(title);
+          this.fso.save();
+        }
+
+        xml = null;
+      }
+    };
+
+    &lt;/script&gt;
+
+    &lt;script id='_PAGEFLAKES_Instance' type="text/javascript"&gt;
+      var _PAGEFLAKES_ = new com_Pageflakes_devdocs_weatherflake('_PAGEFLAKES_');
+    &lt;/script&gt;
+
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div id='_PAGEFLAKES_current_weather'/&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div>
+</div>
+<div id="node-13" class="section-3">
+<h1 class="book-heading">Adding a Settings Tab</h1>
+<p>In the previous example, the flake was hard-coded to show weather from the 80301 zip code. In this example, we'll improve the flake by adding a settings page. In the settings page, users can select a zip code and the flake will display the weather for that zip code.</p>
+<p>First, add a variable to hold the zip code within the com_Pageflakes_devdocs_weatherflake function:<br />
+<code><br />
+var zipcode = null;<br />
+</code></p>
+<p>Next, create a special
+<div> section to contain markup for the settings page:<br />
+<code></p>
+<pre>&lt;body&gt;
+  &lt;div id='_PAGEFLAKES_current_weather'/&gt;
+  &lt;div id='_PAGEFLAKES_edit' class="edit"&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ZIP code&lt;/td&gt;
+        &lt;td&gt;&lt;input id='_PAGEFLAKES_zipcode' type='text'&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;input id="_PAGEFLAKES_saveButton"
+                 onclick="_PAGEFLAKES_.saveOptions();
+                 type="button"
+                 value="Save" /&gt; 
+        &lt;/td&gt; 
+        &lt;td&gt; 
+          &lt;input id="_PAGEFLAKES_cancelButton"
+                 onclick="_PAGEFLAKES_.cancelOptions();"
+                 type="button"
+                 value="Cancel" /&gt; 
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>
+This markup includes a single field where the zip code can be entered, as well as Save and Cancel buttons. Each button's onclick attribute invokes saveOptions() and cancelOptions() respectively (those will be shown shortly). The _PAGEFLAKES_ prefix indicates that those functions belong to the Flake User Object.</p>
+<p>Note:</p>
+<ul>
+<li>This
+<div> element must have the id attribute set to _PAGEFLAKES_edit.</li>
+<li>The class attribute must be set to "edit" to ensure proper formatting.</li>
+<li>The framework toggles between the flake and the flake settings when the user clicks on the "Edit" button.</li>
+</ul>
+<p>Then, script is added to retrieve the zip code from storage and save it in this variable, as well as the settings page:<br />
+<code></p>
+<pre>
+this.loadOptions = function()
+{
+  if (fso.Profiles["zip"])
+    zipcode = fso.Profiles["zip"];
+  else
+    zipcode = "80301";
+
+  var zipelement = $(id + "zipcode");
+  zipelement.value = zipcode;
+};
+</pre><p></code></p>
+<p>The loadOptions() function uses a key-value pair list in the <a href='../fso/'>Flake System Object</a> to retrieve the zip code. This list can be used to store any flake data.</p>
+<p>Note: <code>PF.$(id + "zipcode")</code> is used as a shortcut for <code>document.getElementById(id + "zipcode")</code>. For more details, see <a href='../Pageflakes-functions/'>Pageflakes Functions</a>.</p>
+<p>The last couple of lines, are used to retrieve the <code>&lt;input&gt;</code> element from the settings page, and set the correct zip code in that element. In addition, the zip code is set it in the newly created variable.</p>
+<p>Next, the <code>saveOptions()</code> function is created:<br />
+<code></p>
+</pre><p>this.saveOptions = function()<br />
+{<br />
+  var zipelement = $(id + "zipcode");<br />
+  zipcode = zipelement.value;<br />
+  fso.Profiles["zip"] = zipcode;</p>
+<p>  fso.save();<br />
+  fso.hideEditArea();<br />
+  _self_.getWeather();</p>
+<p>};</p>
+<p>this.getWeather = function()<br />
+{<br />
+  var url = "http://xml.weather.yahoo.com/forecastrss?p=" + zipcode + "&amp;u=c"<br />
+  ContentProxy.GetUrl(url, callback);<br />
+};</p>
+</pre><p></code></p>
+<p>The <code>saveOptions()</code> function does the following:</p>
+<ol>
+<li>Retrieves a reference to the <code>&lt;input&gt;</code> element containing the zip code and extracts its value.</li>
+<li>Stores the zip code in the newly created variable.</li>
+<li>Stores the zip code in a name-value pair list in the <a href='../fso/'>Flake System Object</a>.</li>
+<li>Stores the name-value pair list into permanent store by calling save() on the Flake System Object</li>
+<li>Exits the “edit” mode, such that the user is returned to the normal flake view.</li>
+</ol>
+<p>The <code>getWeather()</code> function is slightly modified to invoke the ContentProxy with a URL that reflects the correct zip code.</p>
+<p>Finally, the <code>cancelOptions()</code> function:</p>
+<ul>
+<li>Toggles back to the flake and hide the settings page using the <code>hideEditArea()</code> function on the Flake System Object</li>
+<li>Reloads the option from permanent store, in order to discard the recent user input.</li>
+</ul>
+<p><code></p>
+<pre>
+this.cancelOptions = function()
+{
+  fso.hideEditArea();
+  _self.loadOptions();
+};
+</pre><p></code></p>
+<div class="codex">
+<h2>Example</h2>
+<p class="codex-description">This example adds user settings to the Weather flake.</p>
+<ul>
+<li><a href='../files/02_Settings.zip'>Download</a></li>
+<li><a href='http://www.Pageflakes.com/AddFlake.aspx?URL=http://developers.Pageflakes.com/files/weather_settings.html' target="_blank">Add To Your Page</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
