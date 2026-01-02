@@ -1,0 +1,108 @@
+body { margin: 0;font: 8pt Tahoma, Arial, Helvetica;height: auto;width: 100%; }
+.startPageContainer {background: #FFFFFF url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/background.jpg) repeat-x; margin: 0px;}
+.startOpUnCheck { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/checkbox_plain.gif) no-repeat;width:20px;height:20px;float:left; }
+.startOpCheck { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/checked.gif) no-repeat;width:20px;height:20px;float:left; }
+.startOpUnCheck:hover { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/hover.gif) no-repeat;cursor:hand;cursor:pointer; }
+.startWizTopRow { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/startOptionTop.gif) repeat-x;height:18px; }
+.startWizBtmRow { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/startOptionBtm.gif) repeat-x;height:18px; }
+.startOpHead2 {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt; font-weight: bold;text-align:left;vertical-align:top; }
+.startOpHead1 {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 18pt; font-weight: bold;text-align:left;margin-top: -5px;padding-left:3px; }
+.startOpHeadO {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;text-align:left;padding-bottom:10px;margin-top: -5px;padding-left:3px; }
+
+#StartWizard_Location_Match_Select_Location {width:168px;height:41px;margin-top:5px; background:url(/web/20080218034948im_/http://www.pageflakes.com/App_Themes/common/start/select_location_r.gif);position:absolute; display:none;}
+#StartPage_GeolocationBox {  width: 250px;font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt; }
+#StartWizard_MultipleMatch { line-height: 150%; font-size: 10pt; text-align:center; padding-top: 20px; height: 80px;} 
+#StartPage_GeolocationIndicator { position:absolute;margin-top:4px; }
+#StartPage_GeoIndicator {z-index:100;display:inline;width:16px;position:relative;left:-25px;}
+.downloadInProgress{width:99%;text-align:center;vertical-align:middle;background: url(/web/20080218034948im_/http://www.pageflakes.com/App_Themes/common/inprogress.gif) no-repeat top center;background-position:center;}
+.nodisplay { display:none; }
+.startHeader { padding:18px 18px 0 0; }
+.startPgSignin {font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt; font-weight: bold; float: right;margin-top: -5px;}
+.startPgSignin a { color:#0000C0;text-decoration:underline; }
+.startPgSignin a:hover { color:#FF0000; }
+.startPgSigninW {font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 10pt; float: right;margin-top: -4px;}
+.startPgSigninW a { color:#0000C0;text-decoration:underline; }
+.startPgSigninW a:hover { color:#FF0000; }
+.startHeadline {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 24pt; font-weight: bold; text-align: center; padding-top: 28px; padding-bottom: 30px}
+.startCaption {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 16pt; font-weight: bold;padding-left: 75px;white-space:nowrap; }
+.startCaption2 {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;padding-left: 75px;white-space:nowrap; }
+.startCaptionW {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;padding-left: 40px; }
+.startOpContainer { width:390px;background-color:#ffffdd; }
+.startInterests {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt;padding-left: 5px; }
+.showmypage {  height: 40px; width: 190px; font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;margin-top:16px;background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButtonUP.gif) no-repeat;position:relative;float:left;left:50%; }
+.showmypageOver {  height: 40px; width: 190px; font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;margin-top:16px;background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButtonDN.gif) no-repeat;cursor:hand;cursor:pointer;position:relative;float:left;left:50%; }
+.showmypageOut {  height: 40px; width: 190px; font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;margin-top:16px;background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButtonUP.gif) no-repeat;cursor:hand;cursor:pointer; }
+.showmypageB {  height: 40px; width: 190px; font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;margin-top:16px;padding-top:7px;background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButton_blank_UP.gif) no-repeat;cursor:hand;cursor:pointer }
+.showmypageB a  {text-decoration:none;color:Black;}
+.showmypageB a:visited {text-decoration:none;color:Black;}
+.showmypage:hover {  background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButtonDN.gif) no-repeat;cursor:hand;cursor:pointer; }
+.showmypageG { height: 40px; width: 190px; font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;margin-top:16px;background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButton_german_UP.gif) no-repeat;position:relative;float:left;left:50%; }
+.showmypageOverG { height: 40px; width: 190px; font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 14pt; font-weight: bold;margin-top:16px;background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButton_german_DN.gif) no-repeat;cursor:hand;cursor:pointer;position:relative;float:left;left:50%; }
+.showmypageG:hover {  background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/StartPgButton_german_DN.gif) no-repeat;cursor:hand;cursor:pointer; }
+.startQuotes {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt; color: #333333; }
+.startTerms {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 8pt; color: #333333;text-align:center;padding-top:25px; }
+.startFooter {  background-image: url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/gradient.jpg); background-repeat: repeat-x;font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 10pt; line-height: 150%; text-align: center;vertical-align:bottom;padding-bottom:20px; }
+.startFooter a { color:#0000C0;text-decoration:underline; }
+.startFooter a:hover { color:#FF0000; }
+.startText {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt; }
+.startTourText {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 12pt; }
+.startTourTitle {  font-family: "Trebuchet MS", tahoma, verdana, arial; font-size: 16pt; font-weight: bold; color:#000000;padding-bottom:20px; }
+.startText a { color:#0000C0;text-decoration:underline; }
+.startText a:hover { color:#FF0000; }
+
+.startTry { padding:14px;width:200px;text-align:center; }
+.startTourPnlContainer { border-top:#cccccc 1px solid; }
+.startTourPnlContainer td { padding:12px; }
+.startList { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/tourBullet.gif) no-repeat 3px 8px; padding:0 0 10px 25px; margin-left:10px; }
+.startList span { font-size:13pt;font-weight: bold;}
+.tryLink { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/TryItNowUp.gif) no-repeat;width:190px;height:40px;cursor:hand;cursor:pointer; }
+.tryLinkOver { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/TryItNowDown.gif) no-repeat;width:190px;height:40px;cursor:hand;cursor:pointer; }
+.tryLink:hover { background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/TryItNowDown.gif) no-repeat;cursor:hand;cursor:pointer; }
+.btnLeftDiv {background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/blankBtnLeft.gif) no-repeat scroll 0%;cursor:pointer;float:left;height:40px;}
+.btnRightDiv {background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/blankBtnRight.gif) no-repeat scroll right center;height:40px;float:left;}
+.btnTextSpan {background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/blankBtnBg.gif) repeat-x scroll center top;color:#000000;font-family: "Trebuchet MS", tahoma, verdana, arial;font-size:12pt;font-weight:bold;height:40px;margin:0px 18px;padding:8px 0pt 12px;position:relative;text-decoration:none;float:left;top:1px;}
+html>body .btnRightDiv .btnTextSpan{ top:0px; }
+.errorText {font-size:8pt;}
+/* new invited signup CSS */
+.leftShade {width:15px;background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/shadowLeft.gif) repeat-y;}
+.rightShade {width:15px;background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/shadowRight.gif) repeat-y;}
+.bodyContentTd {background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/bodyBackground.png) repeat-x;padding:0 12px 35px 18px;}
+.topPanelLogo {background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/topPanelBackground.png) no-repeat;padding:6px 20px;height:79px;}
+.recognizer {font-size:10pt;color:#000044;padding-left:10px;font-weight:bold;}
+.footerLinkPanel {font-size:8pt;padding:5px 50px 10px;}
+.footerLinkPanel a {color:#333399;text-decoration:none;font-weight:bold;}
+.topLoginPanel {text-align:right;height:23px;color:#252e5e;font-size:9pt;vertical-align:middle;padding:5px 12px 0;font-weight:bold}
+.topLoginPanel a {color:#252e5e;text-decoration:underline;}
+.pageFooter {background-color:#F8F8F8;}
+.inviteCaption {  font-size: 18pt; padding-bottom:25px;white-space:nowrap;color:#252E5E; }
+.inviteText {  font-size: 9pt; color:#252E5E;font-weight:bold;line-height:150%; }
+.inviteCaption2 {  font-size: 12pt; color:#252E5E;font-weight:bold;line-height:150%; }
+.infoTable td {font-size: 9pt; color:#252E5E;padding:6px 3px;}
+.infoTitle {width: 120px; text-align: right;}
+.pfTopLogo {background-image:none;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src="StaticStartPages/images/pfLogo.png", sizingMethod="scale");width:256px;height:61px;}
+html>body .pfTopLogo {background:url(/web/20080218034948im_/http://www.pageflakes.com/StaticStartPages/images/pfLogo.png) no-repeat;filter:none;}
+/* interest option panel CSS */
+.welcome_back_check {background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/App_Themes/common/welcome_back_check.png) no-repeat 0% 0%;height:82px;padding:13px 4px;width:70px;cursor:pointer;-moz-user-select: none; -khtml-user-select: none; user-select: none;}
+.welcome_back_check div,.welcome_back_uncheck  div {text-align:center;font-weight: bold;}
+.welcome_back_check img,.welcome_back_uncheck  img {margin-top: 4px;}
+.welcome_back_uncheck {background:transparent url(/web/20080218034948im_/http://www.pageflakes.com/App_Themes/common/welcome_back_check.png) no-repeat -80px 0%;height:82px;padding:13px 4px;width:70px;cursor:pointer;-moz-user-select: none; -khtml-user-select: none; user-select: none;}
+/*
+     FILE ARCHIVED ON 03:49:48 Feb 18, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:16:42 Dec 11, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.47
+  exclusion.robots: 0.017
+  exclusion.robots.policy: 0.008
+  esindex: 0.009
+  cdx.remote: 6.454
+  LoadShardBlock: 133.186 (3)
+  PetaboxLoader3.datanode: 191.188 (4)
+  load_resource: 174.911
+  PetaboxLoader3.resolve: 50.969
+*/
