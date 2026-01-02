@@ -1,0 +1,264 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Community/Community.master" AutoEventWireup="true" CodeFile="Flakes.aspx.cs" Inherits="Community_Content_Flakes" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" Runat="Server">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="ContentControl">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td valign="top"">
+                <div class="left_column">
+                    <script type="text/javascript">
+                        function reloadPage(elementid, homeurl) {
+                            var element = $get(elementid);
+                            var url = '';
+                            var sortByParam = "sort=" + element.value;
+                            if (homeurl.indexOf('?') > 0) {
+                                url = homeurl + '&' + sortByParam;
+                            }
+                            else {
+                                url = homeurl + '&' + sortByParam;
+                            }
+                            document.location.href = url;
+                        }
+                    </script>
+                    <ul id="MainHolder_flakeControl_leftMainControl_tabControl_list" class="tabs cp" runat="server">
+                        <asp:Panel ID="MainHolder_flakeControl_leftMainControl_tabControl_contentPanel" runat="server">                                                
+                            <li id="MainHolder_flakeControl_leftMainControl_tabControl_communityHome" class="active" runat="server">
+                                <a id="MainHolder_flakeControl_leftMainControl_tabControl_lnkCommunityHome" href="http://169.235.1.2/Pageflakes/Community/" runat="server">Community</a>
+                            </li>
+                            <li id="MainHolder_flakeControl_leftMainControl_tabControl_flakes" class="currentPage">
+                                <a id="MainHolder_flakeControl_leftMainControl_tabControl_lnkModules" href="http://169.235.1.2/Pageflakes/Community/Content/Flakes.aspx">Flakes <span class="moduleCount">(236K)</span></a>
+                            </li>
+                            <li id="MainHolder_flakeControl_leftMainControl_tabControl_pagecasts">
+                                <a id="MainHolder_flakeControl_leftMainControl_tabControl_lnkPublicPage" href="http://169.235.1.2/Pageflakes/Community/Pages/Page.aspx">Pagecasts <span class="moduleCount">(149K)</span></a>
+                            </li>
+                            <li id="MainHolder_flakeControl_leftMainControl_tabControl_userprofile">
+                                <a id="MainHolder_flakeControl_leftMainControl_tabControl_lnkPeople" href="http://169.235.1.2/Community/ProfileDirectory.aspx">People</a>
+                            </li>      
+                        </asp:Panel>                        
+                    </ul>
+                    <div class="tabs_select">
+                        <asp:UpdateProgress ID="MainHolder_flakeControl_leftMainControl_tabControl_UpdateProgress1" runat="server">                            
+                            <ProgressTemplate>
+                                <img src="../images/indicator.gif" alt="loading..." />
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
+                        <span id="MainHolder_flakeControl_leftMainControl_tabControl_lblSortTitle" runat="server">Sort by:</span>
+                        &nbsp;
+                        <select name="$MainHolder$flakeControl$leftMainControl$tabControl$drpSortBy" id="MainHolder_flakeControl_leftMainControl_tabControl_drpSortBy" onchange="javascript:reloadPage('MainHolder_flakeControl_leftMainControl_tabControl_drpSortBy','http://localhost/Pageflakes/community/Content/flakes.aspx')" runat="server">
+                            <option selected="selected" value="0">Popularité </option>
+                            <option value="1">Rating</option>
+                            <option value="4">Date de publication</option>
+                        </select>
+                    </div>
+                    <div class="uf">
+                        &nbsp;
+                    </div>
+                    <asp:Panel ID="MainHolder_flakeControl_leftMainControl_pnlMain" runat="server">
+                    
+                        <script type="text/javascript">
+                            var ua = navigator.userAgent.toLowerCase();
+                            function resetImageTop(frameHeight, frameWidth, img) {
+                                if (ua.indexOf("msie") != -1) {
+                                    setTimeout(function () {
+                                        resetImageTop2(frameHeight, frameWidth, img);
+                                    }, 80);
+                                }
+                                else {
+                                    resetImageTop2(frameHeight, frameWidth, img);
+                                }
+                            }
+                            function resetImageTop2(frameHeight, frameWidth, img) {
+                                // Image height should not be 0. But IE6 sometimes return that when images 
+                                // get loaded from cache
+                                if (img.height != 0) {
+                                    if (img.height < frameHeight) {
+                                        var topPadding = (frameHeight - img.height) / 2;
+                                        img.style.marginTop = topPadding + "px";
+                                    }
+                                }
+
+                                var leftPadding = 0;
+                                if (img.width != 0) {
+                                    if (img.width < frameWidth) {
+                                        leftPadding = (frameWidth - img.width) / 2;
+                                        img.style.marginLeft = leftPadding + "px";
+                                    }
+                                }
+
+                                // UI hack for IE
+                                if (navigator.appVersion.indexOf("MSIE") != -1)
+                                    img.style.marginLeft = leftPadding + 7 + "px";
+                            }
+                        </script>                                                
+                        <div id="MainHolder_flakeControl_leftMainControl_itemList_pnlMain" runat="server">
+                            <asp:UpdatePanel ID="MainHolder_flakeControl_leftMainControl_itemList_UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <div class="row">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td align="left" valign="top" style="padding-left:15px;">
+                                                    <div class="galleryThumb">
+                                                    </div>
+                                                </td>
+                                                <td valign="top">
+                                                    <div class="row_content">
+                                                        <div class="row_content rowheader">
+                                                            <table cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td style="width:300px;">
+                                                                        <div class="rowheader_left">
+                                                                            <h4><a id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_lnkTitle" title="Click to preview E-mail" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?moduleKey=769" runat="server">E-mail</a></h4>
+                                                                            <div class="developerInfoWrapperSmall">
+                                                                                <span id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_developerInfo_lblTitle">Developed by</span>
+                                                                                <a id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_developerInfo_lnkText" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?developer=Pageflakes" runat="server">
+                                                                                    <font color="#7375B1">Pageflakes</font>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_panelDescription" runat="server">
+                                                                                <p>
+                                                                                    <label id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_lblDescription">
+                                                                                        Read and Write E-mail using POP3
+                                                                                    </label>
+                                                                                    <br />
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style="vertical-align:top;">
+                                                                        <div class="rowheader_right">                                                                            
+                                                                            <asp:Panel ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_panelAddButton" runat="server" style="float:right;">
+                                                                                <a id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_lnkAddToPage" onclick="javascript:addFlakeContent('MainHolder_flakeControl_leftMainControl_itemList_lstModules_panelAddButton' , '/AddFlake.aspx?URL=__MAIL__&amp;TITLE=E-mail&amp;moduleKey=769&amp;NoRedirect=1' , 'http://www.Pageflakes.com/' ); " href="javascript:void(0);">
+                                                                                    <img src="http://169.235.1.2/Pageflakes/Community/Images/pf_button.gif" border="0" alt="add to page" />
+                                                                                </a>
+                                                                            </asp:Panel>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div class="row_content row_footer">
+                                                            <div class="tags">
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_tags_lstTags_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=communication">communication</a>    
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_tags_lstTags_ctl01_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=tools">tools</a>    
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl02_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=productivity">productivity</a>    
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl03_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=e-mail">e-mail</a>    
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl04_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=email">email</a>    
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl05_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=mail">mail</a>    
+                                                                <a runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl06_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?tag=Popular">Popular</a>     
+                                                            </div>
+                                                            <asp:Panel ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_panelLinkItem" runat="server">
+                                                            </asp:Panel>
+                                                            <ul runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_staticRating_ratingUL" class="staticRating" title="Click to rate" onclick="document.location.href='http://www.Pageflakes.com/Community/Content/Flakes.aspx?moduleKey=769'">
+                                                                <li runat="server" id="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl00_item" class="current">
+                                                                    <asp:Label ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_staticRating_lstRating_ctl00_lblRater" runat="server">1</asp:Label>                                                                    
+                                                                </li>      
+                                                                <li id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl01_item" class="current">
+                                                                    <asp:Label ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_staticRating_lstRating_ctl01_lblRater" runat="server">2</asp:Label>
+                                                                </li>    
+                                                                <li id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl02_item" class="current">
+                                                                    <asp:Label ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl02_lblRater" runat="server">3</asp:Label></li>    
+                                                                <li id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl03_item" class="current">
+                                                                    <asp:Label ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl03_lblRater" runat="server">4</asp:Label></li>    
+                                                                <li id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl04_item" class="current">
+                                                                    <asp:Label ID="MainHolder_flakeControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl04_lblRater" runat="server">5</asp:Label></li> 
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="evenrow">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td align="left" valign="top" style="padding-left:15px;">
+                                                    Same as top 
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                            <div class="nav">
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl00_lnkPage" class="active" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=1&amp;Sort=0">1</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl01_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=2&amp;Sort=0">2</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl02_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=3&amp;Sort=0">3</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl03_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=4&amp;Sort=0">4</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl04_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=5&amp;Sort=0">5</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl05_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=6&amp;Sort=0">6</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl06_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=7&amp;Sort=0">7</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl07_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=8&amp;Sort=0">8</a>                    
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lstPage_ctl08_lnkPage" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=9&amp;Sort=0">9</a>            
+                                <a id="ctl00_MainHolder_flakeControl_leftMainControl_itemList_pageControl_lnkNext" href="http://www.Pageflakes.com/Community/Content/Flakes.aspx?Page=2&amp;Sort=0"><font color="#7072AD">NEXT</font></a> 
+                            </div>
+                        </div>                                            
+                    </asp:Panel>
+                </div>
+            </td>
+            <td valign="top" align="left">
+                <div class="right_column">
+                    <asp:Panel ID="MainHolder_flakeControl_rightControl_searchPanel" runat="server">
+                        <script type="text/javascript" id="searchScript">
+                            window.document.onkeydown = ignoreEnter;
+
+                            function ignoreEnter(e) {
+                                //if(!e) e = window.event;
+                                e = $fix(e);
+
+                                var ctr = document.getElementById('MainHolder_flakeControl_rightControl_searchControl_txtSearch');
+                                if (e.keyCode == 13) {
+                                    //alert(e.target.id);
+                                    //alert(ctr.id);
+                                    if (e.target == ctr) {
+                                        return false;
+                                    }
+                                }
+
+                                return true;
+                            }
+
+                            function submitSearch(e) {
+                                if (!e) e = window.event;
+
+                                if (e.which || e.keyCode) {
+                                    if ((e.which == 13) || (e.keyCode == 13)) {
+                                        var ctr = document.getElementById('MainHolder_flakeControl_rightControl_searchControl_btnSearch');    //('ctl00_MainHolder_flakeControl_rightControl_searchControl_buttonSearch');    
+                                        var textbox = document.getElementById('MainHolder_flakeControl_rightControl_searchControl_txtSearch');
+                                        // if the textbox is blank then dont do the post back.    
+                                        if (typeof ctr != 'undefined' && textbox.value != '') {
+                                            ctr.click();
+                                            return false;
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                        <h3>Search</h3>
+                        <div class="search_box">
+                            <span style="vertical-align:middle">
+                                <input runat="server" name="$MainHolder$flakeControl$rightControl$searchControl$txtSearch" type="text" id="MainHolder_flakeControl_rightControl_searchControl_txtSearch" class="search_field" onkeydown="submitSearch(event)" />
+                                <input runat="server" name="$MainHolder$flakeControl$rightControl$searchControl$btnSearch" type="submit" id="MainHolder_flakeControl_rightControl_searchControl_btnSearch" class="search_button" value="Search" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;$MainHolder$flakeControl$rightControl$searchControl$btnSearch&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" />
+                            </span>
+                        </div>
+                        <asp:Panel ID="MainHolder_flakeControl_rightControl_searchControl_criteriaPanel" CssClass="search_criteria" runat="server">                            
+                            <h3><asp:Label ID="MainHolder_flakeControl_rightControl_searchControl_headerText" runat="server">Filter By Flake Type</asp:Label></h3>
+                            <span runat="server" id="MainHolder_flakeControl_rightControl_searchControl_checkBoxList">
+                                <input runat="server" id="MainHolder_flakeControl_rightControl_searchControl_checkBoxList_0" type="checkbox" name="$MainHolder$flakeControl$rightControl$searchControl$checkBoxList$0" checked="checked" />
+                                <label for="MainHolder_flakeControl_rightControl_searchControl_checkBoxList_0">Appications & Tools</label>
+                            </span>
+
+                        </asp:Panel>
+                    </asp:Panel>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</asp:Content>
+

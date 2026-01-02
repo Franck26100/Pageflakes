@@ -1,0 +1,20 @@
+﻿﻿ .borderTable{border-color:#DDD;border-style:solid;border-width:thin;width:125px;height:140px;margin-left:0;margin-right:28px;margin-bottom:28px;}
+.borderTable-end{border-color:#DDD;border-style:solid;border-width:thin;width:125px;height:140px;margin-left:0;margin-right:0;margin-bottom:28px;}
+.borderTable-featured{border-color:#ECECEC;border-style:solid;border-width:thin;width:96px;height:110px;margin:5px;}
+.borderTable-filterBox{border-color:#ccc;border-style:solid;border-width:1px;width:100%;}
+.profileCell{vertical-align:middle;}
+.nameCell{text-align:center;padding-bottom:2px;font-family:Tahoma;font-size:8pt;font-weight:bold;color:#000080;}
+.nameLink{font-size:8pt;font-weight:bold;color:#000080;}
+.profileHeaderLabel{margin:5px;}
+.profileGeneralDescriptionLabel{background:#ECECEC;width:100%;font-weight:bold;height:15px;padding-left:0;vertical-align:middle;padding-bottom:3px;padding-top:5px;margin-bottom:10px;border:1px solid #ECECEC;}
+.profileFeatureGrid{border:1px solid #DDD;background:#ECECEC;width:100%;font-weight:bold;vertical-align:middle;}
+.profileFeatureLabel{vertical-align:middle;height:10px;padding-left:5px;margin:5px;}
+.profileInterestPanel{height:auto;}
+.PFUserProfileSubsection{padding-top:3px;height:auto;vertical-align:top;}
+.PFUserProfileSubsection2{padding-top:5px;height:auto;vertical-align:top;}
+.thumbnailText a{color:navy;font-size:7pt;font-weight:bold;}
+.thumbnailText a:visited{color:navy;font-size:7pt;font-weight:bold;}
+.profileImageBorder{padding:2px;border:1px solid #ccc;}
+.profileCheck{border-width:0;}
+.profileCheck td.text{padding-right:5px;}
+.profileCheck input{margin-right:5px;}

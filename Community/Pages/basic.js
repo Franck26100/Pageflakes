@@ -1,0 +1,3 @@
+﻿function getElement(A) { var B = A.id; if (B.indexOf("_") > 0) { B = B.split("_")[1] } document.location.href = "Content.aspx?Tab=" + B }
+function switchTab(A) { var B = document.getElementById("current"); if (B != null) { B.className = "last"; B.id = "" } A.id = "current"; A.className = "active" } 
+function scrollToElement(B) { var A = document.getElementById(B); if (A != null) { if ($isVisible(B)) { var C = PU.getPosition(A); window.scrollTo(0, C[1]); A.focus(0) } } };

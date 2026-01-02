@@ -1,0 +1,234 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Community.master.cs" Inherits="Community_Community" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Pageflakes Community</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" href="profile.css" type="text/css" />
+    <link rel="Stylesheet" href="CommunityStyleSheetHandler.axd.css" type="text/css" media="screen" />
+    <base href="http://soulsociety.servehttp.com/Pageflakes/community/" />
+    <!--<script type="text/javascript" src="../Utility.js"></script>
+    <script type='text/javascript' src= "basic.js"></script>
+    <script type="text/javascript" src="rater.js"></script>-->
+    <script type="text/javascript">
+        if (SITE_PREFIX != "undefined") {
+            var SITE_PREFIX = "http://soulsociety.servehttp.com/PageFlakes/";
+        }        
+    </script>
+    <script type="text/javascript">
+        var SITE_PREFIX = 'http://soulsociety.servehttp.com/Pageflakes/';
+        var DefaultMaster = { 
+            goBackToMyPage: function (label) {
+                $trackEventNoTimeOut("Back To My Page Button", "Click", label); 
+                window.location.href = SITE_PREFIX;
+            } 
+        }
+    </script>
+    <script type="text/javascript">
+        function sstchur_SmartScroller_GetCoords() {
+            var scrollX, scrollY;
+            if (document.all) {
+                if (!document.documentElement.scrollLeft)
+                    scrollX = document.body.scrollLeft;
+                else
+                    scrollX = document.documentElement.scrollLeft;
+                if (!document.documentElement.scrollTop)
+                    scrollY = document.body.scrollTop;
+                else
+                    scrollY = document.documentElement.scrollTop;
+            }
+            else {
+                scrollX = window.pageXOffset;
+                scrollY = window.pageYOffset;
+            }
+            document.forms[0].xCoordHolder.value = scrollX;
+            document.forms[0].yCoordHolder.value = scrollY;
+        }
+        function sschur_SmartScroller_Scroll() {
+            var x = document.forms[0].xCoordHolder.value;
+            var y = document.forms[0].yCoordHolder.value;
+            window.scrollTo(x, y);
+        }
+        window.onload = sschur_SmartScroller_Scroll;
+        window.onscroll = sstchur_SmartScroller_GetCoords;
+        window.onkeypress = sstchur_SmartScroller_GetCoords;
+        window.onclick = sstchur_SmartScroller_GetCoords;
+    </script>
+    <script type="text/javascript" id="SessionTracker" src="../SessionTracker.js?v=217en"></script>
+</head>
+<body>
+    
+    <form id="form1" runat="server">            
+        <div class="header_wrapper">
+            <div class="header_wrapper_inside">
+                <div class="header">
+                    <table style="width:100%">
+                        <tbody>
+                            <tr>
+                                <td style="width:50%;" align="left">
+                                    <a class="logo2" title="Pageflakes" href="http://soulsociety.servehttp.com/Pageflakes/">
+                                    </a>
+                                </td>
+                                <td style="width:50%;" align="left">                                                                        
+                                    <a runat="server" id="BackToMyStartPageLink" class="backToMyPage" title="Back To my startpage" href="http://soulsociety.servehttp.com/Pageflakes/?track=community-default">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:100%" colspan="2" align="right">
+                                    <ul runat="server" id="list" class="navbar2"> 
+                                        <li id="default" class="active" runat="server">
+                                            <a runat="server" id="lnkCentral" href="http://169.235.1.2/Pageflakes/Community/?track=commheader">
+                                                Community Central
+                                            </a>
+                                        </li>
+                                        <li id="flakes" runat="server">
+                                            <a runat="server" id="lnkCommunity" href="http://169.235.1.2/Pageflakes/Community/Content/Flakes.aspx?track=commheader">
+                                                Flakes
+                                            </a>
+                                        </li>
+                                        <li id="pages" runat="server">
+                                            <a runat="server" id="lnkPagecasts" href="http://169.235.1.2/Pageflakes/Community/Pages/?track=commheader">
+                                                PageCasts
+                                            </a>
+                                        </li>
+                                        <li id="profileDirectory" runat="server">
+                                            &nbsp;
+                                            <a runat="server" id="lnkPeople" href="http://169.235.1.2/Pageflakes/Community/ProfileDirectory.aspx?track=commheader">
+                                                People
+                                            </a>                                            
+                                        </li>
+                                        <li id="faq" runat="server">
+                                            <a runat="server" id="lnkFaq" href="http://169.235.1.2/Pageflakes/?track=commheader">
+                                                Help
+                                            </a>
+                                        </li>
+                                        <li style="border-right:medium none" id="blog" runat="server">
+                                            <a runat="server" id="lnkBlog" href="http://blog.Pageflakes.com/?track=commheader">
+                                                Blog
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+       
+        <!--div class="header_extraborder_c">
+		<!--<div class="back_sp_wrapper">
+	        
+		</div>
+	    </div-->
+        <div class="content_wrapper">
+            <div class="content"> 
+                <input id="xCoordHolder" value="0" type="hidden" name="xCoordHolder"/> 
+                <input id="yCoordHolder" value="0" type="hidden" name="yCoordHolder"/>                                       
+                <asp:ContentPlaceHolder id="MainHolder" runat="server">
+                        
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        
+        <div id="pushItem" class="push">
+        </div>
+        <div id="footer_wrapper">
+            <div id="footer">
+                <style type='text/css'>
+                    .footer_wrapper {
+	                    TEXT-ALIGN: center; PADDING-BOTTOM: 24px; MARGIN: 6px 0px 0px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; FONT: 10px/12px Verdana, Arial, Helvetica, sans-serif; CLEAR: both; PADDING-TOP: 24px
+                    }
+                    .footer_block {
+	                    WIDTH: auto; FLOAT: none
+                    }
+                    UL.footer_block {
+	                    PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px auto; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+                    }
+                    UL.footer_block LI {
+	                    DISPLAY: inline
+                    }
+                    UL.footer_block A {
+	                    PADDING-BOTTOM: 0px; PADDING-LEFT: 0.5em; PADDING-RIGHT: 0.5em; PADDING-TOP: 0px
+                    }
+                </style>
+                <div class="footer_wrapper">
+                    <ul class="footer_block">
+                        <li>
+                            <a href="/Community/Pages/Page.aspx">Pagecasts</a>
+                            |
+                        </li>
+                        <li>
+                            <a href="/Community/Content/Flakes.aspx">Flakes</a>
+                            |
+                        </li>
+                        <li>
+                            <a href="/Community/ProfileDirectory.aspx">People</a>
+                            |
+                        </li>
+                        <!--<li><a href="http://forums.Pageflakes.com/">Help & Support</a> |</li>-->
+                        <li>
+                            <a href="http://compagny.pagleflakes.com/tos">Terms</a>
+                            |
+                        </li>
+                        <li>
+                            <a href="http://compagny.Pageflakes.com/privacy">Privacy</a>
+                            |
+                        </li>
+                        <li>
+                            <a href="http://compagny.Pageflakes.com/aboutus">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pushdown">
+                    <input style="display:none" id="txtFooter" type="text" />
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+
+<script type="text/javascript">
+    $get('pushItem').style.height = document.body.clientHeight < 600 ? "250px" : "70px";
+</script>
+
+<script id="Script1" type="text/javascript">
+    function domReady() { window.DOMReady = true; }
+
+    if (Browser.isFirefox) {
+        document.addEventListener("DOMContentLoaded", domReady, false);
+    }
+    else if (Browser.isIE) {
+        document.write('<' + 'script type="text/javascript" id="contentloadtag" defer="defer" src="javascript:void(0)"><\/script>');
+        var contentloadtag = document.getElementById("contentloadtag");
+        contentloadtag.onreadystatechange = function () {
+            if (this.readyState == "complete")
+                domReady();
+        }
+    }
+    else {
+        domReady();
+    }
+</script>
+    </form>
+    
+</body>
+</html>
+
+
+
+
+
+
+

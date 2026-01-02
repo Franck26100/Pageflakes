@@ -1,0 +1,208 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Community/Community.master" AutoEventWireup="true" CodeFile="Page.aspx.cs" Inherits="Community_Pages_Page" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" Runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+<ul runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_list" class="tabs cp">
+    <asp:Panel ID="MainHolder_pageControl_leftMainControl_tabControl_contentPanel" runat="server">    
+    <li runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_communityHome" class="active">
+        <a runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_lnkCommunityHome" href="http://169.235.1.2/Pageflakes/Community/">Community</a>
+    </li>
+    <li runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_flakes">
+            <a runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_lnkModules" href="http://169.235.1.2/Pageflakes/Community/Content/Flakes.aspx">Flakes <span class="moduleCount">(236K)</span></a>
+    </li>
+    <li runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_pagecasts" class="currentPage">
+        <a runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_lnkPublicPage" href="http://169.235.1.2/Pageflakes/Community/Pages/Page.aspx">Pagecasts <span class="moduleCount">(155K)</span></a>
+    </li>
+    <li runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_userprofile">
+        <a runat="server" id="MainHolder_pageControl_leftMainControl_tabControl_lnkPeople" href="http://169.235.1.2/Pageflakes/Community/ProfileDirectory.aspx">People</a>
+    </li>
+    </asp:Panel>
+</ul>
+<div class="tabs_select">
+    <asp:UpdateProgress ID="MainHolder_pageControl_leftMainControl_tabControl_UpdateProgress1" runat="server">
+        <ProgressTemplate>
+            <img src="../images/indicator.gif" alt="loading..." />
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+    <asp:Label ID="MainHolder_pageControl_leftMainControl_tabControl_lblSortTitle" runat="server">SortBy</asp:Label>
+    &nbsp;
+    <select name="$MainHolder$pageControl$leftMainControl$tabControl$drpSortBy" id="MainHolder_pageControl_leftMainControl_tabControl_drpSortBy" runat="server" onchange="javascript:reloadPage('MainHolder_pageControl_leftMainControl_tabControl_drpSortBy','http://www.Pageflakes.com/Community/Pages/Page.aspx')">
+        <option selected="selected" value="0">Popularité</option>
+        <option value="1">Rating</option>
+        <option value="4">Date de Publication</option>
+    </select>
+</div>
+<div class="uf">
+&nbsp;
+</div>
+<asp:Panel ID="MainHolder_pageControl_leftMainControl_pnlMain" runat="server">
+    <script type="text/javascript">
+        var ua = navigator.userAgent.toLowerCase();
+        function resetImageTop(frameHeight, frameWidth, img) {
+            if (ua.indexOf("msie") != -1) {
+                setTimeout(function () {
+                    resetImageTop2(frameHeight, frameWidth, img);
+                }, 80);
+            }
+            else {
+                resetImageTop2(frameHeight, frameWidth, img);
+            }
+        }
+
+        function resetImageTop2(frameHeight, frameWidth, img) {
+            // Image height should not be 0. But IE6 sometimes return that when images 
+            // get loaded from cache
+            if (img.height != 0) {
+                if (img.height < frameHeight) {
+                    var topPadding = (frameHeight - img.height) / 2;
+                    img.style.marginTop = topPadding + "px";
+                }
+            }
+
+            var leftPadding = 0;
+            if (img.width != 0) {
+                if (img.width < frameWidth) {
+                    leftPadding = (frameWidth - img.width) / 2;
+                    img.style.marginLeft = leftPadding + "px";
+                }
+            }
+
+            // UI hack for IE
+            if (navigator.appVersion.indexOf("MSIE") != -1)
+                img.style.marginLeft = leftPadding + 7 + "px";
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        function addFlakeContent(elementId, addFlakeURL, homeURL) {
+            var pnlAdd = $get(elementId);
+
+            pnlAdd.className = "flakeAddedPreviewText";
+            pnlAdd.innerHTML = '<em>Adding flake...<br />Please wait...</em>';
+
+            // Create the WebRequest object.
+            var wRequest = new Sys.Net.WebRequest();
+
+            // Set the request Url.  
+            wRequest.set_url(addFlakeURL);
+            // Set the request verb.
+            wRequest.set_httpVerb("GET");
+            // Set the Completed event handler, 
+            // for processing return data
+            wRequest.add_completed(function (sender, eventArgs) {
+                pnlAdd.innerHTML = 'Flake added. Continue or <a style="color:Navy" href="' + homeURL + '" ><br/>Go to your page</a>';
+            });
+            // Make the request.
+            wRequest.invoke();
+        }
+        function positionImage(elementId) {
+            var element = $get(elementId);
+
+            var width = element.offsetWidth;
+            var height = element.offsetHeight;
+
+            // failsafe check for image boundary
+            if (width > 80) {
+                element.height = height = (height / width) * 80;
+                element.width = width = 80;
+            }
+
+            var left = (80 - width) / 2;
+            var top = (80 - height) / 2;
+
+            element.style.top = top + "px";
+            element.style.left = left + "px";
+        }
+    </script>
+    <asp:UpdatePanel ID="MainHolder_pageControl_leftMainControl_itemList_UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <div class="row">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                        <td align="left" valign="top" style="padding-left:15px;">
+                            <div class="galleryThumb">
+                                <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_lnkImageMain" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?moduleKey=348991">
+                                    <img runat="server" alt="" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_imgMain" title="Click to preview Go Green" class="thumbImage" src="" align="middle" style="border-width:0px;" />
+                                    <input type="hidden" name="$MainHolder$pageControl$leftMainControl$itemList$lstModules$ctl00$imgHidden" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_imgHidden" value="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=27495&amp;width=80&amp;height=80&amp;crop=0&amp;anchor=0" />
+                                </a>
+                            </div>
+                        </td>
+                        <td valign="top">
+                            <div class="row_content">
+                                <div class="row_content rowheader">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td style="width:300px;">
+                                                <div class="rowheader_left">
+                                                    <h4>
+                                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_lnkTitle" title="Click to preview Go Green" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?moduleKey=348991">Go Green</a>
+                                                    </h4>
+                                                    <div class="developerInfoWrapperSmall">
+                                                        <asp:Label ID="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_developerInfo_lblTitle" Text="Click To preview Go Green" runat="server">Create By</asp:Label>
+                                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_developerInfo_lnkText" href="http://169.235.1.2/Pageflakes/Community/Profile.aspx?profile=green" style="color:#7375B1;">green</a>
+                                                    </div>
+                                                    <asp:Panel ID="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_panelDescription" runat="server">
+                                                        <p>
+                                                            <asp:Label ID="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_lblDescription" runat="server">Learn how to be eco-friendly and save this world for the next generation! GO GREEN!</asp:Label>
+                                                            <br />
+                                                        </p>
+                                                    </asp:Panel>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:top;">
+                                                <div class="rowheader_right">
+                                                    <asp:Panel ID="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_panelAddButton" runat="server">
+                                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_lnkAddToPage" href="http://169.235.1.2/Pageflakes/green/21125174/" target="_blank">
+                                                            <img src="http://169.235.1.2/Pageflakes/Community/Images/ViewPage.gif" border="0" alt="View this page" />
+                                                        </a>
+                                                    </asp:Panel>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>                                    
+                                </div>
+                                <div class="row_content row_footer">
+                                    <div class="tags">
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl00_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=green">green</a>    
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl01_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=environment">environment</a>    
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl02_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=eco-friendly">eco-friendly</a>    
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl03_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=global+warming">global warming</a>    
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl04_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=globe">globe</a>    
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl05_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=safe">safe</a>    
+                                        <a runat="server" id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_tags_lstTags_ctl06_lnkTags" class="tag" href="http://www.Pageflakes.com/Community/Pages/Page.aspx?tag=generation">generation</a>    
+                                    </div>
+                                    <asp:Panel ID="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_panelLinkItem" CssClass="footerLink" runat="server">
+                                        <ul id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_ratingUL" class="staticRating" title="Click to rate" onclick="document.location.href='http://www.Pageflakes.com/Community/Pages/Page.aspx?moduleKey=348991'">
+                                            <li id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl00_item" class="current">
+                                                <span id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl00_lblRater">1</span>
+                                            </li>    
+                                            <li id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl01_item" class="current">
+                                                <span id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl01_lblRater">2</span>
+                                            </li>    
+                                            <li id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl02_item" class="current">
+                                                <span id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl02_lblRater">3</span>
+                                            </li>    
+                                            <li id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl03_item" class="current">
+                                                <span id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl03_lblRater">4</span>
+                                            </li>    
+                                            <li id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl04_item" class="current">
+                                                <span id="MainHolder_pageControl_leftMainControl_itemList_lstModules_ctl00_staticRating_lstRating_ctl04_lblRater">5</span>
+                                            </li>         
+                                        </ul>
+                                    </asp:Panel>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</asp:Panel>
+
+</asp:Content>
+

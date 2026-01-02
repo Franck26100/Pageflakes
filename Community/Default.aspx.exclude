@@ -1,0 +1,338 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Community/Community.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Community_Default" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+
+
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" Runat="Server">
+
+
+
+    
+<script type="text/javascript">
+//<![CDATA[
+    Sys.Services._AuthenticationService.DefaultWebServicePath = '../Authentication_JSON_AppService.axd';
+    Sys.Services.AuthenticationService._setAuthenticated(true);
+//]]>
+</script>
+
+ <div id="container">
+            <script type="text/javascript">
+                function reloadPage(elementId, homeurl) {
+                    var element = $get(elementId);
+                    var url = '';
+                    var sortByParam = "Sort=" + element.value;
+                    if (homeurl.indexOf('?') > 0) {
+                        url = homeurl + '&' + sortByParam;
+                    }
+                    else {
+                        url = homeurl + '?' + sortByParam;
+                    }
+                    document.location.href = url;
+                }
+            </script>
+        
+     
+
+                    
+                    <ul id="tabControl_list" class="subNav" runat="server">                       
+                        <asp:Panel ID="tabControl_contentPanel" runat="server">                            
+                            <li id="tabControl_communityHome" class="currentPage" runat="server">
+                                <a id="tabControl_lnkCommunityHome" href="~/Community/" runat="server">Community</a>
+                            </li>
+                            <li id="tabControl_flakes">
+                                <a id="tabControl_lnkModules" href="Content/Flakes.aspx">Flakes <span class="moduleCount">(236K)</span></a>
+                            </li>
+                            <li id="tabControl_pagecasts">
+                                <a id="MainHolder_tabControl_lnkPublicPage" href="http://169.235.1.2/Pageflakes/Community/Pages/Page.aspx">Pagecasts <span class="moduleCount">(149K)</span></a>
+                            </li>
+                            <li id="tabControl_userprofile">
+                                <a id="tabControl_lnkPeople" href="http://www.Pageflakes.com/Community/ProfileDirectory.aspx">People</a>
+                            </li>      
+                        </asp:Panel>
+                    </ul>
+        
+        <div id="content">
+        
+            <div class="cbox">
+                <h2>Top Flakes</h2>
+                <div class="desc-search blue">
+                    <h3>Get more stuff for your page</h3>
+                    <div class="search">
+                        <input onkeydown="searchFlakesEnter(event)" id="FlakesSearchText" onfocus="window.document.onkeydown = ignoreEnterFlake;" type="text" />
+                        <input id="FlakeSearchBtn" class="searchBtn" onclick="searchFlakes()" value="Search" type="button" />
+                    </div>
+                </div>
+                <div class="thumbs">
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img src="http://169.235.1.2/Pageflakes/Community/images/Thumbnail Podcast.jpg" alt="" />
+                        </div>
+                        <p id="z6">
+                            <a onmouseover="hoverAddFlake(this, 'hoverAddFlake', 'flakeAdded')" onmouseout="unhoverAddFlake(this, 'flakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__WIMPY__%3furl%3dhttp%3a%2f%2faudio.weblogs.com%2frss100.xml&amp;TITLE=Mother+of+all+Podcast+Feeds&amp;moduleKey=9892', this, 'flakeAdded')" href="JavaScript:void(0)">Mother of all Podcast Feeds </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="/Community/Content/Flakes.aspx?moduleKey=9892">View Details</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img alt="" src="http://169.235.1.2/Pageflakes/ImageFile.ashx?instanceId=Gallery&amp;fileName=5cf0d480-6630-49a0-9d67-5f9232c1180a&amp;cacheDuration=10080&amp;width=80&amp;sCache=1&ampsCacheMin=120" />
+                        </div>
+                        <p id="z5">
+                            <a onmouseover="hoverAddFlake(this, 'hoverAddFlake', 'flakeAdded')" onmouseout="unhoverAddFlake(this, 'flakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__RSSFEED__%3fURL%3dhttp%253A%2f%2fperezhilton.com%2ffeed%2f&amp;TITLE=Perez+Hilton+-+Celebrity+Gossip&amp;moduleKey=350439', this, 'flakeAdded')" href="JavaScript:void(0)">Perez Hilton - Celebrity Gossip </a>
+                        </p>
+                    </div>
+                    <div class="img-wrapper">
+                        <div class="crop">
+                            <img src="http://169.235.1.2/ImageFile.ashx?instanceId=Gallery&amp;fileName=CBSSportsScoresataGlance-80-001.PNG&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;sCache=1&amp;sCacheMin=120"/> 
+                        </div>
+                        <p id="P1">
+                            <a onmouseover="hoverAddFlake(this, 'hoverAddFlake', 'flakeAdded')" onmouseout="unhoverAddFlake(this, 'flakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__IFRAME__%3fsite%3dhttp%3a%2f%2fwww.sportsline.com%2fmodules%2fscoresDOM%2fcontent%2f220&amp;TITLE=CBS+Sports+Scores+At+a+Glance&amp;moduleKey=344266', this, 'flakeAdded')" href="JavaScript:void(0)">CBS Sports Scores At a Glance </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="/Community/Content/Flakes.aspx?moduleKey=344266">View Details</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <div class="crop">
+                            <img src="http://169.235.1.2/ImageFile.ashx?instanceId=Gallery&amp;fileName=Mail.png&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;sCache=1&amp;sCacheMin=120"/> 
+                        </div>
+                        <p id="P2">
+                            <a onmouseover="hoverAddFlake(this, 'hoverAddFlake', 'flakeAdded')" onmouseout="unhoverAddFlake(this, 'flakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__MAIL__&amp;TITLE=E-mail&amp;moduleKey=769', this, 'flakeAdded')" href="JavaScript:void(0)">E-mail </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="/Community/Content/Flakes.aspx?moduleKey=769">View Details</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?instanceId=Gallery&amp;fileName=WeatherChannel.png&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;sCache=1&amp;sCacheMin=120"/> 
+                        </div>
+                        <p id="P3">
+                            <a onmouseover="hoverAddFlake(this, 'hoverAddFlake', 'flakeAdded')" onmouseout="unhoverAddFlake(this, 'flakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__WEATHERCOMFLAKE__&amp;TITLE=The+Weather+Channel&amp;moduleKey=4796', this, 'flakeAdded')" href="JavaScript:void(0)">The Weather Channel </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="/Community/Content/Flakes.aspx?moduleKey=4796">View Details</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?instanceId=Gallery&amp;fileName=408a233e-96d1-4aea-bb71-bc7f709e1a0f&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;sCache=1&amp;sCacheMin=120"/> 
+                        </div>
+                        <p id="P4">
+                            <a onmouseover="hoverAddFlake(this, 'hoverAddFlake', 'flakeAdded')" onmouseout="unhoverAddFlake(this, 'flakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__RSSFEED__%3fURL%3dhttp%3a%2f%2fb2b.expedia.com%2fdaily%2foutposts%2frss%2fgetRSSDeals.asp%3ftype%3dcruise%26cj%3d1%26cjpid%3d3011969%26cjsid%3d&amp;TITLE=Expedia.com+-+Cruise+Packages&amp;moduleKey=353278', this, 'flakeAdded')" href="JavaScript:void(0)">Expedia.com - Cruise Packages </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="/Community/Content/Flakes.aspx?moduleKey=353278">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbox">
+                <h2>Pagecasts</h2>
+                <div class="desc-search green">
+                    <h3>Share this stuff with Everyone</h3>
+                    <div class="search">
+                        <input onkeydown="searchPagecastsEnter(event)" id="PagecastSearchText" onfocus="window.document.onkeydown = ignoreEnterPagecast;" maxlength="255" type="text"/> 
+                        <input id="PagecastSearchBtn" class="searchBtn" onclick="searchPagecasts()" value="Search" type="button"/> 
+                    </div><!-- desc-search Ends -->
+                </div>
+                <div class="thumbs go">
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?instanceId=Gallery&amp;fileName=9d83570e-394a-4b9f-add4-4b7f2f35dbe9&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;defaultHeight=76"/> 
+                        </div>
+                        <p id="z11">
+                            <a href="http://www.Pageflakes.com/americanidol/22216830">American idol </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="http://www.Pageflakes.com/americanidol/22216830">View Pagecast</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=22221&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                        </div>
+                        <p id="z10">
+                            <a href="http://www.Pageflakes.com/ParisEscapes/22823032/">Travel to Barcelona, Spain </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="http://www.Pageflakes.com/ParisEscapes/22823032/">View Pagecast</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?instanceId=Gallery&amp;fileName=muppet.jpg&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;defaultHeight=76"/> 
+                        </div>
+                        <p id="z9">
+                            <a href="http://www.Pageflakes.com/dogshows/19680318/">Dog Shows </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="http://www.Pageflakes.com/dogshows/19680318/">View Pagecast</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=44041&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                        </div>
+                        <p id="z8">
+                            <a href="http://www.Pageflakes.com/ecomonkey/22749902/">Green Flakes: The New Economy - a Green Economy </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="    http://www.Pageflakes.com/ecomonkey/22749902/">View Pagecast</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper"">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=4987&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                        </div>
+                        <p id="z7">
+                            <a href="http://www.Pageflakes.com/startrek/10325410/">Star Trek </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="http://www.Pageflakes.com/startrek/10325410/">View Pagecast</a>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <div class="crop">
+                            <img src="http://www.Pageflakes.com/ImageFile.ashx?instanceId=Gallery&amp;fileName=vote-60.jpg&amp;cacheDuration=10080&amp;width=80&amp;height=80&amp;crop=1&amp;defaultHeight=76"/> 
+                        </div>
+                        <p id="z6">
+                            <a href="http://www.Pageflakes.com/elections/20144807">2008 Presidential Elections </a>
+                        </p>
+                        <div class="pngLayer">
+                            <a href="http://www.Pageflakes.com/elections/20144807">View Pagecast</a>
+                        </div>
+                    </div>
+                </div><!-- Thumbs Ends -->
+            </div>
+            <div class="cbox">
+                <h2>Featured New People</h2>
+                    <div class="desc-search violet">
+                        <h3>Check Out New People's Profiles</h3>
+                        <div class="search">
+                            <input onkeydown="searchPeopleEnter(event)" id="PeopleSearchText" onfocus="window.document.onkeydown = ignorePeople;" maxLength="255" type="text" /> 
+                            <input id="PeopleSearchBtn" class="searchBtn" onclick="searchPeople()" value="Search" type="button"/> 
+                        </div><!-- desc-search Ends -->
+                    </div>
+                    <div class="thumbs go">
+                        <div class="img-wrapper">
+                            <div class="crop">
+                                <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=91965&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                            </div>
+                            <p id="z16">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=solanosphere">solanosphere </a>
+                            </p>
+                            <div class="pngLayer">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=solanosphere">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <div class="crop">
+                                <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=91962&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                            </div>
+                            <p id="z15">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=jesicahouston">jesicahouston </a>
+                            </p>
+                            <div class="pngLayer">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=jesicahouston">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <div class="crop">
+                                <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=91960&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                            </div>
+                            <p id="z14">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=bradleyfloyd">bradleyfloyd </a>
+                            </p>
+                            <div class="pngLayer">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=bradleyfloyd">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <div class="crop">
+                                <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=91957&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"/> 
+                            </div>
+                            <p id="z13">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=irishendrix42">irishendrix42 </a>
+                            </p>
+                            <div class="pngLayer">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=irishendrix42">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <div class="crop">
+                                <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=91956&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"> 
+                            </div>
+                            <p id="z12">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=StrangePeople">StrangePeople </a>
+                            </p>
+                            <div class="pngLayer">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=StrangePeople">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="img-wrapper">
+                            <div class="crop">
+                                <img src="http://www.Pageflakes.com/ImageFile.ashx?eco_storageId=91954&amp;width=80&amp;height=80&amp;crop=1&amp;anchor=1"> 
+                            </div>
+                            <p id="z11">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=jff61061">jff61061 </a>
+                            </p>
+                            <div class="pngLayer">
+                                <a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=jff61061">View Profile</a>
+                            </div>
+                        </div>
+                    </div><!-- People cbox Ends -->
+            </div><!-- Content Ends -->
+        </div>
+        <div id="sidebar">
+            <div class="cbox">
+                <h2>New Flakes</h2>
+                <ul>
+                    <li id="liFlake1"><a onmouseover="hoverAddFlake(this, 'hoverAddFlakeSide', 'linkFlakeAdded')" onmouseout="unhoverAddFlake(this, 'linkFlakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=_RSSFEED_%3fURL%3dhttp%3a%2f%2ffeeds.feedburner.com%2fAdventuresInBentomaking&amp;TITLE=Adventures+in+Bentomaking&amp;moduleKey=357790', this, 'linkFlakeAdded')" href="JavaScript:void(0)">Adventures in Bento...</a></li>
+                    <li id="liFlake2"><a onmouseover="hoverAddFlake(this, 'hoverAddFlakeSide', 'linkFlakeAdded')" onmouseout="unhoverAddFlake(this, 'linkFlakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=_RSSFEED_%3fURL%3dhttp%3a%2f%2ffeeds.news.com.au%2fpublic%2frss%2f2.0%2faus_business_53.xml&amp;TITLE=The+Australian&amp;moduleKey=357788', this, 'linkFlakeAdded')" href="JavaScript:void(0)">The Australian</a></li>
+                    <li id="liFlake3"><a onmouseover="hoverAddFlake(this, 'hoverAddFlakeSide', 'linkFlakeAdded')" onmouseout="unhoverAddFlake(this, 'linkFlakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=_RSSFEED_%3fURL%3dhttp%3a%2f%2ffeeds.feedburner.com%2fnationwide_bank_bonuses&amp;TITLE=Bank+perks+-+sign-up+bonuses+from+US+banks&amp;moduleKey=357786', this, 'linkFlakeAdded')" href="JavaScript:void(0)">Bank perks - sign-u...</a></li>
+                    <li id="liFlake4"><a onmouseover="hoverAddFlake(this, 'hoverAddFlakeSide', 'linkFlakeAdded')" onmouseout="unhoverAddFlake(this, 'linkFlakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=_RSSFEED_%3fURL%3dhttp%3a%2f%2fwww.extradime.com%2fforums%2fexternal.php%3ftype%3drss2%26forumids%3d2&amp;TITLE=ExtraDime+-+Online+Shopping+Coupons+and+Discount+Codes&amp;moduleKey=357785', this, 'linkFlakeAdded')" href="JavaScript:void(0)">ExtraDime - Online ...</a></li>
+                    <li id="liFlake5"><a onmouseover="hoverAddFlake(this, 'hoverAddFlakeSide', 'linkFlakeAdded')" onmouseout="unhoverAddFlake(this, 'linkFlakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__RSSFEED__%3fhttp%3a%2f%2fwww.sacbee.com%2f359%2findex.rss&amp;TITLE=Sacramento+Bee-Oakland+Raiders+News&amp;moduleKey=357291', this, 'linkFlakeAdded')" href="JavaScript:void(0)">Sacramento Bee-Oakl...</a></li>
+                    <li id="liFlake6"><a onmouseover="hoverAddFlake(this, 'hoverAddFlakeSide', 'linkFlakeAdded')" onmouseout="unhoverAddFlake(this, 'linkFlakeAdded')" onclick="addFlakeContent('/AddFlake.aspx?URL=__RSSFEED__%3fhttp%3a%2f%2fwww.raiders.com%2fCommon%2fRSSNewsArticles.aspx&amp;TITLE=Oakland+Raiders-News&amp;moduleKey=357290', this, 'linkFlakeAdded')" href="JavaScript:void(0)">Oakland Raiders-New...</a></li>
+                </ul>
+            </div>
+            <div class="cbox">
+                <h2>New Pagecasts</h2>
+                    <div class="cbSide green">
+                        <UL>
+                            <LI><a href="http://www.Pageflakes.com/joeysmith_co_uk/31622261/">Reisen</a></LI>
+                            <LI><a href="http://www.Pageflakes.com/kenttraynor/31619131/">Kent Traynor</a></LI>
+                            <LI><a href="http://www.Pageflakes.com/joeysmith_co_uk/31615923/">Hotel Buchen</a></LI>
+                            <LI><a href="http://www.Pageflakes.com/joeysmith_co_uk/31615545/">Cosmetic Surgery</a></LI>
+                            <LI><a href="http://www.Pageflakes.com/joeysmith_co_uk/31614643/">Embroidered T-Shirt...</a></LI>
+                            <LI><a href="http://www.Pageflakes.com/joeysmith_co_uk/31614621/">Embroidered Workwea...</a></LI>
+                        </UL>
+                    </div>
+            </div>
+            <div class="cbox">
+            <h2>New People</h2>
+                <div class="cbSide violet">
+                    <UL>
+                        <LI><a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=alanmehrez">alanmehrez</a></LI>
+                        <LI><a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=Agstax">AGST Corporation</a></LI>
+                        <LI><a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=hannahsmith">hannahsmith</a></LI>
+                        <LI><a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=deggert784">deggert784</a></LI>
+                        <LI><a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=medicalonecare">medicalonecare</a></LI>
+                        <LI><a href="http://www.Pageflakes.com/Community/Profile.aspx?profile=CruzHuffCF">Cruz Huff</a></LI>
+                    </UL>
+                </div>
+            </div>
+        </div>
+ </div>
+<script type="text/javascript" src="../JavaScripts/CommunityHome.js"></script>
+ 
+<script type="text/javascript">    $trackEvent('Community Tabs', 'SelectFlakes', 'Sort  Popularity ');</script>
+
+
+</asp:Content>
+
