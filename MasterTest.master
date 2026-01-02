@@ -1,0 +1,170 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterTest.master.cs" Inherits="MasterTest" %>
+
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <title>Pageflakes Demo</title>
+    <script type="text/javascript">
+        var IMAGE_PREFIX = "/App_Themes/";
+        var LANGUAGE = 'en';
+        var VERSION_SUFFIX = '217en';
+</script>
+<script type="text/javascript">
+    (function () {
+        // Fonction utilitaire pour wrapper toutes les méthodes d'un objet
+        function traceFunctions(obj, objName) {
+            for (var key in obj) {
+                if (typeof obj[key] === "function") {
+                    (function (fnName, originalFn) {
+                        obj[fnName] = function () {
+                            console.log("[TRACE] " + objName + "." + fnName + " appelé avec arguments:", arguments);
+                            try {
+                                return originalFn.apply(this, arguments);
+                            } catch (e) {
+                                console.error("[TRACE ERROR] " + objName + "." + fnName, e);
+                                throw e;
+                            }
+                        };
+                    })(key, obj[key]);
+                }
+            }
+        }
+
+        // Exemple : wrapper l’objet App du framework
+        if (window.App) {
+            traceFunctions(window.App, "App");
+        }
+
+        // Tu peux aussi tracer d’autres objets globaux
+        if (window.Sys) {
+            traceFunctions(window.Sys, "Sys");
+        }
+
+        if (window.Pageflakes) {
+            traceFunctions(window.Pageflakes, "Pageflakes");
+        }
+
+        console.log("[TRACE] Wrapping terminé, toutes les fonctions seront listées dans la console.");
+    })();
+</script>
+    <!-- 1. CSS du thème -->
+    <link rel="stylesheet" type="text/css" href="/Pageflakes/p.axd?i=12&v=213" />
+
+    <!-- 2. Framework principal -->
+    <script type="text/javascript" src="/Pageflakes/f.axd?s=Framework&t=j&v=217"></script>
+    <script type="text/javascript">
+        (function () {
+            // Fonction utilitaire pour wrapper toutes les méthodes d'un objet
+            function traceFunctions(obj, objName) {
+                for (var key in obj) {
+                    if (typeof obj[key] === "function") {
+                        (function (fnName, originalFn) {
+                            obj[fnName] = function () {
+                                console.log("[TRACE] " + objName + "." + fnName + " appelé avec arguments:", arguments);
+                                try {
+                                    return originalFn.apply(this, arguments);
+                                } catch (e) {
+                                    console.error("[TRACE ERROR] " + objName + "." + fnName, e);
+                                    throw e;
+                                }
+                            };
+                        })(key, obj[key]);
+                    }
+                }
+            }
+
+            // Exemple : wrapper l’objet App du framework
+            if (window.App) {
+                traceFunctions(window.App, "App");
+            }
+
+            // Tu peux aussi tracer d’autres objets globaux
+            if (window.Sys) {
+                traceFunctions(window.Sys, "Sys");
+            }
+
+            if (window.Pageflakes) {
+                traceFunctions(window.Pageflakes, "Pageflakes");
+            }
+
+            console.log("[TRACE] Wrapping terminé, toutes les fonctions seront listées dans la console.");
+        })();
+</script>
+
+    <!-- 3. Extensions post-framework -->
+    <script type="text/javascript" src="/Pageflakes/f.axd?s=PostFramework&t=j&v=217"></script>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <!-- Conteneur principal -->
+        <div id="content" class="T12">
+
+            <!-- Barre grise supérieure -->
+            <div id="gray_panel">
+                <div id="gray_panel_table">
+                    <a href="#">RSS</a>
+                </div>
+            </div>
+            <div id="alerts" class="alerts" style="display:none">
+                    <div id="alertMessages" class="alertMessages"></div>
+                </div>
+                <div id="messageBar" style="DISPLAY: none"><span id="HideThisMessageLink"><a id="messageBarClose" onclick="$nodisplay('messageBar')" href="javascript:void(0)">Hide this message </a></span><span id="errorMsg"></span>
+<div class="pushdown"></div>
+            <!-- Zone des pages/flakes -->
+            <div id="pageflakesContainer">
+                <!-- Colonnes dynamiques construites par Framework.js -->
+                <div id="col1" class="flake_column"></div>
+                <div id="col2" class="flake_column"></div>
+                <div id="col3" class="flake_column"></div>
+                <div id="col4" class="flake_column"></div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer_wrapper">
+                <span>Pageflakes © Demo</span>
+            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+
+        <!-- 4. StartupJSON : appel du handler GetJSON -->
+        <script type="text/javascript" src="/Pageflakes/GetJSON.ashx?r=634135175139218750"></script>
+            <script type="text/javascript">
+                (function () {
+                    console.log("=== Diagnostic GetJSON.ashx ===");
+
+                    if (window.startupInfo) {
+                        console.log("startupInfo object:", window.startupInfo);
+
+                        // Vérification de Template
+                        if (window.startupInfo.Template) {
+                            console.log("Template trouvé:", window.startupInfo.Template);
+                            console.log("ModuleHtml:", window.startupInfo.Template.ModuleHtml);
+                            console.log("StylesheetHref:", window.startupInfo.Template.StylesheetHref);
+                            console.log("PopupHtml:", window.startupInfo.Template.PopupHtml);
+                            console.log("ThemePath:", window.startupInfo.Template.ThemePath);
+                        } else {
+                            console.error("ATTENTION: startupInfo.Template est undefined !");
+                        }
+
+                        // Vérification des pages
+                        if (window.startupInfo.Pages) {
+                            console.log("Pages trouvées:", window.startupInfo.Pages.length);
+                            for (var i = 0; i < window.startupInfo.Pages.length; i++) {
+                                console.log("Page[" + i + "]:", window.startupInfo.Pages[i].Name);
+                            }
+                        } else {
+                            console.error("ATTENTION: startupInfo.Pages est undefined !");
+                        }
+                    } else {
+                        console.error("ATTENTION: window.startupInfo est undefined !");
+                    }
+
+                    console.log("=== Fin diagnostic ===");
+                })();
+</script>
+
+    </form>
+</body>
+</html>

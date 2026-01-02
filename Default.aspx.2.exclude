@@ -1,0 +1,103 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" EnableViewState="false" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+
+    <link id="pagetheme_T12" href="/Pageflakes/p.axd?i=12&v=213" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+    var SOURCE = '';
+    var PAGE_ID = '33874442';
+    var VERSION_SUFFIX = '217en';
+    var LANGUAGE = 'en';
+    var loadFeedWithSingleConnection = false;
+    var op = /opera 5|opera\/5/i.test(navigator.userAgent) && window.opera;
+    var ie = !op && /msie/i.test(navigator.userAgent);
+    var mz = !op && /mozilla\/5/i.test(navigator.userAgent);
+    var safari = /Safari/i.test(navigator.userAgent);
+    function $reload(msg) { if (confirm("Problem occured while loading site. Press OK to retry.\nProblem:" + msg)) document.location.reload(true); }
+    //document.cookie = "j=249e7d8e032f131b276673b7ef678a23; path=" + document.location.host;
+    </script>
+    <script type="text/javascript">
+        window.suppressLoad = true;
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceBody" Runat="Server">
+    <div id="content" class="T12">
+        <div id="gray_panel_dropdown_settings" style="DISPLAY: none"></div>
+            <div id="messageBar" style="DISPLAY: none"><span id="HideThisMessageLink"><a id="messageBarClose" onclick="$nodisplay('messageBar')" href="javascript:void(0)">Hide this message </a></span><span id="errorMsg"></span>
+<div class="pushdown"></div></div>
+<div id="PageLoadProgress" style="DISPLAY: none"></div>
+    <div id="body">
+<table class="page_table" style="VISIBILITY: visible" width="100%" border="0">
+<tbody>
+<tr>
+<td class="column" width="33%"></td>
+<td class="column" width="33%"></td>
+<td class="column" width="33%"></td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+    </div>        
+
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PlaceHolderGetJSON"  runat="server">
+    
+    <script type="text/javascript" id="StartupJSON">
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "/Pageflakes/GetJSON.ashx?r=634135175139218750";
+        s.onload = function () {
+            console.log("GetJSON chargé, startupInfo:", window.startupInfo);
+            if (window.startupInfo) {
+                App.startup();
+            }
+        };
+        document.body.appendChild(s);
+</script>
+    
+
+
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="PlaceHolderPostFram" runat="server">
+    <script type="text/javascript">
+        if (typeof Sys == "undefined"|| typeof App == "undefined"|| typeof PrimaryFramework == "undefined") {
+            // 1. Créer dynamiquement le script
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.src = "test/log.ashx?" + encodeURIComponent(window.navigator.userAgent);
+            document.body.appendChild(s);
+            // 2. Afficher le message de confirmation
+            if (confirm("There has been an error loading the page. Would you please take a minute and report the problem in our forum so that we can try to fix this?")) {
+            document.location.href = "http://forums.pageflakes.com/";}
+
+        }
+        else {
+            $DC(function () { SearchForm.init(); });
+            if (typeof StartPage != "undefined") $DC(function () { if (StartPage) StartPage.init(); });
+        }
+</script>
+
+<!--<script id="PostFrameworkLoaderScript" type="text/javascript">
+             var PostFrameworkLoader =
+{
+    load: function () {
+        PF.addScript('PostFrameworkScriptSource', '/Pageflakes/f.axd?s=PostFramework&t=j&v=213en');
+    }
+};
+
+</script>-->
+
+</asp:Content>
+<asp:Content ContentPlaceHolderID="ContentPlaceFooter" runat="server">
+
+</asp:Content>
+<asp:Content ID="ContentStartPage" ContentPlaceHolderID="PlaceHolderStarPage" runat="server">
+    <script id="StartPage" type="text/javascript">
+        $DC(function () { loadFirstPage() });
+        App.IsCompactFramework = true;
+        App.startup();
+    </script>
+</asp:Content>

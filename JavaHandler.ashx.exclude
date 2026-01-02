@@ -1,0 +1,42 @@
+﻿<%@ WebHandler Language="C#" Class="JavaHandler" %>
+
+using System;
+using System.Web;
+
+public class JavaHandler : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+{
+    public void ProcessRequest(HttpContext context)
+    {
+        string requestedPath = (context.Request.Path ?? "").ToLowerInvariant();
+        string version = System.Configuration.ConfigurationManager.AppSettings["AppVersion"] ?? "1";
+        string lang = "fr"; // valeur par défaut
+
+        if (context.Session != null && context.Session["lang"] != null)
+        {
+            string s = context.Session["lang"].ToString();
+            if (!string.IsNullOrEmpty(s)) lang = s;
+        }
+
+        string targetUrl = null;
+
+        if (requestedPath.EndsWith("/pageflakes/script/framework.js"))
+        {
+            targetUrl = "/Pageflakes/FHandler.ashx?s=Framework&v=" + version + "&lang=" + lang;
+        }
+        else if (requestedPath.EndsWith("/pageflakes/script/postframework.js"))
+        {
+            targetUrl = "/Pageflakes/FHandler.ashx?s=PostFramework&v=" + version + "&lang=" + lang;
+        }
+
+        if (!string.IsNullOrEmpty(targetUrl))
+        {
+            context.Response.Redirect(targetUrl, false);
+            return;
+        }
+
+        context.Response.StatusCode = 404;
+        context.Response.Write("// Invalid request: " + requestedPath);
+    }
+
+    public bool IsReusable { get { return true; } }
+}

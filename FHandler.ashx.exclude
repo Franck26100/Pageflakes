@@ -1,0 +1,35 @@
+﻿<%@ WebHandler Language="C#" Class="FHandler" %>
+
+using System;
+using System.IO;
+using System.Web;
+
+public class FHandler : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+{
+    public void ProcessRequest(HttpContext context)
+    {
+        context.Response.ContentType = "application/javascript";
+
+        string s = (context.Request["s"] ?? "").ToLower();
+        string v = context.Request["v"] ?? "1";
+        string lang = context.Request["lang"] ?? "en";
+
+        string filePath = null;
+        if (s == "framework")
+            filePath = context.Server.MapPath("~/script/Framework.js");
+        else if (s == "postframework")
+            filePath = context.Server.MapPath("~/script/PostFramework.js");
+
+        if (filePath == null || !File.Exists(filePath))
+        {
+            context.Response.StatusCode = 404;
+            context.Response.Write("// Script not found: " + filePath);
+            return;
+        }
+
+        context.Response.Write("// v=" + v + " lang=" + lang + "\n");
+        context.Response.Write(File.ReadAllText(filePath));
+    }
+
+    public bool IsReusable { get { return true; } }
+}

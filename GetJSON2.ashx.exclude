@@ -1,79 +1,102 @@
-﻿<%@ WebHandler Language="C#" Class="GetJSON2" %>
-
+﻿<%@ WebHandler Language="C#" Class="GetJSON" %>
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.Linq;
-using System.Linq;
-using System.Reflection;
 using System.Web;
-using System.Web.Profile;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Workflow.Runtime;
-using System.Text.RegularExpressions;
-using System.Text;
 using System.Web.Script.Serialization;
 
-using System.Globalization;
-
-using System.Xml;
-using System.Runtime.Serialization.Json;
-using EssayWCF;
-using System.IO;
-
-using Pageflakes.ObjectModel;
-
-using Pageflakes.WebUtil;
-using Pageflakes.Facade;
-using Pageflakes.Model;
-using Pageflakes.Facade.Context;
-using Pageflakes.Utils;
-using Pageflakes.WebFramework;
-using OmarALZabir.AspectF;
-using Pageflakes.RestApi;
-using Pageflakes.Data;
-using System.Web.SessionState;
-
-public class GetJSON2 : IHttpHandler,IReadOnlySessionState
+public class GetJSON : IHttpHandler
 {
-
-    static Regex guidRegEx = new Regex("^[A-Fa-f0-9]{32}$|" +
-                        "^({|\\()?[A-Fa-f0-9]{8}-([A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}(}|\\))?$|" +
-                        "^({)?[0xA-Fa-f0-9]{3,10}(, {0,1}[0xA-Fa-f0-9]{3,6}){2}, {0,1}({)([0xA-Fa-f0-9]{3,4}, {0,1}){7}[0xA-Fa-f0-9]{3,4}(}})$", RegexOptions.Compiled);
     public void ProcessRequest(HttpContext context)
     {
-        var serialiazer = new JavaScriptSerializer(new Pageflakes.Util.MyTypeResolver());
+        HttpResponse response = context.Response;
+        response.ContentType = "application/json";
+        response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-        TimeSpan ts = new TimeSpan(0, 0, 0);
-        context.Response.Cache.SetMaxAge(ts);
-        context.Response.Cache.SetNoStore();
-        context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-        context.Response.Cache.AppendCacheExtension("must-revalidate, proxy-revalidate");
-        context.Response.AddHeader("Connection", "Keep-Alive");
-        context.Response.AddHeader("Content-Type", "text/javascript");
-        var facade = Services.Get<Facade>();
-        Guid UserID = facade.GetUserGuidFromUserName(context.Request["u"]);
-        if (context.Request["s"] == "set")
+        try
         {
-            //context.Response.ClearContent();          
+            var jsonData = new
+            {
+                __Type = "Pageflakes.ObjectModel.PageflakeInfo, PageFlakes.ObjectModel",
+                VersionSuffix = "217fr",
+                Language = "fr",
+                DomainID = 1,
+                LanguageID = 1,
+                UserPublishURL = "http://www.pageflakes.com/franckMdeRomans",
+                UserUniqueName = "franckMdeRomans",
+                UserFullName = "Franck",
+                UserGUID = "ce17f62b-b77e-4cae-a791-d40afd8ddafa",
+                UserVersionNo = 1,
+                CurrentPageID = 1,
+                CurrentPageVersionNo = 1,
+                IsSubscribedForNewsletter = false,
+                ViewingPageOf = "franckMdeRomans",
+
+                // Section Template obligatoire
+                Template = new {
+                    __Type = "Pageflakes.ObjectModel.Template, PageFlakes.ObjectModel",
+                    ModuleHtml = "\u003cdiv class=\"flake_placeholder\"\u003e \u003cdiv class=\"flake\"\u003e \u003cdiv class=\"flake_header\" onmouseover=\"opqTb(this)\" onmouseout=\"alphaTb(this)\" id=\"handle_FLAKE_ID_\"\u003e \u003cdiv class=\"flake_toolbar\"\u003e \u003ca class=\"refresh_icon\" style=\"display:none;\" title=\"Refresh Flake\" id=\"refresh_FLAKE_ID_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).refresh()\"\u003eRefresh\u003c/a\u003e \u003ca class=\"sendFlake_icon\" id=\"sendFlake_FLAKE_ID_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onmousedown=\"$stopBubble(event)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).showFlakeMenu()\"\u003eSend\u003c/a\u003e \u003ca class=\"settings_icon\" id=\"editLink_FLAKE_ID_\" title=\"Edit Flake settings\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onmousedown=\"$stopBubble(event)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).toggleEdit()\"\u003eEDIT\u003c/a\u003e \u003ca class=\"close_icon\" id=\"closeLink_FLAKE_ID_\" title=\"Remove Flake\" onmouseover=\"hover(this)\" onmousedown=\"$stopBubble(event)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).close()\" \u003ex\u003c/a\u003e \u003c/div\u003e \u003cdiv class=\"flake_title\"\u003e \u003cdiv class=\"flake_icon\"\u003e\u003cimg OnError=\u0027$module(\"_FLAKE_ID_\").loadDefaultFavicon(\"icon_FLAKE_ID_\");\u0027 id=\"icon_FLAKE_ID_\" /\u003e\u003c/div\u003e \u003cdiv class=\"flake_name_container\"\u003e \u003cspan class=\"flake_name\" id=\"title_FLAKE_ID_\"\u003e_FLAKE_TITLE_\u003c/span\u003e \u003cspan class=\"rss_number\" id=\"number_FLAKE_ID_\"\u003e\u003c/span\u003e \u003c/div\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv id=\"editContainer_FLAKE_ID_\" style=\"display:none\" \u003e \u003ctable class=\"flake_tabbar\" cellspacing=\"0\" cellpadding=\"0\"\u003e \u003ctr\u003e \u003ctd width=\"100\" id=\"td_tab_basic_FLAKE_ID_\"\u003e\u003cdiv id=\"tab_basic_FLAKE_ID_\" class=\"edit_tabup\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).showBasicSetting()\" disable=\"$remove(\u0027td_tab_basic_FLAKE_ID_\u0027)\" \u003eSettings\u003c/div\u003e\u003c/td\u003e \u003ctd width=\"100\" id=\"td_tab_other_FLAKE_ID_\"\u003e\u003cdiv id=\"tab_other_FLAKE_ID_\" class=\"edit_tabdown\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).showAdvancedSetting()\" disable=\"$remove(\u0027td_tab_other_FLAKE_ID_\u0027)\" \u003ePreferences\u003c/div\u003e\u003c/td\u003e \u003ctd \u003e&nbsp;\u003c/td\u003e \u003c/tr\u003e \u003c/table\u003e \u003cdiv class=\"flake_settings\" \u003e \u003cdiv id=\"editBody_FLAKE_ID_\" style=\"padding:8px\"\u003e\u003c/div\u003e \u003cdiv id=\"editOthers_FLAKE_ID_\" style=\"padding:8px;display:none; height:100px\"\u003e \u003ctable width=100%\u003e \u003ctr\u003e\u003ctd width=70\u003eFlake title:\u003c/td\u003e\u003ctd\u003e\u003cinput style=\"width:70%\" type=\"text\" id=\"flakeTitleEdit_FLAKE_ID_\" onkeypress=\"if(event.keyCode==13)$module(\u0027_FLAKE_ID_\u0027).editEdit();\" value=\"_FLAKE_TITLE_\"/\u003e\u003c/td\u003e\u003c/tr\u003e \u003ctr\u003e\u003ctd\u003e&nbsp;\u003c/td\u003e\u003ctd\u003e\u003cinput type=\"button\" value=\"Save\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).editEdit()\" class=\"button\"/\u003e&nbsp;&nbsp;\u003cinput type=\"button\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).toggleEdit()\" class=\"button cancel\" value=\"Cancel\"/\u003e\u003c/td\u003e\u003c/tr\u003e \u003c/table\u003e \u003c/div\u003e \u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"flake_content\" style=\"_FLAKE_COLLAPSED_\" id=\"body_FLAKE_ID_\"\u003e \u003cdiv class=\"flake_spaceholder\"\u003eLoading...\u003c/div\u003e \u003c/div\u003e \u003cdiv class=\"flake_footer\"\u003e\u003ca id=\"collapseLink_FLAKE_ID_\" title=\"Collapse Flake\" class=\"colapse_icon\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" style=\"_FLAKE_COLLAPSED_\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).collapse()\"\u003e-\u003c/a\u003e \u003ca id=\"expandLink_FLAKE_ID_\" class=\"expand_icon\" title=\"Expand Flake\" style=\"_FLAKE_EXPANDED_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\" onclick=\"$module(\u0027_FLAKE_ID_\u0027).expand()\"\u003e+\u003c/a\u003e\u003c/div\u003e \u003c/div\u003e\u003c/div\u003e",
+                    StylesheetHref = "/App_Themes/T12/s.axd?s=CSS1&h=www.Pageflakes.com&l=en&v=&b=Mozilla&m=5&t=T12",
+                    PopupHtml ="\u003cdiv class=\"flake_placeholder\"\u003e\u003cdiv class=\"flake\"\u003e\u003cdiv class=\"flake_header\" id=\"handle_FLAKE_ID_\" onmouseover=\"opqTb(this)\" onmouseout=\"alphaTb(this)\"\u003e\u003cdiv class=\"flake_toolbar\"\u003e\u003cdiv class=\"close_icon\" id=\"closeLink_FLAKE_ID_\" onmouseover=\"hover(this)\" onmouseout=\"hout(this)\"\u003ex\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"flake_title\"\u003e\u003cspan class=\"flake_icon\"\u003e\u003cimg src=\"images/pficon.gif\" id=\"icon_FLAKE_ID_\" /\u003e\u003c/span\u003e\u003cspan class=\"flake_name flake_name_popup\" id=\"title_FLAKE_ID_\"\u003e_FLAKE_TITLE_\u003c/span\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"popup_content\" id=\"body_FLAKE_ID_\"\u003eLoading...\u003c/div\u003e\u003cdiv class=\"flake_footer\"\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e",
+                    ThemePath = "/App_Themes/T12/"
+                },
+
+                // Thème courant
+                CurrentPageTheme = new {
+                    __Type = "Pageflakes.ObjectModel.PageTheme2, PageFlakes.ObjectModel",
+                    IsCustomTheme = false,
+                    ThemeName = "Cool Blue",
+                    ThemeID = 12,
+                    VersionNo = 4,
+                    CSS = ".menu a { color:#ffffff; font-weight:bold; }",
+                    PreviewGraphics = "App_Themes/Purple_Unified/ThemePreview.png",
+                    Properties = new { },
+                    ThemeHandlerUrl = "/p.axd?i=12&t=&h=www.pageflakes.com&v=4&b=Safari&m=5",
+                    ThemeShortcut = "T12",
+                    PreviewHandlerUrl = "App_Themes/Purple_Unified/ThemePreview.png"
+                },
+
+                // Une seule page de test
+                Pages = new[] {
+                    new {
+                        __Type = "Pageflakes.ObjectModel.PageSetting, PageFlakes.ObjectModel",
+                        ID = 1,
+                        VersionNo = 1,
+                        Name = "Page de test",
+                        ColumnCount = 3,
+                        OwnerName = "franckMdeRomans",
+                        OwnerFullname = "Franck",
+                        IsPublished = true,
+                        IsOwner = true,
+                        ColumnSizes = "33%,33%,33%",
+                        Theme = new {
+                            __Type = "Pageflakes.ObjectModel.PageTheme2, PageFlakes.ObjectModel",
+                            ThemeName = "Cool Blue",
+                            ThemeID = 12,
+                            VersionNo = 4,
+                            CSS = ".menu a { color:#ffffff; font-weight:bold; }"
+                        }
+                    }
+                },
+
+                IsCurrentPageLoaded = false
+            };
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string jsonString = serializer.Serialize(jsonData);
+
+            // Encapsulation dans le wrapper JS
+            string output = @";(function () {window.__json = true; window.startupInfo = (" + jsonString + @") window.__preCachedRSS = null;})();";
         }
-        Pageflakes.ObjectModel.PageflakesInfoService tempflakService = new PageflakesInfoService();
-        PageflakeInfo tempflake;
-        tempflake = tempflakService.GetPageflakesInfo(UserID);               
-        context.Response.Write(";(function(){window.__json = true;window.startupInfo = (" + serialiazer.Serialize(tempflake) + ")\n window.__preCachedRSS = null})();");
-        context.Response.Flush(); 
-        
-       //HttpContext.Current.Server.Execute("~/script/Empty.js", writers,true);
-       //context.Response.Write(writer.ToString() );
-        
+        catch (Exception ex)
+        {
+            response.ContentType = "text/html";
+            response.Write("<html><body>");
+            response.Write("<h1>Erreur dans GetJSON</h1>");
+            response.Write("<p>" + HttpUtility.HtmlEncode(ex.Message) + "</p>");
+            response.Write("</body></html>");
+        }
     }
 
-   
+ 
     public bool IsReusable {
         get {
             return false;

@@ -1,0 +1,266 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" EnableViewState="true" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta id="MetaTagKeywords" name="Keywords" content="Personalized Desktop, start page, Ajax Desktop, customization, rss reader, rss feed, atom reader, blog reader, blog, flickr, delicious, gmail, pop3 mail, xml, rss, news feed, Pageflakes, aggregate content"/><meta id="MetaTagDescription" name="Description" content="Social personalized homepage - the easiest way to read, see, discover and share your favorite things on the Web."/><meta id="MetaTagPageTopic" name="Page-topic" content="Start Page"/>
+    <meta name="Content-language" content="English"/>
+    <meta name="Robots" content="INDEX,FOLLOW"/>
+    <title>Pageflakes</title>
+    <base href="/Pageflakes"></base>
+    <script type="text/javascript">
+        try { if (document.execCommand) document.execCommand("BackgroundImageCache", false, true); } catch (err) { }
+    </script>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost/Pageflakes/insider?feed=rss2"/>
+
+
+<script type="text/javascript">
+    var l = {}; l.startDateTime = new Date();
+    var SITE_PREFIX = "http://localhost/Pageflakes/";
+    var RSS_FEED_FLAKE_URL = "__RSSFEED__?url=";
+    var IMAGE_PREFIX = "/Pageflakes/";
+   
+    
+    
+</script>
+
+<noscript><p>This page is designed for JavaScript-only browsers. In case you have disabled JavaScript, please enable it and reload this page.</p>
+<p>Alternatively, consider installing a JavaScript capable browser such as <a href="http://www.getfirefox.com/">Mozilla Firefox</a>.</p></noscript>
+
+    <asp:ContentPlaceHolder id="head" runat="server"/>
+    
+    <link id="themeStylesheet" href="/Pageflakes/s.axd?s=css1&h=localhost" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        
+    
+    <div id="Content" class="T12 ">
+                <div id="alerts" class="alerts" style="display:none">
+                    <div id="alertMessages" class="alertMessages"></div>
+                </div>
+                <style type="css">
+                    #TopMenu{display:none;}
+                    #PageflakesTV{display:none;}
+                    #header{margin-top:20px;}
+                    #searchForm{display:none; visibility:hidden;}                    
+                </style>
+                <span id="DomainSuperHeader"></span>
+                <div id="header">
+                <div id="header_extra">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td colspan="2" style="position: relative;">
+                                <div id="headerLeft">
+                                    <a href="http://localhost/Pageflakes/">
+                                        <div class="logo">
+                                        </div>
+                                    </a>
+                                    <div class="partnerlogo">
+                                    </div>
+                                </div>
+                                <div id="headerRight">
+                                    <ul id="TopMenu" class="menu">
+                                        <li><a href="javascript:UserRegistration('?track=hpheader')" id="SignupLink">Sign up &nbsp;|&nbsp;</a></li>
+                                        <li id="LoginLink"><a href="/Pageflakes/Login.aspx?track=hpheader">Login</a>&nbsp;|&nbsp;</li>
+                                        <li id="ReaderLink"><a href="javascript:void(0)" onclick="FeedViewer.loadRssReaderDiv2()" id="RssReaderLink">Reader</a>&nbsp;|&nbsp;</li>
+                                        <li id="SetAsHomePage"><a id="SetAsHomePageLink" href="javascript:void(0)" onmouseover="if(typeof StartPageHelper != 'undefined') StartPageHelper.attachLink(this)">Make this my homepage</a></li>
+                                    </ul>
+<!-- Search Google -->
+<!-- the CSS that reference the div below control position -->
+                                    <div id="domainSearchContainer">
+                                        <form method="get" action="search.aspx" target="_top">
+        <!-- the CSS that references the input box below control the background position of the text inside -->
+                                            <input id="domainSearchBox" name="q" type="text" onblur="if(this.value=='')this.value='Google';" onfocus="if(this.value=='Google')this.value='';" size="25" maxlength="255" value="Google"/>
+<!-- the value below is used as a manual version, increment it when changes are made to the search html so the browser retrieves the new hmtl -->
+                                            <input type="hidden" name="v" value="1"/>
+                                            <input type="hidden" name="client" value="pub-0657560217705811"/>
+                                            <input type="hidden" name="forid" value="1"/>
+                                            <input type="hidden" name="ie" value="ISO-8859-1"/>
+                                            <input type="hidden" name="oe" value="ISO-8859-1"/>
+                                            <input type="hidden" name="safe" value="active"/>
+                                            <input type="hidden" name="cof" value="S:http://;FORID:11"/>
+                                            <input type="hidden" name="hl" value="en"/>
+                                        </form>
+                                    </div>
+                                    <!-- End Search Google -->
+                                    <div id="PageflakesTV" title="Open Pageflakes Central" style="display: none;" class="AddFeedButton_off">
+                                        <div class="add_right">
+                                            ADD&nbsp;FEED
+                                        </div>
+                                    </div>
+                                    <div id="CommunityButton" style="display: none" title="Browse other people’s profiles, public pages, and get even more stuff for your page" onclick="$trackEventNoTimeOut('Community Button','Click', 'Direct Click'); document.location.href='community/'">Community</div>
+                                    <div id="Start" title="Get more stuff for your page, pick a theme, share your page, and update your profile" onclick="Start.toggleStart()">
+                                    <div class="add_right">&nbsp;</div>
+                                    </div>
+                                </div>      
+                            </td>
+                        </tr>
+                        <tr>
+                        <td id="tabs_container_td">
+                            <ul id="tabs" class="tabs">
+                                <li class="T12_tab"><div class="page_tab"><div class="page_title">Page One</div></div></li>
+		                        <li class="T12_tab"><div class="page_tab_off"><div class="page_title">Page Two</div></div></li>
+		                        <li class="add_page">Add Page</li>
+    	                    </ul>
+                        </td>
+                        <td width="300" align="right">                            
+                        </td>
+                    </tr>
+                </table>
+                <div class="pushdown"></div>
+            </div>
+        </div>        
+        <div id="gray_panel"></div>
+        <div id="blockUI" style="display: none; background-color: black; width: 100%; height: 5000px; position: absolute; left: 0px; top: 0px; z-index: 50000;     
+    -moz-opacity:0.5;opacity:0.5;filter:alpha(opacity=50);" onclick="return false" onmousedown="return false" onmousemove="return false" onmouseup="return false" ondblclick="return false">
+    &nbsp;</div>
+    </div>
+   
+        <script src="/Pageflakes/f.axd?s=Framework&t=j&v=217&lang=fr" type="text/javascript"></script>
+        <style type="text/css">
+                    .footer_wrapper
+                    {
+                        margin: 6px 0 0 0;
+                        width: 100%;
+                        font: 10px/12px Verdana,Arial,Helvetica,sans-serif;
+                        padding: 24px 0;
+                        text-align: center;
+                        clear:both;
+                    }.footer_block
+                    {
+                        float:none;
+                        width:auto;
+                    }ul.footer_block
+                    {
+                        margin: 0 auto;
+                        padding: 0;
+                        list-style: none;                        
+                    }ul.footer_block li
+                    {
+                        display: inline;
+                    }ul.footer_block a
+                    {
+                        padding: 0 .5em;
+                    }
+                </style>
+                
+        <script type="text/javascript">
+               (function () {
+                   // Fonction utilitaire pour wrapper toutes les méthodes d'un objet
+                   function traceFunctions(obj, objName) {
+                       for (var key in obj) {
+                           if (typeof obj[key] === "function") {
+                               (function (fnName, originalFn) {
+                                   obj[fnName] = function () {
+                                       console.log("[TRACE] " + objName + "." + fnName + " appelé avec arguments:", arguments);
+                                       try {
+                                           return originalFn.apply(this, arguments);
+                                       } catch (e) {
+                                           console.error("[TRACE ERROR] " + objName + "." + fnName, e);
+                                           throw e;
+                                       }
+                                   };
+                               })(key, obj[key]);
+                           }
+                       }
+                   }
+
+                   // Exemple : wrapper l’objet App du framework
+                   if (window.App) {
+                       traceFunctions(window.App, "App");
+                   }
+
+                   // Tu peux aussi tracer d’autres objets globaux
+                   if (window.Sys) {
+                       traceFunctions(window.Sys, "Sys");
+                   }
+
+                   if (window.Pageflakes) {
+                       traceFunctions(window.Pageflakes, "Pageflakes");
+                   }
+
+                   console.log("[TRACE] Wrapping terminé, toutes les fonctions seront listées dans la console.");
+               })();
+</script>
+     
+        <script src="/Pageflakes/f.axd?s=PostFramework&t=j&v=213&lang=fr" type="text/javascript"></script>
+            <asp:ContentPlaceHolder id="ContentPlaceBody" runat="server" EnableViewState="true">
+        
+        
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceFooter" runat="server">
+            
+            </asp:ContentPlaceHolder>                       
+            <asp:ContentPlaceHolder ID="PlaceHolderPostFram" runat="server">
+            
+            </asp:ContentPlaceHolder>                   
+            <asp:ContentPlaceHolder ID="PlaceHolderStarPage" runat="server">
+    
+    </asp:ContentPlaceHolder>
+            <div class="footer_wrapper">
+            <ul class="footer_block">
+                <li><a href="http://localhost/Pageflakes/Community/Pages/Page.aspx">Pagecasts</a> |</li>
+                <li><a href="http://localhost/Pageflakes/Community/Content/Flakes.aspx">Flakes</a> |</li>
+                <li><a href="http://localhost/Pageflakes/Community/ProfileDirectory.aspx">People</a> |</li>
+                <!--
+                <li><a href="http://forums.Pageflakes.com/">Help & Support</a> |</li>
+                //-->   
+                <li><a href="http://company.Pageflakes.com/tos">Terms</a> |</li>
+                <li><a href="http://company.Pageflakes.com/privacy">Privacy</a> |</li>
+                <li><a href="http://company.Pageflakes.com/aboutus">About Us</a> </li>
+                <!--
+                <li><a href="http://developers.Pageflakes.com/">Developers</a></li>
+                //-->
+            </ul>
+        </div>
+            <asp:ContentPlaceHolder ID="PlaceHolderGetJSON" runat="server">
+    
+          </asp:ContentPlaceHolder>
+            <script type="text/javascript">
+             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+             document.write(unescape("%3Cscript async src='" + gaJsHost + "localhost/Pageflakes/JavaScripts/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+            <script type="text/javascript" language="Javascript" src="http://localhost/Pageflakes/JavaScripts/GoogleAnalyticsPF.js?v=1"></script>
+            <script type="text/javascript">
+        if (SITE_PREFIX != "undefined") {
+            var SITE_PREFIX = "http://localhost/Pageflakes/";
+        }
+        if (typeof _gat != 'undefined') {
+            var pageTracker = _gat._getTracker('UA-2320375-1');
+            pageTracker._setDomainName(GA.domainName()); // set the domain for the cookie
+            pageTracker._initData();
+            GA.init();
+        }
+    </script>
+    
+   
+    <script id="CheckForDOMReady" type="text/javascript">
+        function domReady() { window.DOMReady = true; }
+        if (Browser.isFirefox) {
+            document.addEventListener("DOMContentLoaded", domReady, false);
+        }
+        else if (Browser.isIE) {
+            var contentloadtag = document.createElement("script");
+            contentloadtag.type = "text/javascript";
+            contentloadtag.id = "contentloadtag";
+            contentloadtag.defer = true;
+            contentloadtag.src = "javascript:void(0)";
+            document.body.appendChild(contentloadtag);
+
+            contentloadtag.onreadystatechange = function () {
+                if (this.readyState == "complete") domReady();
+            };
+        }
+
+        else {
+            domReady();
+        }
+    </script>  
+    </form>
+
+
+ </body>
+</html>
