@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title></title>
+        <link media="screen" type="text/css" href="./ww/ww.css" rel="stylesheet" />
+       <script id="WWScript" src="./ww/ww.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="ww-container">
+            <div id="ww-branding"><h1>What do you want on your new page?</h1></div>
+            <div id="ww-location"><label>My Location</label>
+                <input class="ww-text" name="location" id="WW_Location" type="text" value="Location" />
+                <div id="StartWizard_MultipleMatch" class="nodisplay"></div>
+                <div id="StartWizard_Location_Match_Select_Location"></div>
+            </div>
+            <fieldset id="ww-categories">
+                <div id="ww-column1">
+                    <div class="ww-box">
+                        <a href="javascript:void(0)"><label for="news">News</label>
+                            <div class="ww-shift">
+                                <input class="ww-checkbox" id="news" name="red" type="checkbox" value="News" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="ww-box">
+                        <a href="javascript:void(0)"><label for="sports">Sports</label>
+                            <div class="ww-shift">
+                                <input class="ww-checkbox" id="sports" name="red" type="checkbox" value="Sports" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="ww-box">
+                        <a href="javascript:void(0)">
+                            <label for="finance">Finance</label>
+                                <div class="ww-shift">
+                                    <input class="ww-checkbox" id="finance" name="red" type="checkbox" value="Finance" />
+                                </div>
+                        </a>
+                    </div>
+                    <div class="ww-box">
+                        <a href="javascript:void(0)"><label for="tech">Tech</label>
+                            <div class="ww-shift">
+                                <input class="ww-checkbox" id="tech" name="red" type="checkbox" value="Tech" />
+                            </div>
+                        </a>
+            </div>
+            <div class="ww-box">
+                <a href="javascript:void(0)">
+                    <label for="games">Games</label>
+                    <div class="ww-shift"><input class="ww-checkbox" id="games" name="red" type="checkbox" value="Games" /></div>
+                </a>
+            </div>
+        </div>
+        <div id="ww-column2">
+            <div class="ww-box">
+                <a href="javascript:void(0)">
+                    <label for="music">Music</label>
+                    <div class="ww-shift">
+                        <input class="ww-checkbox" id="music" name="red" type="checkbox" value="Music" />
+                    </div>
+                </a>
+            </div>
+            <div class="ww-box">
+                <a href="javascript:void(0)">
+                    <label for="videos">Videos</label>
+                    <div class="ww-shift"><input class="ww-checkbox" id="videos" name="red" type="checkbox" value="Videos" /></div>
+                </a>
+            </div>
+            <div class="ww-box">
+                <a href="javascript:void(0)">
+                    <label for="movies">Movies</label>
+                    <div class="ww-shift"><input class="ww-checkbox" id="movies" name="red" type="checkbox" value="Movies" /></div>
+                </a>
+            </div>
+            <div class="ww-box">
+                <a href="javascript:void(0)">
+                    <label for="food">Food</label>
+                    <div class="ww-shift"><input class="ww-checkbox" id="food" name="red" type="checkbox" value="Food" /></div>
+                </a>
+            </div>
+            <div class="ww-box">
+                <a href="javascript:void(0)">
+                    <label for="gossip">Gossip</label>
+                    <div class="ww-shift"><input class="ww-checkbox" id="gossip" name="red" type="checkbox" value="Gossip" /></div>
+                </a>
+            </div>
+        </div>
+    </fieldset>
+    <div id="ww-submitForm">
+        <a class="ww-button" id="ww-submit" href="javascript:void(0)" onclick="WW.rebuild();"><span>Rebuild My Page</span></a> 
+            <a class="ww-button" id="ww-cancel" href="javascript:void(0)" onclick="WW.hide();">
+                <span>Cancel</span></a>
+    </div>
+</div>
+</body>
+</html>
